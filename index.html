@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Estratégico SAU - TSE</title>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Folha de Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- === [CABEÇALHO] PRINCIPAL === -->
+    <header class="header">
+        <div class="header__container">
+            <div class="header__brand">
+                <div class="header__logo">
+                    <img src="logo-tse.png" alt="Logo TSE" class="header__logo-img">
+                </div>
+                <div class="header__titles">
+                    <h1 class="header__main-title">Secretaria de Auditoria</h1>
+                    <span class="header__sub-title">Tribunal Superior Eleitoral</span>
+                </div>
+            </div>
+            
+            <nav class="header__nav desktop-only">
+                <button class="header__nav-btn active" data-tab="apresentacao">Apresentação</button>
+                <button class="header__nav-btn" data-tab="identidade">Identidade</button>
+                <button class="header__nav-btn" data-tab="mapa">Mapa Estratégico</button>
+                <button class="header__nav-btn" data-tab="qualidade">Maturidade & Qualidade</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- === [CONTEÚDO] CENTRAL SPA === -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- --- Seção: Apresentação --- -->
+            <section id="apresentacao" class="tab-content active">
+                <div class="intro-block">
+                    <h2 class="section-title">Apresentação Institucional</h2>
+                    <p class="section-paragraph">
+                        A Secretaria de Auditoria (SAU) apresenta o seu Plano Estratégico Tático para o ciclo 2026-2029, estruturado com foco no fortalecimento dos controles e no assessoramento estratégico à alta administração. Como unidade técnica independente, a SAU posiciona-se como a <strong>Terceira Linha de Defesa</strong> do Tribunal Superior Eleitoral, zelando pela integridade, regularidade e eficiência dos recursos públicos.
+                    </p>
+                    
+                    <div class="adaptability-card">
+                        <div class="adaptability-card__icon-wrapper">
+                            <i data-lucide="info" class="adaptability-card__icon"></i>
+                        </div>
+                        <div class="adaptability-card__text">
+                            <h4 class="adaptability-card__title">Nota de Adaptabilidade Normativa e Alinhamento Futuro</h4>
+                            <p class="adaptability-card__paragraph">
+                                Este plano tático encontra-se referenciado e alinhado aos macrodesafios estabelecidos no Plano Estratégico do TSE 2021-2026. Registra-se que, por ocasião da homologação oficial do novo Plano Estratégico do Tribunal Superior Eleitoral para o ciclo subsequente (em fase de elaboração), as metas, indicadores e cadeias de valor aqui descritos serão objeto de harmonização técnica pela unidade, assegurando a continuidade da integridade sistêmica e tático-operacional da auditoria interna.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="diagram-block">
+                    <h3 class="subsection-title">Cascateamento e Alinhamento Tático-Estratégico</h3>
+                    <p class="section-paragraph">Veja como a atuação da SAU se conecta e suporta os macrodesafios do plano institucional do TSE:</p>
+                    
+                    <div class="cascade-diagram">
+                        <div class="cascade-diagram__step">
+                            <div class="cascade-diagram__label">Nível Estratégico (TSE 2021-2026)</div>
+                            <div class="cascade-diagram__card tse-card">
+                                <i data-lucide="shield" class="cascade-diagram__card-icon"></i>
+                                <span>Aprimorar a Governança Institucional, a Segurança da Informação e o Trabalho Colaborativo</span>
+                            </div>
+                        </div>
+                        <div class="cascade-diagram__arrow">
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="cascade-diagram__step">
+                            <div class="cascade-diagram__label">Nível Tático (SAU 2026-2029)</div>
+                            <div class="cascade-diagram__card sau-card">
+                                <i data-lucide="activity" class="cascade-diagram__card-icon"></i>
+                                <span>Aprimorar os Processos de Auditoria Interna, Qualidade dos Trabalhos e Uso de Tecnologias</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- --- Seção: Identidade Organizacional --- -->
+            <section id="identidade" class="tab-content">
+                <h2 class="section-title">Identidade Institucional da SAU</h2>
+                <p class="section-paragraph">Declaração formal dos pilares institucionais que norteiam os trabalhos de auditoria interna e consultoria no Tribunal.</p>
+                
+                <div class="identity-grid">
+                    <div class="identity-card identity-card--purple">
+                        <div class="identity-card__header">
+                            <i data-lucide="target" class="identity-card__icon"></i>
+                            <h3 class="identity-card__title">Missão</h3>
+                        </div>
+                        <p class="identity-card__text">
+                            Aumentar e proteger o valor organizacional, auxiliando a gestão a alcançar os seus objetivos, com a adoção de abordagem sistemática para a avaliação e melhoria da eficácia, eficiência, efetividade e economicidade dos processos de governança corporativa, de gestão, de gerenciamento de riscos e de controle, de forma a contribuir para a boa e regular utilização aos recursos públicos sob sua guarda.
+                        </p>
+                    </div>
+
+                    <div class="identity-card identity-card--green">
+                        <div class="identity-card__header">
+                            <i data-lucide="eye" class="identity-card__icon"></i>
+                            <h3 class="identity-card__title">Visão</h3>
+                        </div>
+                        <p class="identity-card__text">
+                            Ser referência em auditoria interna governamental, reconhecida como parceira estratégica da governança, agregando valor público e assegurando a proteção do TSE, contribuindo para a confiabilidade dos processos eleitorais, por meio de práticas alinhadas a padrões internacionais.
+                        </p>
+                    </div>
+
+                    <div class="identity-card identity-card--orange">
+                        <div class="identity-card__header">
+                            <i data-lucide="shield-check" class="identity-card__icon"></i>
+                            <h3 class="identity-card__title">Valores</h3>
+                        </div>
+                        <ul class="identity-card__list">
+                            <li>
+                                <span class="identity-card__number">1</span>
+                                <span class="identity-card__value-name">Independência:</span>
+                                <span class="identity-card__value-desc">Atuação técnica isenta e autônoma.</span>
+                            </li>
+                            <li>
+                                <span class="identity-card__number">2</span>
+                                <span class="identity-card__value-name">Integridade:</span>
+                                <span class="identity-card__value-desc">Retidão e conduta ética inquestionável.</span>
+                            </li>
+                            <li>
+                                <span class="identity-card__number">3</span>
+                                <span class="identity-card__value-name">Ética:</span>
+                                <span class="identity-card__value-desc">Respeito às normas profissionais e conduta ilibada.</span>
+                            </li>
+                            <li>
+                                <span class="identity-card__number">4</span>
+                                <span class="identity-card__value-name">Objetividade:</span>
+                                <span class="identity-card__value-desc">Foco em fatos obtidos de forma empírica.</span>
+                            </li>
+                            <li>
+                                <span class="identity-card__number">5</span>
+                                <span class="identity-card__value-name">Melhoria Contínua:</span>
+                                <span class="identity-card__value-desc">Fomento à busca constante por excelência.</span>
+                            </li>
+                            <li>
+                                <span class="identity-card__number">6</span>
+                                <span class="identity-card__value-name">Imparcialidade:</span>
+                                <span class="identity-card__value-desc">Julgamento baseado estritamente nas evidências.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- --- Seção: Mapa Estratégico --- -->
+            <section id="mapa" class="tab-content">
+                <div class="map-header">
+                    <h2 class="section-title">Mapa Estratégico Tático da SAU</h2>
+                    <p class="section-paragraph">Selecione qualquer objetivo abaixo para abrir sua respectiva <strong>Ficha Técnica de Indicadores e Iniciativas de Viabilização</strong>.</p>
+                </div>
+
+                <!-- Painel Grid BSC -->
+                <div class="bsc-panel">
+                    
+                    <!-- Perspectiva: Resultados -->
+                    <div class="bsc-perspective">
+                        <div class="bsc-perspective__title bsc-perspective__title--resultados">
+                            <i data-lucide="award"></i>
+                            <span>Perspectiva de Resultados</span>
+                        </div>
+                        <div class="bsc-perspective__objectives">
+                            <button class="objective-card" data-objective="obj1">
+                                <span class="objective-card__num">OE 01</span>
+                                <p class="objective-card__text">Contribuir para a Governança, a Gestão de Riscos e os Controles Internos no Tribunal</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Perspectiva: Processos Internos -->
+                    <div class="bsc-perspective">
+                        <div class="bsc-perspective__title bsc-perspective__title--processos">
+                            <i data-lucide="refresh-cw"></i>
+                            <span>Perspectiva de Processos Internos</span>
+                        </div>
+                        <div class="bsc-perspective__objectives bsc-perspective__objectives--grid">
+                            <button class="objective-card" data-objective="obj2">
+                                <span class="objective-card__num">OE 02</span>
+                                <p class="objective-card__text">Aprimorar os processos de auditoria interna</p>
+                            </button>
+                            <button class="objective-card" data-objective="obj3">
+                                <span class="objective-card__num">OE 03</span>
+                                <p class="objective-card__text">Aprimorar a qualidade dos trabalhos da SAU</p>
+                            </button>
+                            <button class="objective-card" data-objective="obj4">
+                                <span class="objective-card__num">OE 04</span>
+                                <p class="objective-card__text">Aprimorar a comunicação com as unidades clientes da auditoria</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Perspectiva: Aprendizado e Crescimento -->
+                    <div class="bsc-perspective">
+                        <div class="bsc-perspective__title bsc-perspective__title--aprendizado">
+                            <i data-lucide="users"></i>
+                            <span>Perspectiva de Aprendizado e Crescimento</span>
+                        </div>
+                        <div class="bsc-perspective__objectives bsc-perspective__objectives--grid-two">
+                            <button class="objective-card" data-objective="obj5">
+                                <span class="objective-card__num">OE 05</span>
+                                <p class="objective-card__text">Implementar o uso de tecnologias para automação de processos</p>
+                            </button>
+                            <button class="objective-card" data-objective="obj6">
+                                <span class="objective-card__num">OE 06</span>
+                                <p class="objective-card__text">Estimular o desenvolvimento profissional contínuo dos auditores</p>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- --- Seção: Maturidade & Qualidade --- -->
+            <section id="qualidade" class="tab-content">
+                <h2 class="section-title">Indicadores de Maturidade e Qualidade</h2>
+                <p class="section-paragraph">Dois pilares fundamentais de acompanhamento da capacidade institucional e do feedback de nossas partes interessadas.</p>
+
+                <div class="quality-grid">
+                    
+                    <!-- Termômetro IA-CM -->
+                    <div class="quality-card">
+                        <div class="quality-card__header">
+                            <i data-lucide="trending-up" class="quality-card__icon"></i>
+                            <h3 class="quality-card__title">Estrutura de Maturidade (IA-CM)</h3>
+                        </div>
+                        <p class="quality-card__paragraph">
+                            O modelo internacional IA-CM (Internal Audit Capability Model) classifica a auditoria em 5 níveis. A ascensão de nível é cumulativa e exige a institucionalização de todas as Áreas de Processo Chave (KPAs) do respectivo nível.
+                        </p>
+                        
+                        <div class="roadmap">
+                            <div class="roadmap__item completed">
+                                <div class="roadmap__status">
+                                    <i data-lucide="check-circle"></i>
+                                </div>
+                                <div class="roadmap__content">
+                                    <h4 class="roadmap__title">Nível 1 - Inicial</h4>
+                                    <p class="roadmap__text">Práticas de auditoria ad-hoc, sem processos formais padronizados. (Conquistado)</p>
+                                </div>
+                            </div>
+
+                            <div class="roadmap__item active">
+                                <div class="roadmap__status">
+                                    <div class="roadmap__pulse"></div>
+                                </div>
+                                <div class="roadmap__content">
+                                    <h4 class="roadmap__title">Nível 2 - Infraestrutura</h4>
+                                    <p class="roadmap__text">Processos e práticas de auditoria sustentáveis e repetíveis. (Foco Atual)</p>
+                                    <div class="roadmap__progress-bar">
+                                        <div class="roadmap__progress" style="width: 86%;">86%</div>
+                                    </div>
+                                    <span class="roadmap__meta-label">Meta: Alcançar 100% de institucionalização em 2027</span>
+                                </div>
+                            </div>
+
+                            <div class="roadmap__item locked">
+                                <div class="roadmap__status">
+                                    <i data-lucide="lock"></i>
+                                </div>
+                                <div class="roadmap__content">
+                                    <h4 class="roadmap__title">Nível 3 - Integrado</h4>
+                                    <p class="roadmap__text">Processos de auditoria integrados aos sistemas de gestão do Tribunal.</p>
+                                </div>
+                            </div>
+
+                            <div class="roadmap__item locked">
+                                <div class="roadmap__status">
+                                    <i data-lucide="lock"></i>
+                                </div>
+                                <div class="roadmap__content">
+                                    <h4 class="roadmap__title">Nível 4 - Gerenciado</h4>
+                                    <p class="roadmap__text">Métricas quantitativas de desempenho e processos sob controle estatístico.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Radar das 4 Dimensões -->
+                    <div class="quality-card">
+                        <div class="quality-card__header">
+                            <i data-lucide="activity" class="quality-card__icon"></i>
+                            <h3 class="quality-card__title">Multidimensões de Avaliação da Qualidade</h3>
+                        </div>
+                        <p class="quality-card__paragraph">
+                            Os questionários de avaliação de qualidade contínua aplicados após cada ciclo de fiscalização (IE 1.3 e IE 3.2) são estruturados sob as 4 dimensões metodológicas recomendadas internacionalmente pela Organização Internacional de Entidades Fiscalizadoras Superiores (IFPP / ISSAI 140):
+                        </p>
+                        
+                        <div class="chart-container">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+
+                        <div class="dimensions-legend">
+                            <div class="dimension-item">
+                                <span class="dimension-item__dot dimension-item__dot--satisfacao"></span>
+                                <span class="dimension-item__name">Satisfação Geral:</span>
+                                <span class="dimension-item__desc">Valor percebido e postura da equipe de auditoria.</span>
+                            </div>
+                            <div class="dimension-item">
+                                <span class="dimension-item__dot dimension-item__dot--comunicacao"></span>
+                                <span class="dimension-item__name">Comunicação:</span>
+                                <span class="dimension-item__desc">Clareza, utilidade e linguagem cidadã nos relatórios.</span>
+                            </div>
+                            <div class="dimension-item">
+                                <span class="dimension-item__dot dimension-item__dot--eficiencia"></span>
+                                <span class="dimension-item__name">Eficiência:</span>
+                                <span class="dimension-item__desc">Cumprimento de prazos com mínima interferência na rotina operacional.</span>
+                            </div>
+                            <div class="dimension-item">
+                                <span class="dimension-item__dot dimension-item__dot--efetividade"></span>
+                                <span class="dimension-item__name">Efetividade:</span>
+                                <span class="dimension-item__desc">Melhorias práticas geradas pelas recomendações adotadas.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- === [DRAWER / DETALHES DO MAPA] === -->
+    <div id="drawerOverlay" class="drawer-overlay"></div>
+    <div id="drawer" class="drawer">
+        <button id="drawerClose" class="drawer__close-btn">
+            <i data-lucide="x"></i>
+        </button>
+        <div class="drawer__content" id="drawerContent">
+            <!-- Gerado via JavaScript -->
+        </div>
+    </div>
+
+    <!-- === [Navegação Mobile Bottom Bar] === -->
+    <nav class="mobile-nav mobile-only">
+        <button class="mobile-nav__btn active" data-tab="apresentacao">
+            <i data-lucide="home"></i>
+            <span>Início</span>
+        </button>
+        <button class="mobile-nav__btn" data-tab="identidade">
+            <i data-lucide="target"></i>
+            <span>Identidade</span>
+        </button>
+        <button class="mobile-nav__btn" data-tab="mapa">
+            <i data-lucide="grid"></i>
+            <span>Mapa</span>
+        </button>
+        <button class="mobile-nav__btn" data-tab="qualidade">
+            <i data-lucide="trending-up"></i>
+            <span>Qualidade</span>
+        </button>
+    </nav>
+
+    <!-- Bibliotecas de Terceiros e Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
