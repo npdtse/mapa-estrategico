@@ -325,6 +325,11 @@ function openDrawer(objectiveId) {
   const drawer = document.getElementById("drawer");
   const overlay = document.getElementById("drawerOverlay");
 
+  // Reseta a rolagem do Drawer de forma instantânea para o topo antes de exibi-lo na tela
+  if (drawer) {
+    drawer.scrollTop = 0;
+  }
+
   overlay.style.display = "block";
   gsap.to(overlay, { opacity: 1, duration: 0.2 });
 
