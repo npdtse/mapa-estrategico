@@ -219,6 +219,16 @@ function switchTab(tabId) {
       onComplete: () => {
         currentTab.classList.remove("active");
         targetTab.classList.add("active");
+        
+        // Reseta a rolagem do contêiner principal (desktop)
+        const mainArea = document.getElementById("main-area");
+        if (mainArea) {
+          mainArea.scrollTop = 0;
+        }
+        
+        // Reseta a rolagem da janela global (mobile) de forma instantânea antes da animação
+        window.scrollTo(0, 0);
+
         gsap.fromTo(targetTab, 
           { opacity: 0, y: 10 },
           { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }
