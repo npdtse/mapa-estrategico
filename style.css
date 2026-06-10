@@ -1,979 +1,1214 @@
-/* ==========================================
-   === [CAPÍTULO 1] VARIÁVEIS E GLOBAIS === 
-   ========================================== */
+/* === [CAPÍTULO 1] CONFIGURAÇÕES DE TEMA E VARIÁVEIS === */
 
+/* --- [Seção] Variáveis Globais e Temas (Modo Claro) --- */
 :root {
-    /* Cores Institucionais do TSE */
-    --color-primary: #0A2540;
-    --color-primary-dark: #041424;
-    --color-primary-light: #1A3E62;
-    --color-secondary: #20C997; /* Verde Auditoria */
-    --color-accent: #FFC107; /* Ouro TSE */
-    --color-bg: #F8F9FA;
-    --color-surface: #FFFFFF;
-    
-    /* Cores Semânticas Auxiliares */
-    --color-purple: #6F42C1;
-    --color-orange: #FD7E14;
-    --color-text-main: #212529;
-    --color-text-muted: #6C757D;
-    --color-border: #E9ECEF;
-    
-    /* Tipografia & Grid */
-    --font-sans: 'Inter', -apple-system, sans-serif;
-    --grid-unit: 4px;
-    --border-radius: 8px;
-    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-    --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-    --transition-standard: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --bg: #F0F4F8;
+  --bg2: #E1EAF2;
+  --surface: #FFFFFF;
+  --surface2: #F8FAFC;
+  
+  --primary: #0073E6; 
+  --primary-light: #4D9FFF; 
+  --primary-faded: #E6F0FA; 
+  
+  --text: #1A2733;
+  --text2: #4A5B6E;
+  --text3: #7D8FA3;
+  --border: #CDE0F5;
+  
+  --shadow: 0 4px 12px rgba(0, 115, 230, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 115, 230, 0.15);
+  --radius: 12px;
+  --transition: 200ms cubic-bezier(.4,0,.2,1);
+  --grid-unit: 4px;
+  --sidebar-w: 260px;
+  
+  --phase1: #6F42C1; /* Resultados / Roxo */
+  --phase2: #0073E6; /* Processos Internos / Azul */
+  --phase3: #FD7E14; /* Aprendizado e Crescimento / Laranja */
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* --- [Seção] Ajustes de Cores (Modo Escuro) --- */
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --bg2: #1E293B;
+  --surface: #1E293B;
+  --surface2: #273447;
+  
+  --primary: #3399FF;
+  --primary-light: #66B2FF;
+  --primary-faded: #132338;
+  
+  --text: #F1F5F9;
+  --text2: #CBD5E1;
+  --text3: #94A3B8;
+  --border: #334155;
+  
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+
+/* === [CAPÍTULO 2] ESTILOS GLOBAIS === */
+
+/* --- [Seção] Reset e Tipografia --- */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+  font-size: 106.25%; /* Eleva a base raiz rem de 16px para 17px (~6.25% de escala global) */
 }
 
 body {
-    font-family: var(--font-sans);
-    background-color: var(--color-bg);
-    color: var(--color-text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
-    padding-bottom: 70px; /* Respiro para menu mobile */
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;     /* Aumentado para 17px para elementos herdados diretos */
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
 }
 
-@media (min-width: 1024px) {
-    body {
-        padding-bottom: 0;
-    }
+
+/* === [CAPÍTULO 3] LAYOUT PRINCIPAL === */
+
+/* --- [Seção] Cabeçalho institucional (Header) --- */
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 0 28px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 16px rgba(0, 115, 230, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background var(--transition);
 }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: calc(var(--grid-unit) * 6);
+[data-theme="dark"] header {
+  background: var(--surface);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid var(--border);
 }
 
-/* ==========================================
-   === [CAPÍTULO 2] LAYOUT PRINCIPAL === 
-   ========================================== */
-
-/* --- Cabeçalho Corporativo --- */
-.header {
-    background-color: var(--color-primary);
-    color: var(--color-surface);
-    border-bottom: calc(var(--grid-unit) * 1) solid var(--color-accent);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+.header-brand { 
+  display: flex; 
+  align-items: center; 
+  gap: 14px; 
 }
 
-.header__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: calc(var(--grid-unit) * 4) calc(var(--grid-unit) * 6);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header-seal {
+  width: 80px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  transition: background var(--transition), box-shadow var(--transition);
 }
 
-.header__brand {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--grid-unit) * 3);
+.header-seal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.header__logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+[data-theme="dark"] .header-seal { 
+  background: transparent; 
+  box-shadow: none;
+} 
+
+.header-text h1 {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 19px; /* Aumentado de 18px para 19px */
+  font-weight: 700; 
+  letter-spacing: .3px;
+  text-transform: uppercase;
 }
 
-.header__logo-img {
-    height: 50px; /* Mantém uma altura consistente e proporcional ao cabeçalho */
-    width: auto;  /* Preserva a proporção original do logotipo */
-    display: block;
+.header-text p { 
+  font-size: 13px; /* Aumentado de 12px para 13px */
+  opacity: .85; 
+  letter-spacing: .6px; 
+  text-transform: uppercase; 
 }
 
-.header__titles {
-    display: flex;
-    flex-direction: column;
+.header-actions { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
 }
 
-.header__main-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
+.btn-toggle {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; 
+  border-radius: 8px;
+  padding: 8px 16px; 
+  font-size: 13px; 
+  cursor: pointer;
+  display: flex; 
+  align-items: center; 
+  gap: 6px;
+  font-weight: 600;
+  transition: background var(--transition);
 }
 
-.header__sub-title {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-    opacity: 0.8;
+[data-theme="dark"] .btn-toggle {
+  background: var(--bg2);
+  border-color: var(--border);
+  color: var(--text);
 }
 
-.header__nav {
-    display: flex;
-    gap: calc(var(--grid-unit) * 2);
+.btn-toggle:hover { 
+  background: rgba(255,255,255,0.25); 
 }
 
-.header__nav-btn {
-    background: none;
-    border: none;
-    color: var(--color-surface);
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: calc(var(--grid-unit) * 2) calc(var(--grid-unit) * 4);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: var(--transition-standard);
-    opacity: 0.8;
+[data-theme="dark"] .btn-toggle:hover {
+  background: var(--primary-faded);
+  color: var(--primary);
 }
 
-.header__nav-btn:hover {
-    background-color: var(--color-primary-light);
-    opacity: 1;
+/* --- [Seção] Estrutura Centrada --- */
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  transition: background var(--transition), border var(--transition);
 }
 
-.header__nav-btn.active {
-    background-color: var(--color-secondary);
-    color: var(--color-primary-dark);
-    font-weight: 600;
-    opacity: 1;
+[data-theme="dark"] .app-body {
+  border-left-color: var(--border);
+  border-right-color: var(--border);
 }
 
-/* ==========================================
-   === [CAPÍTULO 3] COMPONENTES DE CONTEÚDO === 
-   ========================================== */
 
-/* --- Seções SPA --- */
+/* === [CAPÍTULO 4] BARRA LATERAL PRIMÁRIA (TAB SWITCHER) === */
+
+.sidebar-primary {
+  width: var(--sidebar-w);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 24px 14px;
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  transition: background var(--transition), border var(--transition);
+}
+
+.sidebar-label {
+  font-size: 12px; 
+  font-weight: 700; 
+  letter-spacing: 1.2px;
+  text-transform: uppercase; 
+  color: var(--primary);
+  padding: 0 10px; 
+  margin-bottom: 4px;
+}
+
+[data-theme="dark"] .sidebar-label { 
+  color: var(--primary-light); 
+}
+
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.audit-tab {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  color: var(--text2);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: all var(--transition);
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.audit-tab:hover {
+  background: var(--bg2);
+  color: var(--text);
+}
+
+.audit-tab.active {
+  background: var(--primary-faded);
+  border-color: var(--primary-light);
+  color: var(--primary);
+}
+
+[data-theme="dark"] .audit-tab.active {
+  color: var(--primary-light);
+}
+
+
+/* === [CAPÍTULO 5] ÁREA DE CONTEÚDO PRINCIPAL === */
+
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+  background: var(--bg);
+  transition: background var(--transition);
+}
+
 .tab-content {
-    display: none;
-    opacity: 0;
+  display: none;
+  opacity: 0;
 }
 
 .tab-content.active {
-    display: block;
-    opacity: 1;
+  display: block;
+  opacity: 1;
 }
 
+/* --- [Seção] Títulos e Parágrafos --- */
 .section-title {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--color-primary);
-    margin-bottom: calc(var(--grid-unit) * 2);
-    letter-spacing: -0.5px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
 }
 
 .subsection-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--color-primary-light);
-    margin-bottom: calc(var(--grid-unit) * 4);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+[data-theme="dark"] .subsection-title {
+  color: var(--primary-light);
 }
 
 .section-paragraph {
-    color: var(--color-text-main);
-    font-size: 1.05rem;
-    max-width: 800px;
-    margin-bottom: calc(var(--grid-unit) * 6);
+  color: var(--text2);
+  font-size: 1.05rem;
+  max-width: 900px;
+  margin-bottom: 24px;
 }
 
-/* --- Card de Adaptabilidade --- */
+/* --- [Seção] Card de Adaptabilidade Normativa --- */
 .adaptability-card {
-    background-color: var(--color-surface);
-    border-left: calc(var(--grid-unit) * 1.5) solid var(--color-accent);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 6);
-    display: flex;
-    gap: calc(var(--grid-unit) * 4);
-    box-shadow: var(--shadow-soft);
-    margin-bottom: calc(var(--grid-unit) * 8);
+  background: var(--surface);
+  border-left: 6px solid var(--accent, #FFC107);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  box-shadow: var(--shadow);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+  transition: background var(--transition), border var(--transition);
 }
 
 .adaptability-card__icon-wrapper {
-    color: var(--color-accent);
-    flex-shrink: 0;
+  color: var(--accent, #FFC107);
+  font-size: 20px;
+  flex-shrink: 0;
 }
 
 .adaptability-card__title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-primary-dark);
-    margin-bottom: calc(var(--grid-unit) * 1.5);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
 }
 
 .adaptability-card__paragraph {
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.5;
 }
 
-/* --- Diagrama de Cascateamento --- */
+/* --- [Seção] Diagrama de Cascateamento --- */
 .diagram-block {
-    background-color: var(--color-surface);
-    padding: calc(var(--grid-unit) * 6);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid var(--color-border);
+  background: var(--surface);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: background var(--transition), border var(--transition);
 }
 
 .cascade-diagram {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: calc(var(--grid-unit) * 4);
-    margin-top: calc(var(--grid-unit) * 6);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cascade-diagram__step {
-    width: 100%;
+  width: 100%;
 }
 
 .cascade-diagram__label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--color-text-muted);
-    margin-bottom: calc(var(--grid-unit) * 1.5);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text3);
+  margin-bottom: 6px;
 }
 
 .cascade-diagram__card {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--grid-unit) * 4);
-    padding: calc(var(--grid-unit) * 4) calc(var(--grid-unit) * 5);
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-size: 0.95rem;
-    box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow);
 }
 
 .tse-card {
-    background-color: #E2F0FD;
-    color: var(--color-primary-light);
-    border-left: 5px solid var(--color-primary-light);
+  background: var(--primary-faded);
+  color: var(--primary);
+  border-left: 5px solid var(--primary-light);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="dark"] .tse-card {
+  color: var(--primary-light);
 }
 
 .sau-card {
-    background-color: #E6F9F4;
-    color: var(--color-secondary);
-    border-left: 5px solid var(--color-secondary);
+  background: #E6F9F4;
+  color: #10B981;
+  border-left: 5px solid #10B981;
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="dark"] .sau-card {
+  background: #132D24;
+  color: #34D399;
+  border-left-color: #34D399;
 }
 
 .cascade-diagram__card-icon {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
+  font-size: 20px;
+  flex-shrink: 0;
 }
 
 .cascade-diagram__arrow {
-    color: var(--color-text-muted);
+  color: var(--text3);
+  font-size: 18px;
 }
 
-/* --- Grade de Identidade (Missão, Visão, Valores) --- */
+
+/* === [CAPÍTULO 6] GRADE DE IDENTIDADE (MISSÃO, VISÃO, VALORES) === */
+
 .identity-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--grid-unit) * 6);
-    margin-top: calc(var(--grid-unit) * 4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 16px;
 }
 
 @media (min-width: 1024px) {
-    .identity-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .identity-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .identity-card {
-    background-color: var(--color-surface);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 6);
-    box-shadow: var(--shadow-card);
-    border-top: calc(var(--grid-unit) * 1.5) solid var(--color-border);
-    transition: transform var(--transition-standard);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  border-top: 6px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: transform var(--transition), background var(--transition), border var(--transition);
 }
 
 .identity-card:hover {
-    transform: translateY(-4px);
+  transform: translateY(-4px);
 }
 
-.identity-card--purple { border-top-color: var(--color-purple); }
-.identity-card--green { border-top-color: var(--color-secondary); }
-.identity-card--orange { border-top-color: var(--color-orange); }
+.identity-card--purple { border-top-color: var(--phase1); }
+.identity-card--green { border-top-color: #10B981; }
+.identity-card--orange { border-top-color: var(--phase3); }
 
 .identity-card__header {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--grid-unit) * 2);
-    margin-bottom: calc(var(--grid-unit) * 4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .identity-card__icon {
-    width: 24px;
-    height: 24px;
+  font-size: 20px;
 }
 
-.identity-card--purple .identity-card__icon { color: var(--color-purple); }
-.identity-card--green .identity-card__icon { color: var(--color-secondary); }
-.identity-card--orange .identity-card__icon { color: var(--color-orange); }
+.identity-card--purple .identity-card__icon { color: var(--phase1); }
+.identity-card--green .identity-card__icon { color: #10B981; }
+.identity-card--orange .identity-card__icon { color: var(--phase3); }
 
+.identity-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.identity-card__text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text2);
+}
+
+/* --- [Seção] Lista de Valores Sóbria --- */
 .identity-card__list {
-    list-style: none;
+  list-style: none;
 }
 
 .identity-card__list li {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    grid-template-rows: auto auto;
-    column-gap: calc(var(--grid-unit) * 3);
-    row-gap: calc(var(--grid-unit) * 1);
-    align-items: start;
-    border-bottom: 1px solid var(--color-border); /* Linha divisória sutil */
-    padding-bottom: calc(var(--grid-unit) * 3.5);  /* Espaço antes da linha */
-    margin-bottom: calc(var(--grid-unit) * 3.5);   /* Espaço após a linha para o próximo item */
-    font-size: 0.95rem;
-    line-height: 1.5;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 12px;
+  row-gap: 4px;
+  align-items: start;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: border var(--transition);
 }
 
 .identity-card__list li:last-child {
-    border-bottom: none;                           /* Remove a linha no último item */
-    padding-bottom: 0;
-    margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .identity-card__number {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    background-color: var(--color-bg);
-    color: var(--color-orange);
-    font-weight: 700;
-    font-size: 0.75rem;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: start;
-    margin-top: 2px;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  background-color: var(--bg);
+  color: var(--phase3);
+  font-weight: 700;
+  font-size: 0.75rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  margin-top: 2px;
+  transition: background var(--transition);
 }
 
 .identity-card__value-name {
-    grid-column: 2;
-    grid-row: 1;
-    font-weight: 700;
-    color: var(--color-primary-dark);
-    font-size: 1rem;
+  grid-column: 2;
+  grid-row: 1;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .identity-card__value-desc {
-    grid-column: 2;
-    grid-row: 2;
-    color: var(--color-text-main);
-    font-size: 0.9rem;
+  grid-column: 2;
+  grid-row: 2;
+  color: var(--text2);
+  font-size: 0.9rem;
 }
 
-/* --- Mapa Estratégico (BSC) --- */
+
+/* === [CAPÍTULO 7] MAPA ESTRATÉGICO INTERATIVO (BSC) === */
+
 .bsc-panel {
-    background-color: var(--color-surface);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 6);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--grid-unit) * 6);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: background var(--transition), border var(--transition);
 }
 
 .bsc-perspective {
-    background-color: var(--color-bg);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 4);
-    border: 1px solid var(--color-border);
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 16px;
+  border: 1px solid var(--border);
+  transition: background var(--transition), border var(--transition);
 }
 
 .bsc-perspective__title {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--grid-unit) * 2);
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: calc(var(--grid-unit) * 4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
 }
 
-.bsc-perspective__title--resultados { color: var(--color-purple); }
-.bsc-perspective__title--processos { color: var(--color-secondary); }
-.bsc-perspective__title--aprendizado { color: var(--color-primary-light); }
+.bsc-perspective__title--resultados { color: var(--phase1); }
+.bsc-perspective__title--processos { color: var(--phase2); }
+.bsc-perspective__title--aprendizado { color: var(--phase3); }
 
 .bsc-perspective__objectives {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--grid-unit) * 3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .bsc-perspective__objectives--grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--grid-unit) * 3);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .bsc-perspective__objectives--grid-two {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--grid-unit) * 3);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 @media (min-width: 1024px) {
-    .bsc-perspective__objectives--grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .bsc-perspective__objectives--grid-two {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .bsc-perspective__objectives--grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .bsc-perspective__objectives--grid-two {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
+/* --- [Seção] Objective Cards (Step Style) --- */
 .objective-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 4) calc(var(--grid-unit) * 5);
-    text-align: left;
-    cursor: pointer;
-    font-family: var(--font-sans);
-    transition: all var(--transition-standard);
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--grid-unit) * 1.5);
-    width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Source Sans 3', sans-serif;
+  transition: all var(--transition);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
 }
 
 .objective-card:hover {
-    border-color: var(--color-primary-light);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .objective-card__num {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text3);
 }
 
 .objective-card__text {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--color-primary-dark);
-    line-height: 1.3;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
 }
 
-/* ==========================================
-   === [CAPÍTULO 4] DETALHES DE INDICADORES (DRAWER) === 
-   ========================================== */
+
+/* === [CAPÍTULO 8] FICHA TÉCNICA LATERAL (DRAWER) === */
 
 .drawer-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(4, 20, 36, 0.4);
-    backdrop-filter: blur(2px);
-    z-index: 200;
-    display: none;
-    opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 30, 60, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none;
+  opacity: 0;
 }
 
 .drawer {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    max-width: 850px;
-    height: 100%;
-    background-color: var(--color-surface);
-    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
-    z-index: 201;
-    overflow-y: auto;
-    padding: calc(var(--grid-unit) * 8);
-    display: flex;
-    flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 750px;
+  height: 100%;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  z-index: 201;
+  overflow-y: auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+  transition: right var(--transition), background var(--transition), border var(--transition);
 }
 
 .drawer__close-btn {
-    align-self: flex-end;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text-muted);
-    padding: calc(var(--grid-unit) * 2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition-standard);
+  align-self: flex-end;
+  background: var(--bg2);
+  border: none;
+  cursor: pointer;
+  color: var(--text2);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
 }
 
 .drawer__close-btn:hover {
-    background-color: var(--color-bg);
-    color: var(--color-primary-dark);
+  background: var(--primary-faded);
+  color: var(--primary);
+  transform: rotate(90deg);
 }
 
-/* Elementos da Ficha Técnica */
+/* --- [Seção] Elementos da Ficha Técnica --- */
 .tech-sheet__title {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--color-primary);
-    margin-bottom: calc(var(--grid-unit) * 6);
-    line-height: 1.3;
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: calc(var(--grid-unit) * 2);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 24px;
+  line-height: 1.3;
+  border-bottom: 2px solid var(--accent, #FFC107);
+  padding-bottom: 8px;
 }
 
 .tech-sheet__indicator {
-    background-color: var(--color-bg);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 4);
-    margin-bottom: calc(var(--grid-unit) * 6);
-    border: 1px solid var(--color-border);
-}
-
-.tech-sheet__indicator-meta {
-    display: inline-block;
-    background-color: var(--color-secondary);
-    color: var(--color-primary-dark);
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: calc(var(--grid-unit) * 1) calc(var(--grid-unit) * 2);
-    border-radius: 4px;
-    margin-top: calc(var(--grid-unit) * 2);
+  background: var(--surface2);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 24px;
+  border: 1.5px solid var(--border);
+  transition: background var(--transition), border var(--transition);
 }
 
 .tech-sheet__indicator-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--color-primary-light);
-    margin-bottom: calc(var(--grid-unit) * 1.5);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+[data-theme="dark"] .tech-sheet__indicator-title {
+  color: var(--primary-light);
+}
+
+.tech-sheet__indicator-meta {
+  display: inline-block;
+  background: var(--primary-faded);
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-top: 8px;
+  transition: background var(--transition), border var(--transition);
 }
 
 .tech-sheet__section {
-    border-bottom: 1px solid var(--color-border); /* Linha discreta divisória */
-    padding-bottom: calc(var(--grid-unit) * 5);  /* Espaçamento interno antes da linha */
-    margin-bottom: calc(var(--grid-unit) * 6);   /* Espaçamento externo após a linha para o próximo subtítulo */
+  border-bottom: 1px solid var(--border); /* Linha discreta divisória */
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  transition: border var(--transition);
 }
 
 .tech-sheet__section:last-of-type {
-    border-bottom: none;                         /* Remove o divisor no último bloco antes das iniciativas */
-    padding-bottom: 0;
-    margin-bottom: calc(var(--grid-unit) * 4);
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 16px;
 }
 
 .tech-sheet__section-title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-    letter-spacing: 0.5px;
-    margin-bottom: calc(var(--grid-unit) * 2);   /* Ajuste de espaçamento abaixo do subtítulo */
+  font-size: 14px; /* Aumentado para 14px para melhorar a legibilidade e contraste técnico */
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text2); /* Ajustado para var(--text2) garantindo contraste ideal */
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
 }
 
 .tech-sheet__section-text {
-    font-size: 0.95rem;
-    color: var(--color-text-main);
-    line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.5;
 }
 
-/* Metas Anuais (Ficha Técnica) */
+/* --- [Seção] Tabela de Metas em Fichas --- */
 .tech-sheet__goals-table {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background-color: var(--color-bg);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 3);
-    border: 1px solid var(--color-border);
-    margin-top: calc(var(--grid-unit) * 1.5);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 12px;
+  border: 1px solid var(--border);
+  margin-top: 6px;
+  transition: background var(--transition), border var(--transition);
 }
 
 .tech-sheet__goal-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tech-sheet__goal-year {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text3);
 }
 
 .tech-sheet__goal-value {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--color-primary-dark);
-    margin-top: calc(var(--grid-unit) * 1);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 4px;
 }
 
-/* Iniciativas Integradas */
+/* --- [Seção] Iniciativas Integradas --- */
 .tech-sheet__initiatives {
-    background-color: #F0FAF7;
-    border: 1px solid calc(var(--color-border) * 0.5);
-    border-left: 4px solid var(--color-secondary);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 4);
-    margin-top: calc(var(--grid-unit) * 4);
+  background: var(--primary-faded);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--secondary);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-top: 16px;
+  transition: background var(--transition), border var(--transition);
 }
 
 .tech-sheet__initiative-item {
-    font-size: 0.9rem;
-    color: var(--color-primary-dark);
-    margin-bottom: calc(var(--grid-unit) * 2);
-    padding-left: calc(var(--grid-unit) * 3);
-    position: relative;
-    line-height: 1.4;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 8px;
+  padding-left: 12px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.tech-sheet__initiative-item:last-child {
+  margin-bottom: 0;
 }
 
 .tech-sheet__initiative-item::before {
-    content: "•";
-    color: var(--color-secondary);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
+  content: "•";
+  color: var(--secondary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
 }
 
-/* ==========================================
-   === [CAPÍTULO 5] MATURIDADE & QUALIDADE === 
-   ========================================== */
+
+/* === [CAPÍTULO 9] MATURIDADE & QUALIDADE === */
 
 .quality-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--grid-unit) * 6);
-    margin-top: calc(var(--grid-unit) * 4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 16px;
 }
 
 @media (min-width: 1024px) {
-    .quality-grid {
-        grid-template-columns: 1.2fr 1fr;
-    }
+  .quality-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
 }
 
 .quality-card {
-    background-color: var(--color-surface);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 6);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-soft);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border var(--transition);
 }
 
 .quality-card__header {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--grid-unit) * 2);
-    margin-bottom: calc(var(--grid-unit) * 4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .quality-card__icon {
-    width: 24px;
-    height: 24px;
-    color: var(--color-primary-light);
+  font-size: 20px;
+  color: var(--primary);
+}
+
+[data-theme="dark"] .quality-card__icon {
+  color: var(--primary-light);
 }
 
 .quality-card__title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-primary-dark);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .quality-card__paragraph {
-    font-size: 0.95rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
-    margin-bottom: calc(var(--grid-unit) * 6);
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.5;
+  margin-bottom: 24px;
 }
 
-/* Termômetro IA-CM (Timeline) */
+/* --- [Seção] Termômetro IA-CM (Timeline) --- */
 .roadmap {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--grid-unit) * 5);
-    position: relative;
-    padding-left: calc(var(--grid-unit) * 6);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  padding-left: 24px;
 }
 
 .roadmap::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 10px;
-    width: 2px;
-    height: 100%;
-    background-color: var(--color-border);
-    z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 2px;
+  height: 100%;
+  background-color: var(--border);
+  z-index: 1;
 }
 
 .roadmap__item {
-    position: relative;
-    display: flex;
-    gap: calc(var(--grid-unit) * 4);
+  position: relative;
+  display: flex;
+  gap: 16px;
 }
 
 .roadmap__status {
-    position: absolute;
-    left: -29px;
-    top: 2px;
-    background-color: var(--color-surface);
-    z-index: 2;
-    border-radius: 50%;
+  position: absolute;
+  left: -29px;
+  top: 2px;
+  background-color: var(--surface);
+  z-index: 2;
+  border-radius: 50%;
+  transition: background var(--transition);
 }
 
 .roadmap__item.completed .roadmap__status {
-    color: var(--color-secondary);
+  color: #10B981;
 }
 
 .roadmap__item.active .roadmap__status {
-    background-color: var(--color-primary-light);
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    left: -20px;
-    top: 5px;
-    outline: 4px solid #D5E4F5;
+  background-color: var(--primary);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  left: -20px;
+  top: 5px;
+  outline: 4px solid var(--primary-faded);
 }
 
 .roadmap__pulse {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: var(--color-primary-light);
-    animation: pulse 1.8s infinite ease-in-out;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--primary);
+  animation: pulse 1.8s infinite ease-in-out;
 }
 
 .roadmap__item.locked .roadmap__status {
-    color: var(--color-text-muted);
-    opacity: 0.5;
+  color: var(--text3);
+  opacity: 0.5;
 }
 
 .roadmap__content {
-    background-color: var(--color-bg);
-    border-radius: var(--border-radius);
-    padding: calc(var(--grid-unit) * 4);
-    border: 1px solid var(--color-border);
-    flex-grow: 1;
+  background-color: var(--bg);
+  border-radius: var(--radius);
+  padding: 16px;
+  border: 1px solid var(--border);
+  flex-grow: 1;
+  transition: background var(--transition), border var(--transition);
 }
 
 .roadmap__item.active .roadmap__content {
-    background-color: var(--color-surface);
-    border-color: var(--color-primary-light);
-    box-shadow: var(--shadow-card);
+  background-color: var(--surface);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-lg);
 }
 
 .roadmap__title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--color-primary-dark);
-    margin-bottom: calc(var(--grid-unit) * 1);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
 }
 
 .roadmap__text {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    line-height: 1.4;
+  font-size: 0.85rem;
+  color: var(--text2);
+  line-height: 1.4;
 }
 
 .roadmap__progress-bar {
-    background-color: var(--color-bg);
-    height: 16px;
-    border-radius: 8px;
-    margin-top: calc(var(--grid-unit) * 3);
-    overflow: hidden;
-    position: relative;
+  background-color: var(--bg);
+  height: 16px;
+  border-radius: 8px;
+  margin-top: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: background var(--transition);
 }
 
 .roadmap__progress {
-    background-color: var(--color-primary-light);
-    color: var(--color-surface);
-    font-size: 0.7rem;
-    font-weight: 700;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .roadmap__meta-label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-primary-light);
-    margin-top: calc(var(--grid-unit) * 2);
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 8px;
 }
 
-/* Gráfico de Radar */
+[data-theme="dark"] .roadmap__meta-label {
+  color: var(--primary-light);
+}
+
+/* --- [Seção] Gráfico de Radar --- */
 .chart-container {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    height: 260px; /* Altura explícita para o recálculo do Chart.js com maintainAspectRatio: false */
-    margin: 0 auto calc(var(--grid-unit) * 6) auto;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 260px;
+  margin: 0 auto 24px auto;
+  overflow: hidden;
 }
 
 .chart-container canvas {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 100%;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
 }
 
 .dimensions-legend {
-    display: flex;
-    flex-direction: column;
-    gap: 0;                                        /* Espaçamento controlado individualmente pelos itens */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .dimension-item {
-    display: grid;
-    grid-template-columns: 16px 1fr;
-    grid-template-rows: auto auto;
-    column-gap: calc(var(--grid-unit) * 2.5);
-    row-gap: calc(var(--grid-unit) * 0.5);
-    align-items: start;
-    border-bottom: 1px solid var(--color-border); /* Linha divisória sutil */
-    padding-bottom: calc(var(--grid-unit) * 3.5);  /* Espaço antes da linha */
-    margin-bottom: calc(var(--grid-unit) * 3.5);   /* Espaço após a linha para o próximo item */
-    line-height: 1.4;
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  row-gap: 2px;
+  align-items: start;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  line-height: 1.4;
+  transition: border var(--transition);
 }
 
 .dimension-item:last-child {
-    border-bottom: none;                           /* Remove a linha no último item */
-    padding-bottom: 0;
-    margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .dimension-item__dot {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    align-self: start;
-    margin-top: 5px; /* Ajuste óptico vertical de alinhamento com a primeira linha */
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  align-self: start;
+  margin-top: 5px;
 }
 
+.dimension-item__dot--satisfacao { background-color: #36A2EB; }
+.dimension-item__dot--comunicacao { background-color: #FF6384; }
+.dimension-item__dot--eficiencia { background-color: #FFCE56; }
+.dimension-item__dot--efetividade { background-color: #4BC120; }
+
 .dimension-item__name {
-    grid-column: 2;
-    grid-row: 1;
-    font-weight: 700;
-    color: var(--color-primary-dark);
-    font-size: 0.95rem;
+  grid-column: 2;
+  grid-row: 1;
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
 }
 
 .dimension-item__desc {
-    grid-column: 2;
-    grid-row: 2;
-    color: var(--color-text-main);
-    font-size: 0.85rem;
+  grid-column: 2;
+  grid-row: 2;
+  color: var(--text2);
+  font-size: 0.85rem;
 }
 
-.dimension-item__dot--satisfacao { background-color: rgba(54, 162, 235, 1); }
-.dimension-item__dot--comunicacao { background-color: rgba(255, 99, 132, 1); }
-.dimension-item__dot--eficiencia { background-color: rgba(255, 206, 86, 1); }
-.dimension-item__dot--efetividade { background-color: rgba(75, 192, 192, 1); }
 
-/* ==========================================
-   === [CAPÍTULO 6] NAVEGAÇÃO MOBILE === 
-   ========================================== */
+/* === [CAPÍTULO 10] RESPONSIVIDADE E ANIMAÇÕES === */
 
 .mobile-only { display: none; }
 
-@media (max-width: 1023px) {
-    .desktop-only { display: none; }
-    .mobile-only { display: flex; }
-    
-    .container {
-        padding: calc(var(--grid-unit) * 4);
-    }
-    
-    .section-title {
-        font-size: 1.5rem;
-    }
+@media (max-width: 850px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: flex; }
+  
+  /* Adaptação dinâmica do cabeçalho no mobile para evitar cortes de texto no topo */
+  header {
+    height: auto;
+    min-height: 64px;
+    padding: 10px 16px;
+  }
 
-    .quality-card {
-        padding: calc(var(--grid-unit) * 4); /* Otimiza a largura interna de 24px para 16px no mobile */
-    }
-    
-    .mobile-nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 64px;
-        background-color: var(--color-primary);
-        border-top: 3px solid var(--color-accent);
-        z-index: 150;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    .mobile-nav__btn {
-        background: none;
-        border: none;
-        color: var(--color-surface);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        cursor: pointer;
-        opacity: 0.6;
-        transition: var(--transition-standard);
-        flex: 1;
-        font-family: var(--font-sans);
-    }
-    
-    .mobile-nav__btn svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .mobile-nav__btn span {
-        font-size: 0.7rem;
-        font-weight: 500;
-    }
-    
-    .mobile-nav__btn.active {
-        opacity: 1;
-        color: var(--color-accent);
-    }
+  .header-text h1 {
+    font-size: 16px; /* Sutil ajuste de escala para melhor acomodação do título no mobile */
+  }
+
+  .header-text p {
+    font-size: 11px;
+  }
+
+  /* Estrutura empilhada */
+  .app-body {
+    flex-direction: column;
+    border-left: none;
+    border-right: none;
+    max-width: 100%;
+  }
+  
+  /* Oculta a barra lateral de texto com prioridade absoluta, ativando o menu inferior de ícones */
+  .sidebar-primary {
+    display: none !important;
+  }
+  
+  main {
+    padding: 20px;
+  }
+
+  .quality-card {
+    padding: 16px;
+  }
+
+  /* --- [Seção] Barra de Navegação Móvel Ergonômica --- */
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: var(--surface);
+    border-top: 3px solid var(--border);
+    z-index: 150;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+    transition: background var(--transition), border var(--transition);
+  }
+
+  .mobile-nav__btn {
+    background: none;
+    border: none;
+    color: var(--text3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    opacity: 0.75;
+    flex: 1;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: color var(--transition), opacity var(--transition);
+  }
+
+  .mobile-nav__btn i {
+    font-size: 18px;
+  }
+
+  .mobile-nav__btn span {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .mobile-nav__btn.active {
+    opacity: 1;
+    color: var(--primary);
+  }
+
+  /* --- [Seção] Drawer adaptado para Bottom Sheet no Mobile --- */
+  .drawer {
+    top: auto;
+    bottom: -100%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 85%;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    border-radius: 16px 16px 0 0;
+    padding: 24px;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
+    transition: bottom var(--transition), background var(--transition), border var(--transition);
+  }
 }
 
-/* ==========================================
-   === [CAPÍTULO 7] ANIMAÇÕES E POLIMENTO === 
-   ========================================== */
-
 @keyframes pulse {
-    0% {
-        transform: scale(0.9);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.3);
-        opacity: 0.4;
-    }
-    100% {
-        transform: scale(0.9);
-        opacity: 1;
-    }
+  0% { transform: scale(0.9); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.4; }
+  100% { transform: scale(0.9); opacity: 1; }
+}
+
+/* Suporte de Transição GSAP */
+.anim {
+  transition: transform var(--transition), opacity var(--transition);
 }
