@@ -620,7 +620,7 @@ main {
   background: var(--surface);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
-  padding: 18px 20px;
+  padding: 20px 22px;
   text-align: left;
   cursor: pointer;
   font-family: 'Source Sans 3', sans-serif;
@@ -628,7 +628,7 @@ main {
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 12px; /* Alargado sutilmente para acomodar o botão visual sem comprimir o texto */
   width: 100%;
 }
 
@@ -636,6 +636,12 @@ main {
   border-color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+}
+
+/* Feedback tátil físico ao clicar (Mobile e Desktop) */
+.objective-card:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--shadow);
 }
 
 .objective-card__num {
@@ -650,6 +656,53 @@ main {
   font-weight: 600;
   color: var(--text);
   line-height: 1.4;
+  flex-grow: 1; /* Alinha os botões visuais perfeitamente na mesma margem inferior */
+}
+
+/* "Pill-Button" Visual de Affordance Estática Pré-Clique */
+.objective-card__btn-visual {
+  align-self: flex-start;
+  background-color: var(--bg2);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition);
+  pointer-events: none; /* Garante que o evento de clique seja propagado para o cartão inteiro */
+}
+
+[data-theme="dark"] .objective-card__btn-visual {
+  background-color: var(--primary-faded);
+  color: var(--primary-light);
+  border-color: var(--border);
+}
+
+/* Iluminação dinâmica no Hover do cartão */
+.objective-card:hover .objective-card__btn-visual {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+[data-theme="dark"] .objective-card:hover .objective-card__btn-visual {
+  background-color: var(--primary);
+  color: #0F172A; /* Contraste ideal sobre o tema azul primário */
+  border-color: transparent;
+}
+
+/* Deslocamento dinâmico sutil da seta no Hover */
+.objective-card__btn-visual i {
+  font-size: 11px;
+  transition: transform var(--transition);
+}
+
+.objective-card:hover .objective-card__btn-visual i {
+  transform: translateX(3px);
 }
 
 
