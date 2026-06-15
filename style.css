@@ -107,10 +107,12 @@ header {
 }
 
 .header-seal {
-  width: 80px;
+  width: 54px;                 /* Ampliado para nivelar visualmente com a altura total das duas linhas de texto */
+  height: 54px;
   display: flex; 
   align-items: center; 
   justify-content: center;
+  flex-shrink: 0;              /* Previne que o flexbox achate o selo lateralmente */
   transition: background var(--transition), box-shadow var(--transition);
 }
 
@@ -125,19 +127,29 @@ header {
   box-shadow: none;
 } 
 
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;                    /* Controla o espaçamento estrito de uma linha para a outra */
+}
+
 .header-text h1 {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 19px; /* Aumentado de 18px para 19px */
+  font-size: 19px; 
   font-weight: 700; 
   letter-spacing: .3px;
   text-transform: uppercase;
+  margin: 0;                   /* Reseta as margens do navegador */
+  line-height: 1.15;           /* Altura de linha otimizada para caixa alta */
 }
 
 .header-text p { 
-  font-size: 13px; /* Aumentado de 12px para 13px */
+  font-size: 13px; 
   opacity: .85; 
   letter-spacing: .6px; 
   text-transform: uppercase; 
+  margin: 0;                   /* Reseta as margens do navegador */
+  line-height: 1.2;            /* Altura de linha otimizada para caixa alta */
 }
 
 .header-actions { 
@@ -1263,18 +1275,34 @@ main {
   .mobile-only { display: flex; }
   
   /* Adaptação dinâmica do cabeçalho no mobile para evitar cortes de texto no topo */
+  /* Adaptação dinâmica do cabeçalho no mobile para evitar cortes de texto no topo */
   header {
     height: auto;
     min-height: 64px;
     padding: 10px 16px;
   }
 
+  .header-brand {
+    gap: 10px;                 /* Estreita o distanciamento horizontal no mobile */
+  }
+
+  .header-seal {
+    width: 54px;               /* Proporção mobile ideal que destaca a logo */
+    height: 54px;
+  }
+
+  .header-text {
+    gap: 1px;                  /* Estreita ainda mais a distância de linha no mobile */
+  }
+
   .header-text h1 {
-    font-size: 16px; /* Sutil ajuste de escala para melhor acomodação do título no mobile */
+    font-size: 15px;           /* Tamanho de fonte mobile otimizado */
+    line-height: 1.1;
   }
 
   .header-text p {
-    font-size: 11px;
+    font-size: 10.5px;         /* Tamanho de fonte mobile otimizado */
+    line-height: 1.15;
   }
 
   /* Estrutura empilhada */
