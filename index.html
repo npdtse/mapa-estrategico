@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plano Estratégico SAU – TSE</title>
+  <title>Plano Tático SAU – TSE</title>
   <!-- Google Fonts - Source Sans 3 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
       <div class="process-list">
         <button class="audit-tab active" data-tab="apresentacao" onclick="switchTab('apresentacao')">Apresentação</button>
         <button class="audit-tab" data-tab="identidade" onclick="switchTab('identidade')">Identidade</button>
-        <button class="audit-tab" data-tab="mapa" onclick="switchTab('mapa')">Mapa Estratégico</button>
+        <button class="audit-tab" data-tab="mapa" onclick="switchTab('mapa')">Mapa Tático</button>
         <button class="audit-tab" data-tab="qualidade" onclick="switchTab('qualidade')">Maturidade & Qualidade</button>
       </div>
     </nav>
@@ -74,7 +74,7 @@
 
         <div class="diagram-block anim anim-d2">
           <h3 class="subsection-title">Alinhamento Tático-Estratégico</h3>
-          <p class="section-paragraph">Entenda como a atuação da SAU se conecta e suporta os macrodesafios do plano institucional do TSE:</p>
+          <p class="section-paragraph">A atuação da SAU se conecta e suporta os macrodesafios do plano institucional do TSE:</p>
           
           <div class="cascade-diagram">
             <div class="cascade-diagram__step">
@@ -89,9 +89,56 @@
             </div>
             <div class="cascade-diagram__step">
               <div class="cascade-diagram__label">Nível Tático (SAU 2026-2029)</div>
-              <div class="cascade-diagram__card sau-card">
-                <i class="fa-solid fa-chart-line cascade-diagram__card-icon"></i>
-                <span>Contribuir para a Governança, a Gestão de Riscos e os Controles Internos no Tribunal</span>
+              
+              <!-- Objetivo 1: Resultados (Roxo) -->
+              <div class="cascade-diagram__card cascade-diagram__card--resultados">
+                <i class="fa-solid fa-award cascade-diagram__card-icon"></i>
+                <div class="cascade-diagram__card-text">
+                  <span class="cascade-diagram__card-tag">Perspectiva Resultados</span>
+                  <span>1. Contribuir para a Governança, a Gestão de Riscos e os Controles Internos no Tribunal</span>
+                </div>
+              </div>
+
+              <!-- Objetivos 2, 3 e 4: Processos Internos (Azul) -->
+              <div class="cascade-diagram__card cascade-diagram__card--processos">
+                <i class="fa-solid fa-arrows-rotate cascade-diagram__card-icon"></i>
+                <div class="cascade-diagram__card-text">
+                  <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
+                  <span>2. Aprimorar os processos de auditoria interna</span>
+                </div>
+              </div>
+
+              <div class="cascade-diagram__card cascade-diagram__card--processos">
+                <i class="fa-solid fa-arrows-rotate cascade-diagram__card-icon"></i>
+                <div class="cascade-diagram__card-text">
+                  <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
+                  <span>3. Aprimorar a qualidade dos trabalhos da SAU</span>
+                </div>
+              </div>
+
+              <div class="cascade-diagram__card cascade-diagram__card--processos">
+                <i class="fa-solid fa-arrows-rotate cascade-diagram__card-icon"></i>
+                <div class="cascade-diagram__card-text">
+                  <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
+                  <span>4. Aprimorar a comunicação com as unidades clientes da auditoria</span>
+                </div>
+              </div>
+
+              <!-- Objetivos 5 e 6: Aprendizado e Crescimento (Laranja) -->
+              <div class="cascade-diagram__card cascade-diagram__card--aprendizado">
+                <i class="fa-solid fa-graduation-cap cascade-diagram__card-icon"></i>
+                <div class="cascade-diagram__card-text">
+                  <span class="cascade-diagram__card-tag">Perspectiva Aprendizado & Crescimento</span>
+                  <span>5. Implementar o uso de tecnologias para automação de processos de trabalho da SAU</span>
+                </div>
+              </div>
+
+              <div class="cascade-diagram__card cascade-diagram__card--aprendizado">
+                <i class="fa-solid fa-graduation-cap cascade-diagram__card-icon"></i>
+                <div class="cascade-diagram__card-text">
+                  <span class="cascade-diagram__card-tag">Perspectiva Aprendizado & Crescimento</span>
+                  <span>6. Estimular o desenvolvimento profissional contínuo dos auditores da SAU</span>
+                </div>
               </div>
             </div>
           </div>
@@ -181,7 +228,10 @@
             </div>
             <div class="bsc-perspective__objectives">
               <button class="objective-card" onclick="openDrawer('obj1')">
-                <span class="objective-card__num">OE 01</span>
+                <div class="objective-card__header">
+                  <span class="objective-card__num">OE 01 <span class="objective-card__badge">3 Indicadores</span></span>
+                  <i class="fa-solid"></i>
+                </div>
                 <p class="objective-card__text">Contribuir para a Governança, a Gestão de Riscos e os Controles Internos no Tribunal</p>
                 <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
               </button>
@@ -196,17 +246,26 @@
             </div>
             <div class="bsc-perspective__objectives bsc-perspective__objectives--grid">
               <button class="objective-card" onclick="openDrawer('obj2')">
-                <span class="objective-card__num">OE 02</span>
+                <div class="objective-card__header">
+                  <span class="objective-card__num">OE 02 <span class="objective-card__badge">3 Indicadores</span></span>
+                  <i class="fa-solid objective-card__icon"></i>
+                </div>
                 <p class="objective-card__text">Aprimorar os processos de auditoria interna</p>
                 <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
               </button>
               <button class="objective-card" onclick="openDrawer('obj3')">
-                <span class="objective-card__num">OE 03</span>
+                <div class="objective-card__header">
+                  <span class="objective-card__num">OE 03 <span class="objective-card__badge">2 Indicadores</span></span>
+                  <i class="fa-solid objective-card__icon"></i>
+                </div>
                 <p class="objective-card__text">Aprimorar a qualidade dos trabalhos da SAU</p>
                 <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
               </button>
               <button class="objective-card" onclick="openDrawer('obj4')">
-                <span class="objective-card__num">OE 04</span>
+                <div class="objective-card__header">
+                  <span class="objective-card__num">OE 04 <span class="objective-card__badge">1 Indicador</span></span>
+                  <i class="fa-solid objective-card__icon"></i>
+                </div>
                 <p class="objective-card__text">Aprimorar a comunicação com as unidades clientes da auditoria</p>
                 <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
               </button>
@@ -216,17 +275,23 @@
           <!-- Perspectiva: Aprendizado e Crescimento -->
           <div class="bsc-perspective">
             <div class="bsc-perspective__title bsc-perspective__title--aprendizado">
-              <i class="fa-solid fa-users"></i>
+              <i class="fa-solid fa-graduation-cap"></i>
               <span>Perspectiva de Aprendizado e Crescimento</span>
             </div>
             <div class="bsc-perspective__objectives bsc-perspective__objectives--grid-two">
               <button class="objective-card" onclick="openDrawer('obj5')">
-                <span class="objective-card__num">OE 05</span>
+                <div class="objective-card__header">
+                  <span class="objective-card__num">OE 05 <span class="objective-card__badge">1 Indicador</span></span>
+                  <i class="fa-solid objective-card__icon"></i>
+                </div>
                 <p class="objective-card__text">Implementar o uso de tecnologias para automação de processos de trabalho da SAU</p>
                 <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
               </button>
               <button class="objective-card" onclick="openDrawer('obj6')">
-                <span class="objective-card__num">OE 06</span>
+                <div class="objective-card__header">
+                  <span class="objective-card__num">OE 06 <span class="objective-card__badge">2 Indicadores</span></span>
+                  <i class="fa-solid objective-card__icon"></i>
+                </div>
                 <p class="objective-card__text">Estimular o desenvolvimento profissional contínuo dos auditores da SAU</p>
                 <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
               </button>

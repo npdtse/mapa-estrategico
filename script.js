@@ -260,9 +260,26 @@ function openDrawer(objectiveId) {
   
   let html = `<h3 class="tech-sheet__title">${data.titulo}</h3>`;
 
-  data.indicadores.forEach(ind => {
+  // GERAÇÃO DA BARRA DE NAVEGAÇÃO DE ÂNCORA (OPÇÃO C)
+  // Cria links para saltar diretamente aos indicadores se houver mais de 1 indicador.
+  if (data.indicadores.length > 1) {
+    html += `<div class="tech-sheet__nav">`;
+    data.indicadores.forEach((ind, idx) => {
+      // Extrai apenas o código ("IE 1.1") do nome do indicador
+      const codigo = ind.nome.split(" - ")[0];
+      html += `
+        <button class="tech-sheet__nav-btn" onclick="scrollToIndicator('ind-${objectiveId}-${idx}')">
+          <i class="fa-solid fa-location-arrow" style="font-size: 10px; opacity: 0.7;"></i> ${codigo}
+        </button>
+      `;
+    });
+    html += `</div>`;
+  }
+
+  data.indicadores.forEach((ind, idx) => {
+    // Identificador único adicionado na div principal para suportar o salto de âncora
     html += `
-      <div class="tech-sheet__indicator">
+      <div class="tech-sheet__indicator" id="ind-${objectiveId}-${idx}">
         <h4 class="tech-sheet__indicator-title">${ind.nome}</h4>
         <span class="tech-sheet__indicator-meta">${ind.tipo}</span>
       </div>
@@ -339,6 +356,15 @@ function openDrawer(objectiveId) {
     gsap.to(drawer, { bottom: "0%", right: 0, left: 0, duration: 0.35, ease: "power2.out" });
   } else {
     gsap.to(drawer, { right: "0%", bottom: "auto", left: "auto", duration: 0.35, ease: "power2.out" });
+  }
+}
+
+// FUNÇÃO AUXILIAR DE ROLAGEM SUAVE (OPÇÃO C)
+// Realiza a navegação instantânea mas suave para o contêiner do indicador correspondente dentro do Drawer
+function scrollToIndicator(id) {
+  const targetElement = document.getElementById(id);
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
 
