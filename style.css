@@ -553,9 +553,10 @@ main {
   transform: translateY(-4px);
 }
 
-.identity-card--purple { border-top-color: var(--phase1); }
-.identity-card--green { border-top-color: #10B981; }
-.identity-card--orange { border-top-color: var(--phase3); }
+/* Cartão de Identidade Unificado sob a Cor Corporativa */
+.identity-card--primary { 
+  border-top-color: var(--primary); 
+}
 
 .identity-card__header {
   display: flex;
@@ -568,9 +569,9 @@ main {
   font-size: 20px;
 }
 
-.identity-card--purple .identity-card__icon { color: var(--phase1); }
-.identity-card--green .identity-card__icon { color: #10B981; }
-.identity-card--orange .identity-card__icon { color: var(--phase3); }
+.identity-card--primary .identity-card__icon { 
+  color: var(--primary); 
+}
 
 .identity-card__title {
   font-size: 1.25rem;
@@ -614,7 +615,7 @@ main {
   grid-column: 1;
   grid-row: 1 / span 2;
   background-color: var(--bg);
-  color: var(--phase3);
+  color: var(--primary); /* Sincronizado para usar a cor institucional */
   font-weight: 700;
   font-size: 0.75rem;
   width: 24px;
