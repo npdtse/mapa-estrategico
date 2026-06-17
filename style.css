@@ -686,57 +686,45 @@ main {
   gap: 12px;
 }
 
-.bsc-perspective__objectives--grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
+.bsc-perspective__objectives--grid,
 .bsc-perspective__objectives--grid-two {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* Mantém 1 coluna de forma global, forçando o empilhamento vertical */
   gap: 12px;
+  align-items: stretch;
 }
 
-@media (min-width: 1024px) {
-  .bsc-perspective__objectives--grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .bsc-perspective__objectives--grid-two {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* O bloco @media (min-width: 1024px) que dividia as colunas de objetivos foi removido para unificar o alinhamento em todas as resoluções de desktop. */
 
-/* --- [Seção] Objective Cards (Step Style) --- */
+/* --- [Seção] Objective Cards (Split Compartment Style) --- */
 .objective-card {
   background: var(--surface);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px 22px;
-  text-align: left;
-  cursor: pointer;
-  font-family: 'Source Sans 3', sans-serif;
-  transition: all var(--transition);
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Alargado sutilmente para acomodar o botão visual sem comprimir o texto */
   width: 100%;
+  height: 100%; /* Estica verticalmente no grid */
+  padding: 0;   /* Removido o padding do cartão geral para segmentar compartimentos */
+  overflow: hidden;
+  transition: border var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .objective-card:hover {
   border-color: var(--primary);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
 
-/* Feedback tátil físico ao clicar (Mobile e Desktop) */
-.objective-card:active {
-  transform: translateY(0) scale(0.98);
-  box-shadow: var(--shadow);
+.objective-card__body {
+  padding: 20px 22px 14px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1; /* Faz a área de texto crescer para empurrar a lista de indicadores ao fundo */
 }
 
-/* --- Cabeçalho e Elementos Internos dos Cartões do Mapa --- */
 .objective-card__header {
   display: flex;
   justify-content: space-between;
@@ -757,71 +745,120 @@ main {
   transition: color var(--transition);
 }
 
-/* --- Iluminação de Cor do Ícone de acordo com a Perspectiva no Hover --- */
-.bsc-perspective:nth-child(1) .objective-card:hover .objective-card__icon {
-  color: var(--phase1);
-}
-
-.bsc-perspective:nth-child(2) .objective-card:hover .objective-card__icon {
-  color: var(--phase2);
-}
-
-.bsc-perspective:nth-child(3) .objective-card:hover .objective-card__icon {
-  color: var(--phase3);
-}
+/* Iluminação de cor do ícone no hover do card */
+.bsc-perspective:nth-child(1) .objective-card:hover .objective-card__icon { color: var(--phase1); }
+.bsc-perspective:nth-child(2) .objective-card:hover .objective-card__icon { color: var(--phase2); }
+.bsc-perspective:nth-child(3) .objective-card:hover .objective-card__icon { color: var(--phase3); }
 
 .objective-card__text {
   font-size: 16px;
   font-weight: 600;
   color: var(--text);
   line-height: 1.4;
-  flex-grow: 1; /* Alinha os botões visuais perfeitamente na mesma margem inferior */
 }
 
-/* "Pill-Button" Visual de Affordance Estática Pré-Clique */
-.objective-card__btn-visual {
-  align-self: flex-start;
-  background-color: var(--bg2);
-  color: var(--primary);
-  font-size: 13px;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1.5px solid transparent;
-  display: inline-flex;
+.objective-card__divider {
+  border-top: 1px dashed var(--border);
+  width: 100%;
+  transition: border var(--transition);
+}
+
+.objective-card__indicators-list {
+  background: var(--surface2);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: background var(--transition);
+}
+
+.objective-card__indicator-row {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  transition: all var(--transition);
-  pointer-events: none; /* Garante que o evento de clique seja propagado para o cartão inteiro */
+  gap: 10px;
+  padding: 12px 22px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 13.5px;
+  text-align: left;
+  background: transparent;
+  width: 100%;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-family: 'Source Sans 3', sans-serif;
+  transition: background var(--transition), color var(--transition);
 }
 
-[data-theme="dark"] .objective-card__btn-visual {
-  background-color: var(--primary-faded);
-  color: var(--primary-light);
-  border-color: var(--border);
+.objective-card__indicator-row:last-child {
+  border-bottom: none;
 }
 
-/* Iluminação dinâmica no Hover do cartão */
-.objective-card:hover .objective-card__btn-visual {
-  background-color: var(--primary);
-  color: #FFFFFF;
-  border-color: transparent;
-}
-
-[data-theme="dark"] .objective-card:hover .objective-card__btn-visual {
-  background-color: var(--primary);
-  color: #0F172A; /* Contraste ideal sobre o tema azul primário */
-  border-color: transparent;
-}
-
-/* Deslocamento dinâmico sutil da seta no Hover */
-.objective-card__btn-visual i {
-  font-size: 11px;
+.objective-card__indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
   transition: transform var(--transition);
 }
 
-.objective-card:hover .objective-card__btn-visual i {
-  transform: translateX(3px);
+/* Bolinhas dinâmicas de acordo com as cores de fase/perspectiva */
+.bsc-perspective:nth-child(1) .objective-card__indicator-dot { background: var(--phase1); }
+.bsc-perspective:nth-child(2) .objective-card__indicator-dot { background: var(--phase2); }
+.bsc-perspective:nth-child(3) .objective-card__indicator-dot { background: var(--phase3); }
+
+.objective-card__indicator-name {
+  color: var(--text2);
+  font-weight: 500;
+  line-height: 1.35;
+  flex-grow: 1;
+  transition: color var(--transition);
+}
+
+.objective-card__indicator-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+[data-theme="dark"] .objective-card__indicator-btn {
+  background: var(--bg2);
+  color: var(--primary-light);
+}
+
+.objective-card__indicator-btn i {
+  font-size: 9px;
+  transition: transform var(--transition);
+}
+
+/* Microinterações e efeitos de Hover estéticos (Artist Protocol) */
+.objective-card__indicator-row:hover {
+  background: var(--primary-faded);
+}
+
+.objective-card__indicator-row:hover .objective-card__indicator-name {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.objective-card__indicator-row:hover .objective-card__indicator-btn {
+  background: var(--primary);
+  color: #fff;
+}
+
+.objective-card__indicator-row:hover .objective-card__indicator-btn i {
+  transform: translateX(2px);
+}
+
+.objective-card__indicator-row:hover .objective-card__indicator-dot {
+  transform: scale(1.3);
 }
 
 
@@ -897,6 +934,7 @@ main {
   padding: 16px;
   margin-bottom: 24px;
   border: 1.5px solid var(--border);
+  scroll-margin-top: 76px;    /* Cria uma margem de segurança de rolagem para que as etiquetas sticky não cubram o título do indicador */
   transition: background var(--transition), border var(--transition);
 }
 
@@ -1275,7 +1313,6 @@ main {
   .mobile-only { display: flex; }
   
   /* Adaptação dinâmica do cabeçalho no mobile para evitar cortes de texto no topo */
-  /* Adaptação dinâmica do cabeçalho no mobile para evitar cortes de texto no topo */
   header {
     height: auto;
     min-height: 64px;
@@ -1320,7 +1357,7 @@ main {
   }
   
   main {
-    padding: 20px;
+    padding: 16px 16px 80px 16px !important; /* Margem simétrica lateral e folga inferior */
   }
 
   .quality-card {
@@ -1385,9 +1422,47 @@ main {
     border-left: none;
     border-top: 1px solid var(--border);
     border-radius: 16px 16px 0 0;
-    padding: 24px;
+    padding: 16px 20px; /* Reduzido o padding lateral para otimizar espaço de leitura */
     box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
     transition: bottom var(--transition), background var(--transition), border var(--transition);
+  }
+
+  /* Oculta fio vertical e bolinhas conectoras no mobile para aproveitar espaço horizontal */
+  .roadmap::before {
+    display: none !important;
+  }
+
+  .roadmap {
+    padding-left: 0 !important;
+  }
+
+  .roadmap__item {
+    gap: 0 !important;
+  }
+
+  .roadmap__status {
+    display: none !important;
+  }
+
+  /* Ocultação defensiva do texto "Acessar Ficha" nos botões internos dos cards do mapa no mobile */
+  .objective-card__indicator-btn-text {
+    display: none !important;
+  }
+
+  .objective-card__indicator-btn {
+    padding: 6px 8px !important; /* Visual compacto estilo pílula circular */
+  }
+
+  .objective-card__indicator-btn i {
+    font-size: 11px !important;
+  }
+
+  .objective-card__indicator-row {
+    padding: 10px 16px !important;
+  }
+
+  .objective-card__body {
+    padding: 16px 16px 12px 16px !important;
   }
 }
 

@@ -101,7 +101,7 @@
 
               <!-- Objetivos 2, 3 e 4: Processos Internos (Azul) -->
               <div class="cascade-diagram__card cascade-diagram__card--processos">
-                <i class="fa-solid fa-arrows-rotate cascade-diagram__card-icon"></i>
+                <i class="fa-solid fa-sitemap cascade-diagram__card-icon"></i>
                 <div class="cascade-diagram__card-text">
                   <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
                   <span>2. Aprimorar os processos de auditoria interna</span>
@@ -109,7 +109,7 @@
               </div>
 
               <div class="cascade-diagram__card cascade-diagram__card--processos">
-                <i class="fa-solid fa-arrows-rotate cascade-diagram__card-icon"></i>
+                <i class="fa-solid fa-sitemap cascade-diagram__card-icon"></i>
                 <div class="cascade-diagram__card-text">
                   <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
                   <span>3. Aprimorar a qualidade dos trabalhos da SAU</span>
@@ -117,7 +117,7 @@
               </div>
 
               <div class="cascade-diagram__card cascade-diagram__card--processos">
-                <i class="fa-solid fa-arrows-rotate cascade-diagram__card-icon"></i>
+                <i class="fa-solid fa-sitemap cascade-diagram__card-icon"></i>
                 <div class="cascade-diagram__card-text">
                   <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
                   <span>4. Aprimorar a comunicação com as unidades clientes da auditoria</span>
@@ -216,7 +216,7 @@
       <section id="mapa" class="tab-content">
         <div class="map-header">
           <h2 class="section-title">Mapa Tático</h2>
-          <p class="section-paragraph">Selecione qualquer objetivo abaixo para abrir sua respectiva <strong>Ficha Técnica</strong>.</p>
+          <p class="section-paragraph">Visualize todos os objetivos e indicadores em tela única. Use o botão <strong>Acessar Ficha</strong> para abrir os detalhes técnicos na gaveta lateral.</p>
         </div>
 
         <div class="bsc-panel">
@@ -227,48 +227,111 @@
               <span>Perspectiva de Resultados</span>
             </div>
             <div class="bsc-perspective__objectives">
-              <button class="objective-card" onclick="openDrawer('obj1')">
-                <div class="objective-card__header">
-                  <span class="objective-card__num">OE 01 <span class="objective-card__badge">3 Indicadores</span></span>
-                  <i class="fa-solid"></i>
+              <div class="objective-card">
+                <div class="objective-card__body">
+                  <div class="objective-card__header">
+                    <span class="objective-card__num">OT 01 <span class="objective-card__badge">3 Indicadores</span></span>
+                    <i class="fa-solid fa-award objective-card__icon"></i>
+                  </div>
+                  <p class="objective-card__text">Contribuir para a Governança, a Gestão de Riscos e os Controles Internos no Tribunal</p>
                 </div>
-                <p class="objective-card__text">Contribuir para a Governança, a Gestão de Riscos e os Controles Internos no Tribunal</p>
-                <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
-              </button>
+                <div class="objective-card__divider"></div>
+                <div class="objective-card__indicators-list">
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj1', 0)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj1', 0)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 1.1 - Satisfação da Alta Administração</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj1', 1)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj1', 1)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 1.2 - Implementação de Recomendações</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj1', 2)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj1', 2)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 1.3 - Satisfação da Unidade Cliente</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           <!-- Perspectiva: Processos Internos -->
           <div class="bsc-perspective">
             <div class="bsc-perspective__title bsc-perspective__title--processos">
-              <i class="fa-solid fa-arrows-rotate"></i>
+              <i class="fa-solid fa-sitemap"></i>
               <span>Perspectiva de Processos Internos</span>
             </div>
             <div class="bsc-perspective__objectives bsc-perspective__objectives--grid">
-              <button class="objective-card" onclick="openDrawer('obj2')">
-                <div class="objective-card__header">
-                  <span class="objective-card__num">OE 02 <span class="objective-card__badge">3 Indicadores</span></span>
-                  <i class="fa-solid objective-card__icon"></i>
+              <div class="objective-card">
+                <div class="objective-card__body">
+                  <div class="objective-card__header">
+                    <span class="objective-card__num">OT 02 <span class="objective-card__badge">3 Indicadores</span></span>
+                    <i class="fa-solid fa-sitemap objective-card__icon"></i>
+                  </div>
+                  <p class="objective-card__text">Aprimorar os processos de auditoria interna</p>
                 </div>
-                <p class="objective-card__text">Aprimorar os processos de auditoria interna</p>
-                <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
-              </button>
-              <button class="objective-card" onclick="openDrawer('obj3')">
-                <div class="objective-card__header">
-                  <span class="objective-card__num">OE 03 <span class="objective-card__badge">2 Indicadores</span></span>
-                  <i class="fa-solid objective-card__icon"></i>
+                <div class="objective-card__divider"></div>
+                <div class="objective-card__indicators-list">
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj2', 0)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj2', 0)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 2.1 - Mapeamento e Documentação de Processos</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj2', 1)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj2', 1)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 2.2 - Institucionalização dos KPAs do IA-CM</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj2', 2)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj2', 2)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 2.3 - Cumprimento do Plano de Auditoria</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
                 </div>
-                <p class="objective-card__text">Aprimorar a qualidade dos trabalhos da SAU</p>
-                <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
-              </button>
-              <button class="objective-card" onclick="openDrawer('obj4')">
-                <div class="objective-card__header">
-                  <span class="objective-card__num">OE 04 <span class="objective-card__badge">1 Indicador</span></span>
-                  <i class="fa-solid objective-card__icon"></i>
+              </div>
+
+              <div class="objective-card">
+                <div class="objective-card__body">
+                  <div class="objective-card__header">
+                    <span class="objective-card__num">OT 03 <span class="objective-card__badge">2 Indicadores</span></span>
+                    <i class="fa-solid fa-sitemap objective-card__icon"></i>
+                  </div>
+                  <p class="objective-card__text">Aprimorar a qualidade dos trabalhos da SAU</p>
                 </div>
-                <p class="objective-card__text">Aprimorar a comunicação com as unidades clientes da auditoria</p>
-                <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
-              </button>
+                <div class="objective-card__divider"></div>
+                <div class="objective-card__indicators-list">
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj3', 0)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj3', 0)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 3.1 - Ações de Aprimoramento da Qualidade</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj3', 1)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj3', 1)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 3.2 - Avaliação Contínua</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="objective-card">
+                <div class="objective-card__body">
+                  <div class="objective-card__header">
+                    <span class="objective-card__num">OT 04 <span class="objective-card__badge">1 Indicador</span></span>
+                    <i class="fa-solid fa-sitemap objective-card__icon"></i>
+                  </div>
+                  <p class="objective-card__text">Aprimorar a comunicação com as unidades clientes</p>
+                </div>
+                <div class="objective-card__divider"></div>
+                <div class="objective-card__indicators-list">
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj4', 0)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj4', 0)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 4.1 - Qualidade da Comunicação com Clientes</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -279,22 +342,46 @@
               <span>Perspectiva de Aprendizado e Crescimento</span>
             </div>
             <div class="bsc-perspective__objectives bsc-perspective__objectives--grid-two">
-              <button class="objective-card" onclick="openDrawer('obj5')">
-                <div class="objective-card__header">
-                  <span class="objective-card__num">OE 05 <span class="objective-card__badge">1 Indicador</span></span>
-                  <i class="fa-solid objective-card__icon"></i>
+              <div class="objective-card">
+                <div class="objective-card__body">
+                  <div class="objective-card__header">
+                    <span class="objective-card__num">OT 05 <span class="objective-card__badge">1 Indicador</span></span>
+                    <i class="fa-solid fa-graduation-cap objective-card__icon"></i>
+                  </div>
+                  <p class="objective-card__text">Implementar tecnologia para automação de processos</p>
                 </div>
-                <p class="objective-card__text">Implementar o uso de tecnologias para automação de processos de trabalho da SAU</p>
-                <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
-              </button>
-              <button class="objective-card" onclick="openDrawer('obj6')">
-                <div class="objective-card__header">
-                  <span class="objective-card__num">OE 06 <span class="objective-card__badge">2 Indicadores</span></span>
-                  <i class="fa-solid objective-card__icon"></i>
+                <div class="objective-card__divider"></div>
+                <div class="objective-card__indicators-list">
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj5', 0)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj5', 0)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 5.1 - Automatização de processos da SAU</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
                 </div>
-                <p class="objective-card__text">Estimular o desenvolvimento profissional contínuo dos auditores da SAU</p>
-                <span class="objective-card__btn-visual">Acessar Ficha <i class="fa-solid fa-arrow-right"></i></span>
-              </button>
+              </div>
+
+              <div class="objective-card">
+                <div class="objective-card__body">
+                  <div class="objective-card__header">
+                    <span class="objective-card__num">OT 06 <span class="objective-card__badge">2 Indicadores</span></span>
+                    <i class="fa-solid fa-graduation-cap objective-card__icon"></i>
+                  </div>
+                  <p class="objective-card__text">Estimular o desenvolvimento de competências profissionais</p>
+                </div>
+                <div class="objective-card__divider"></div>
+                <div class="objective-card__indicators-list">
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj6', 0)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj6', 0)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 6.1 - Horas de Capacitação por Servidor</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                  <div class="objective-card__indicator-row" onclick="openDrawerWithAnchor('obj6', 1)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openDrawerWithAnchor('obj6', 1)">
+                    <span class="objective-card__indicator-dot"></span>
+                    <span class="objective-card__indicator-name">IT 6.2 - Redução dos GAPs de competências</span>
+                    <span class="objective-card__indicator-btn"><span class="objective-card__indicator-btn-text">Acessar Ficha</span> <i class="fa-solid fa-chevron-right"></i></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -370,7 +457,7 @@
               <h3 class="quality-card__title">Multidimensões de Avaliação da Qualidade</h3>
             </div>
             <p class="quality-card__paragraph">
-              Os questionários de avaliação de qualidade contínua aplicados após cada ciclo de fiscalização (IE 1.3 e IE 3.2) são estruturados sob as 4 dimensões metodológicas recomendadas internacionalmente pelas diretrizes globais do <strong>The Institute of Internal Auditors (IIA - IPPF Norma 1300)</strong> e pelas normas de controle do setor público da <strong>INTOSAI (ISSAI 140)</strong>:
+              Os questionários de avaliação de qualidade contínua aplicados após cada ciclo de fiscalização (IT 1.3 e IT 3.2) são estruturados sob as 4 dimensões metodológicas recomendadas internacionalmente pelas diretrizes globais do <strong>The Institute of Internal Auditors (IIA - IPPF Norma 1300)</strong> e pelas normas de controle do setor público da <strong>INTOSAI (ISSAI 140)</strong>:
             </p>
             
             <div class="chart-container">

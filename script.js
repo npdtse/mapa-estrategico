@@ -8,13 +8,12 @@ const dbIndicadores = {
         nome: "IE 1.1 - Satisfação da Alta Administração",
         tipo: "Desempenho",
         descricao: "Mede o nível de adequação e utilidade técnica dos trabalhos sob a ótica da alta administração do TSE.",
-        instrumento: "Questionário de Opinião de Governança Estratégica (Anual).",
+        instrumento: "Questionário de Avaliação Periódica pela Alta Administração (Anual).",
         calculo: "Média simples das notas de satisfação atribuídas pelo público avaliador.",
-        linhaBase: "2021: 97,87% | 2022: 94,92% | 2024: 97,52%",
+        linhaBase: "2021: 97,87% | 2022: 94,92% | 2024: 97,52% | 2025: 100%",
         metas: { '2026': "95%", '2027': "95%", '2028': "95%", '2029': "95%" },
         iniciativas: [
-          "Promover as avaliações estruturadas conforme previsto no calendário do PAQ-AUD TSE.",
-          "Disseminar relatórios executivos sob linguagem simples para suporte rápido à tomada de decisão."
+          "Promover as avaliações estruturadas conforme previsto no calendário do PAQ-AUD TSE."
         ]
       },
       {
@@ -23,24 +22,22 @@ const dbIndicadores = {
         descricao: "Mede a eficácia prática da auditoria pela adesão das unidades às recomendações expedidas.",
         instrumento: "Planilha de Controle de Avaliações da SAU | Painel Estatístico da SAU.",
         calculo: "(Recomendações Implementadas / (Total de Recomendações - Recomendações não mais aplicáveis)) x 100",
-        linhaBase: "2024: 49%. Histórico anterior descontinuado devido a mudança metodológica.",
+        linhaBase: "2021: 73% | 2022: 39% | 2023: 56% | 2024: 49%",
         metas: { '2026': "60%", '2027': "60%", '2028': "60%", '2029': "60%" },
         iniciativas: [
-          "Promover contatos periódicos de monitoramento consultivo junto às unidades auditadas.",
-          "Acompanhar em dois ciclos anuais o status de implementação das recomendações emitidas."
+          "Executar as etapas de 1º e 2º ciclos de monitoramento das recomendações emitidas."
         ]
       },
       {
         nome: "IE 1.3 - Satisfação da Unidade Cliente",
         tipo: "Desempenho",
-        descricao: "Mede o grau de satisfação sobre o valor gerado durante a execução dos trabalhos na perspectiva da área auditada.",
-        instrumento: "Questionário de Encerramento para Clientes (Dimensões: Satisfação Geral, Eficiência e Efetividade).",
-        calculo: "Média simples do índice de aprovação das áreas fiscalizadas pós-ciclo.",
-        linhaBase: "Sem histórico estruturado sob o novo instrumento de avaliação.",
+        descricao: "Mede o grau de satisfação sobre os trabalhos realizados na perspectiva da unidade cliente.",
+        instrumento: "Questionário de Avaliação Contínua - Unidades Clientes.",
+        calculo: "Média simples do índice de satisfação das unidades clientes.",
+        linhaBase: "Sem histórico registrado sob o novo instrumento de avaliação.",
         metas: { '2026': "70%", '2027': "70%", '2028': "70%", '2029': "70%" },
         iniciativas: [
-          "Disponibilizar os questionários de avaliação após o encerramento de cada ação de fiscalização.",
-          "Tratar anualmente as notas mais baixas apontadas nas dimensões do questionário."
+          "Disponibilizar os questionários de avaliação após o encerramento de cada trabalho desenvolvido."
         ]
       }
     ]
@@ -75,7 +72,7 @@ const dbIndicadores = {
         ]
       },
       {
-        nome: "IE 2.3 - Cumprimento do Plano Anual de Auditoria (PAA)",
+        nome: "IE 2.3 - Cumprimento do Plano de Auditoria",
         tipo: "Desempenho",
         descricao: "Mede o percentual de execução das ações de auditoria, monitoramento e consultoria para o ano em relação ao total previsto.",
         instrumento: "Planilha de Controle de Avaliações da SAU | Painel Estatístico da SAU.",
@@ -121,7 +118,7 @@ const dbIndicadores = {
     ]
   },
   obj4: {
-    titulo: "OE 04 - Aprimorar a comunicação com as unidades clientes da auditoria",
+    titulo: "OE 04 - Aprimorar a comunicação com as unidades clientes",
     indicadores: [
       {
         nome: "IE 4.1 - Qualidade da Comunicação com Clientes",
@@ -139,7 +136,7 @@ const dbIndicadores = {
     ]
   },
   obj5: {
-    titulo: "OE 05 - Implementar tecnologia para automação de processos de trabalho",
+    titulo: "OE 05 - Implementar tecnologia para automação de processos",
     indicadores: [
       {
         nome: "IE 5.1 - Automatização de processos da SAU",
@@ -157,7 +154,7 @@ const dbIndicadores = {
     ]
   },
   obj6: {
-    titulo: "OE 06 - Estimular o desenvolvimento de competências profissionais dos auditores",
+    titulo: "OE 06 - Estimular o desenvolvimento de competências profissionais",
     indicadores: [
       {
         nome: "IE 6.1 - Horas de Capacitação por Servidor",
@@ -327,7 +324,7 @@ function openDrawer(objectiveId) {
       </div>
 
       <div class="tech-sheet__initiatives">
-        <h5 class="tech-sheet__section-title" style="color: var(--secondary);">Iniciativas de Viabilização</h5>
+        <h5 class="tech-sheet__section-title" style="color: var(--secondary);">Iniciativa de Viabilização</h5>
         ${ind.iniciativas.map(init => `
           <p class="tech-sheet__initiative-item">${init}</p>
         `).join('')}
@@ -366,6 +363,14 @@ function scrollToIndicator(id) {
   if (targetElement) {
     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
   }
+}
+
+// NOVO: Coordena abertura da gaveta e rolagem suave até a âncora do indicador selecionado no mapa tático
+function openDrawerWithAnchor(objectiveId, indicatorIndex) {
+  openDrawer(objectiveId);
+  setTimeout(() => {
+    scrollToIndicator(`ind-${objectiveId}-${indicatorIndex}`);
+  }, 150);
 }
 
 function closeDrawer() {
@@ -453,4 +458,13 @@ function updateRadarChart(isDark) {
   };
 
   radarChartInstance = new Chart(ctx, config);
+}
+
+// FUNÇÃO AUXILIAR DE RESET DE ROLAGEM
+function scrollToTop() {
+  const mainArea = document.getElementById('main-area');
+  if (mainArea) {
+    mainArea.scrollTop = 0; // Reseta a rolagem interna do contêiner principal (Desktop)
+  }
+  window.scrollTo(0, 0); // Reseta a rolagem global do navegador (Mobile/Fallback)
 }
