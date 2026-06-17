@@ -658,12 +658,21 @@ main {
 }
 
 .bsc-perspective {
-  background: var(--bg);
   border-radius: var(--radius);
   padding: 16px;
   border: 1px solid var(--border);
   transition: background var(--transition), border var(--transition);
 }
+
+/* Tons de fundo semânticos e translúcidos para cada perspectiva (Modo Claro) */
+.bsc-perspective:nth-child(1) { background: rgba(111, 66, 193, 0.12); } /* Resultados (Roxo) */
+.bsc-perspective:nth-child(2) { background: rgba(0, 115, 230, 0.12); }  /* Processos Internos (Azul) */
+.bsc-perspective:nth-child(3) { background: rgba(253, 126, 20, 0.15); }  /* Aprendizado e Crescimento (Laranja) */
+
+/* Tons de fundo semânticos e translúcidos adaptados para o Modo Escuro */
+[data-theme="dark"] .bsc-perspective:nth-child(1) { background: rgba(111, 66, 193, 0.08); }
+[data-theme="dark"] .bsc-perspective:nth-child(2) { background: rgba(51, 153, 255, 0.06); }
+[data-theme="dark"] .bsc-perspective:nth-child(3) { background: rgba(253, 126, 20, 0.08); }
 
 .bsc-perspective__title {
   display: flex;
@@ -1463,6 +1472,19 @@ main {
 
   .objective-card__body {
     padding: 16px 16px 12px 16px !important;
+  }
+
+  /* SUPRESSÃO DE RECUOS NESTED NO MOBILE: Destrava a largura máxima útil de leitura */
+  .bsc-panel {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    gap: 16px !important;
+  }
+
+  .bsc-perspective {
+    padding: 12px 10px !important; /* Reduz o padding lateral de 16px para 10px */
   }
 }
 
