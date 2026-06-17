@@ -249,7 +249,8 @@ function toggleTheme() {
 
 /* === [CAPÍTULO 3] CONTROLE DO DRAWER LATERAL === */
 
-function openDrawer(objectiveId) {
+// ATUALIZADO: Agora aceita um callback opcional de finalização de animação para evitar Race Conditions
+function openDrawer(objectiveId, onCompleteCallback) {
   const data = dbIndicadores[objectiveId];
   if (!data) return;
 
@@ -259,10 +260,20 @@ function openDrawer(objectiveId) {
 
   // GERAÇÃO DA BARRA DE NAVEGAÇÃO DE ÂNCORA (OPÇÃO C)
   // Cria links para saltar diretamente aos indicadores se houver mais de 1 indicador.
-  if (data.indicadores.length > 1) {
+  if (data.indicators && data.indicators.length > 1) { // Ajuste preventivo para dados estruturados
+    html += `<div class="tech-sheet__nav">`;
+    data.indicators.forEach((ind, idx) => {
+      const codigo = ind.nome.split(" - ")[0];
+      html += `
+        <button class="tech-sheet__nav-btn" onclick="scrollToIndicator('ind-${objectiveId}-${idx}')">
+          <i class="fa-solid fa-location-arrow" style="font-size: 10px; opacity: 0.7;"></i> ${codigo}
+        </button>
+      `;
+    });
+    html += `</div>`;
+  } else if (data.indicadores && data.indicadores.length > 1) {
     html += `<div class="tech-sheet__nav">`;
     data.indicadores.forEach((ind, idx) => {
-      // Extrai apenas o código ("IE 1.1") do nome do indicador
       const codigo = ind.nome.split(" - ")[0];
       html += `
         <button class="tech-sheet__nav-btn" onclick="scrollToIndicator('ind-${objectiveId}-${idx}')">
@@ -273,7 +284,9 @@ function openDrawer(objectiveId) {
     html += `</div>`;
   }
 
-  data.indicadores.forEach((ind, idx) => {
+  const listToRender = data.indicadores || data.indicators; // Garante compatibilidade de nomenclatura
+
+  listToRender.forEach((ind, idx) => {
     // Identificador único adicionado na div principal para suportar o salto de âncora
     html += `
       <div class="tech-sheet__indicator" id="ind-${objectiveId}-${idx}">
@@ -350,9 +363,27 @@ function openDrawer(objectiveId) {
   // Detecção do ambiente (Mobile vs Desktop) para determinar a direção do Drawer
   const isMobile = window.innerWidth <= 850;
   if (isMobile) {
-    gsap.to(drawer, { bottom: "0%", right: 0, left: 0, duration: 0.35, ease: "power2.out" });
+    gsap.to(drawer, { 
+      bottom: "0%", 
+      right: 0, 
+      left: 0, 
+      duration: 0.35, 
+      ease: "power2.out",
+      onComplete: () => {
+        if (onCompleteCallback) onCompleteCallback(); // Dispara a rolagem apenas quando a gaveta estiver 100% aberta no mobile
+      }
+    });
   } else {
-    gsap.to(drawer, { right: "0%", bottom: "auto", left: "auto", duration: 0.35, ease: "power2.out" });
+    gsap.to(drawer, { 
+      right: "0%", 
+      bottom: "auto", 
+      left: "auto", 
+      duration: 0.35, 
+      ease: "power2.out",
+      onComplete: () => {
+        if (onCompleteCallback) onCompleteCallback(); // Dispara a rolagem apenas quando a gaveta estiver 100% aberta no desktop
+      }
+    });
   }
 }
 
@@ -365,12 +396,12 @@ function scrollToIndicator(id) {
   }
 }
 
-// NOVO: Coordena abertura da gaveta e rolagem suave até a âncora do indicador selecionado no mapa tático
+// ATUALIZADO: Garante a rolagem sequencial perfeita, resolvendo o bug do salto instantâneo
 function openDrawerWithAnchor(objectiveId, indicatorIndex) {
-  openDrawer(objectiveId);
-  setTimeout(() => {
+  // Passa a função de rolagem como callback do openDrawer para executar apenas após a abertura total do Drawer
+  openDrawer(objectiveId, () => {
     scrollToIndicator(`ind-${objectiveId}-${indicatorIndex}`);
-  }, 150);
+  });
 }
 
 function closeDrawer() {
