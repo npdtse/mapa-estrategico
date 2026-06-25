@@ -255,9 +255,36 @@ header {
   font-family: 'Source Sans 3', sans-serif;
   font-size: 14.5px;
   font-weight: 600;
+  position: relative;
   transition: all var(--transition);
   white-space: normal;
   line-height: 1.4;
+}
+
+/* Indicador de barra lateral elástica dinâmica */
+.audit-tab::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 25%;
+  height: 50%;
+  width: 3.5px;
+  background: var(--primary);
+  border-radius: 4px;
+  opacity: 0;
+  transform: scaleY(0.3);
+  transition: opacity 250ms cubic-bezier(.4, 0, .2, 1), 
+              transform 250ms cubic-bezier(.34, 1.56, .64, 1),
+              background 250ms;
+}
+
+[data-theme="dark"] .audit-tab::after {
+  background: var(--primary-light);
+}
+
+.audit-tab.active::after {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .audit-tab:hover {
@@ -326,23 +353,27 @@ main {
 /* --- [Seção] Card de Adaptabilidade Normativa --- */
 .adaptability-card {
   background: var(--surface);
-  border-left: 6px solid var(--accent, #FFC107);
+  border: 1.5px solid var(--border); /* Removida a borda amarela grossa de 6px por um contorno periférico fino */
   border-radius: var(--radius);
   padding: 24px;
   display: flex;
   gap: 16px;
   box-shadow: var(--shadow);
-  border-top: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   margin-bottom: 32px;
   transition: background var(--transition), border var(--transition);
   max-width: 900px;
 }
 
 .adaptability-card__icon-wrapper {
-  color: var(--accent, #FFC107);
-  font-size: 20px;
+  color: #C59B27;              /* Refinado o amarelo para um tom dourado corporativo sóbrio */
+  background: rgba(197, 155, 39, 0.08); /* Adicionado círculo de destaque translúcido */
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
   flex-shrink: 0;
 }
 
@@ -408,10 +439,7 @@ main {
 .tse-card {
   background: var(--primary-faded);
   color: var(--primary);
-  border-left: 5px solid var(--primary-light);
-  border-top: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border: 1.5px solid var(--primary-light); /* Removida a borda lateral grossa de 5px */
 }
 
 [data-theme="dark"] .tse-card {
@@ -447,10 +475,7 @@ main {
 .cascade-diagram__card--resultados {
   background: rgba(111, 66, 193, 0.06);
   color: #5527a4;
-  border-left: 5px solid var(--phase1);
-  border-top: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border: 1.5px solid var(--phase1); /* Substituída a borda de 5px por contorno de 1.5px */
 }
 .cascade-diagram__card--resultados .cascade-diagram__card-tag {
   color: var(--phase1);
@@ -460,10 +485,7 @@ main {
 .cascade-diagram__card--processos {
   background: var(--primary-faded);
   color: var(--primary);
-  border-left: 5px solid var(--phase2);
-  border-top: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border: 1.5px solid var(--phase2); /* Substituída a borda de 5px por contorno de 1.5px */
 }
 .cascade-diagram__card--processos .cascade-diagram__card-tag {
   color: var(--phase2);
@@ -473,52 +495,10 @@ main {
 .cascade-diagram__card--aprendizado {
   background: rgba(253, 126, 20, 0.06);
   color: #c45700;
-  border-left: 5px solid var(--phase3);
-  border-top: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border: 1.5px solid var(--phase3); /* Substituída a borda de 5px por contorno de 1.5px */
 }
 .cascade-diagram__card--aprendizado .cascade-diagram__card-tag {
   color: var(--phase3);
-}
-
-/* --- Cartões do Diagrama por Perspectiva (Modo Escuro) --- */
-
-[data-theme="dark"] .cascade-diagram__card--resultados {
-  background: rgba(111, 66, 193, 0.15);
-  color: #c4a9f3;
-  border-left-color: #9d6fe3;
-}
-[data-theme="dark"] .cascade-diagram__card--resultados .cascade-diagram__card-tag {
-  color: #c4a9f3;
-}
-
-[data-theme="dark"] .cascade-diagram__card--processos {
-  background: var(--primary-faded);
-  color: var(--primary-light);
-  border-left-color: var(--primary-light);
-}
-[data-theme="dark"] .cascade-diagram__card--processos .cascade-diagram__card-tag {
-  color: var(--primary-light);
-}
-
-[data-theme="dark"] .cascade-diagram__card--aprendizado {
-  background: rgba(253, 126, 20, 0.15);
-  color: #ffb16c;
-  border-left-color: #fd7e14;
-}
-[data-theme="dark"] .cascade-diagram__card--aprendizado .cascade-diagram__card-tag {
-  color: #ffb16c;
-}
-
-.cascade-diagram__card-icon {
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.cascade-diagram__arrow {
-  color: var(--text3);
-  font-size: 18px;
 }
 
 
@@ -541,36 +521,46 @@ main {
   background: var(--surface);
   border-radius: var(--radius);
   padding: 24px;
-  box-shadow: var(--shadow-lg);
-  border-top: 6px solid var(--border);
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: transform var(--transition), background var(--transition), border var(--transition);
+  box-shadow: var(--shadow);
+  border: 1.5px solid var(--border); /* Removida a borda de 6px do topo, aplicando contorno fino */
+  transition: transform var(--transition), background var(--transition), border var(--transition), box-shadow var(--transition);
 }
 
 .identity-card:hover {
   transform: translateY(-4px);
+  border-color: var(--primary-light); /* Acendimento suave e profissional da borda no hover */
+  box-shadow: var(--shadow-lg);
 }
 
 /* Cartão de Identidade Unificado sob a Cor Corporativa */
 .identity-card--primary { 
-  border-top-color: var(--primary); 
+  border-color: var(--border); 
 }
 
 .identity-card__header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 16px;
 }
 
 .identity-card__icon {
-  font-size: 20px;
+  font-size: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary-faded); /* Círculo de fundo translúcido para compensar a perda da borda grossa */
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition);
 }
 
 .identity-card--primary .identity-card__icon { 
   color: var(--primary); 
+  background: var(--primary-faded);
 }
 
 .identity-card__title {
@@ -659,12 +649,21 @@ main {
 }
 
 .bsc-perspective {
-  background: var(--bg);
   border-radius: var(--radius);
   padding: 16px;
   border: 1px solid var(--border);
   transition: background var(--transition), border var(--transition);
 }
+
+/* Tons de fundo semânticos e translúcidos para cada perspectiva (Modo Claro) */
+.bsc-perspective:nth-child(1) { background: rgba(111, 66, 193, 0.12); } /* Resultados (Roxo) */
+.bsc-perspective:nth-child(2) { background: rgba(0, 115, 230, 0.12); }  /* Processos Internos (Azul) */
+.bsc-perspective:nth-child(3) { background: rgba(253, 126, 20, 0.15); }  /* Aprendizado e Crescimento (Laranja) */
+
+/* Tons de fundo semânticos e translúcidos adaptados para o Modo Escuro */
+[data-theme="dark"] .bsc-perspective:nth-child(1) { background: rgba(111, 66, 193, 0.08); }
+[data-theme="dark"] .bsc-perspective:nth-child(2) { background: rgba(51, 153, 255, 0.06); }
+[data-theme="dark"] .bsc-perspective:nth-child(3) { background: rgba(253, 126, 20, 0.08); }
 
 .bsc-perspective__title {
   display: flex;
@@ -709,7 +708,10 @@ main {
   height: 100%; /* Estica verticalmente no grid */
   padding: 0;   /* Removido o padding do cartão geral para segmentar compartimentos */
   overflow: hidden;
-  transition: border var(--transition), transform var(--transition), box-shadow var(--transition);
+  /* Transição física elástica simulando efeito de mola de alta fidelidade */
+  transition: border 350ms cubic-bezier(.34, 1.56, .64, 1), 
+              transform 350ms cubic-bezier(.34, 1.56, .64, 1), 
+              box-shadow 350ms cubic-bezier(.34, 1.56, .64, 1);
 }
 
 .objective-card:hover {
@@ -937,6 +939,25 @@ main {
   border: 1.5px solid var(--border);
   scroll-margin-top: 76px;    /* Cria uma margem de segurança de rolagem para que as etiquetas sticky não cubram o título do indicador */
   transition: background var(--transition), border var(--transition);
+}
+
+/* Ativação do efeito de brilho e pulsação suave ao ancorar indicador na Ficha Técnica (Artist Dynamic) */
+@keyframes indicatorHighlight {
+  0% { 
+    box-shadow: 0 0 0 0 rgba(0, 115, 230, 0.4); 
+    background-color: var(--primary-faded); 
+    border-color: var(--primary-light);
+  }
+  50% { 
+    box-shadow: 0 0 0 10px rgba(0, 115, 230, 0); 
+  }
+  100% { 
+    box-shadow: 0 0 0 0 rgba(0, 115, 230, 0); 
+  }
+}
+
+.tech-sheet__indicator.highlight-active {
+  animation: indicatorHighlight 1.5s cubic-bezier(.25, .8, .25, 1);
 }
 
 .tech-sheet__indicator-title {
@@ -1292,7 +1313,6 @@ main {
 .dimension-item__name {
   grid-column: 2;
   grid-row: 1;
-  font-weight: 700;
   color: var(--text);
   font-size: 0.95rem;
 }
@@ -1570,4 +1590,47 @@ main {
   background: var(--primary-faded);
   color: var(--primary-light);
   border-color: var(--primary);
+}
+
+/* === [ESTILO ADICIONAL] PILULAS DE SUBTÓPICOS DE INSTRUMENTOS === */
+
+.dimension-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.dimension-item__sub-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.dimension-item__sub-tag {
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--bg2);
+  color: var(--text2);
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  transition: background var(--transition), color var(--transition);
+}
+
+[data-theme="dark"] .dimension-item__sub-tag {
+  background: var(--surface2);
+  color: var(--text3);
+}
+
+/* Efeito Hover: Acendimento sutil e unificado das pílulas na cor da marca */
+.dimension-item:hover .dimension-item__sub-tag {
+  background: var(--primary-faded);
+  color: var(--primary);
+}
+
+[data-theme="dark"] .dimension-item:hover .dimension-item__sub-tag {
+  background: rgba(51, 153, 255, 0.15);
+  color: var(--primary-light);
 }

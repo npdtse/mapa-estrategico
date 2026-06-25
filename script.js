@@ -2,184 +2,203 @@
 
 const dbIndicadores = {
   obj1: {
-    titulo: "OE 01 - Contribuir para a Governança, a Gestão de Riscos e os Controles Internos",
+    titulo: "OT 01 - Contribuir para a governança, a gestão de riscos e os controles internos",
     indicadores: [
       {
-        nome: "IE 1.1 - Satisfação da Alta Administração",
+        nome: "IT 1.1 - Cumprimento do Plano de Auditoria",
         tipo: "Desempenho",
-        descricao: "Mede o nível de adequação e utilidade técnica dos trabalhos sob a ótica da alta administração do TSE.",
-        instrumento: "Questionário de Avaliação Periódica pela Alta Administração (Anual).",
-        calculo: "Média simples das notas de satisfação atribuídas pelo público avaliador.",
-        linhaBase: "2021: 97,87% | 2022: 94,92% | 2024: 97,52% | 2025: 100%",
-        metas: { '2026': "95%", '2027': "95%", '2028': "95%", '2029': "95%" },
+        descricao: "Mede o percentual de execução das ações de auditoria, monitoramento e consultoria para cada ano em relação ao total previsto.",
+        instrumento: "Planilha de Controle de Avaliações | Painel Estatístico",
+        calculo: "(Quantidade de ações executadas / Quantidade de ações previstas no PAA) x 100",
+        linhaBase: "2021: Aud. (79%), Monit. (50%) | 2022: Aud. (54%), Monit. (33%), Consult. (100%) | 2023: Aud. (45%), Monit. (62%) | 2024: Aud. (54%), Monit. (80%), Consult. (100%)",
+        metas: { '2026': "65%", '2027': "70%", '2028': "75%", '2029': "80%" },
         iniciativas: [
-          "Promover as avaliações estruturadas conforme previsto no calendário do PAQ-AUD TSE."
+          "Fazer os registros históricos na Planilha de Controle de Avaliações a partir de 2021.",
+          "Acompanhar la execução dos trabalhos planejados."
         ]
       },
       {
-        nome: "IE 1.2 - Implementação de Recomendações",
+        nome: "IT 1.2 - Implementação de Recomendações",
         tipo: "Desempenho",
         descricao: "Mede a eficácia prática da auditoria pela adesão das unidades às recomendações expedidas.",
-        instrumento: "Planilha de Controle de Avaliações da SAU | Painel Estatístico da SAU.",
-        calculo: "(Recomendações Implementadas / (Total de Recomendações - Recomendações não mais aplicáveis)) x 100",
+        instrumento: "Planilha de Controle de Avaliações | Painel Estatístico",
+        calculo: "(Recomendações Implementadas / (Total de Recomendações - Recom. não aplicáveis)) x 100",
         linhaBase: "2021: 73% | 2022: 39% | 2023: 56% | 2024: 49%",
         metas: { '2026': "60%", '2027': "60%", '2028': "60%", '2029': "60%" },
         iniciativas: [
           "Executar as etapas de 1º e 2º ciclos de monitoramento das recomendações emitidas."
         ]
-      },
-      {
-        nome: "IE 1.3 - Satisfação da Unidade Cliente",
-        tipo: "Desempenho",
-        descricao: "Mede o grau de satisfação sobre os trabalhos realizados na perspectiva da unidade cliente.",
-        instrumento: "Questionário de Avaliação Contínua - Unidades Clientes.",
-        calculo: "Média simples do índice de satisfação das unidades clientes.",
-        linhaBase: "Sem histórico registrado sob o novo instrumento de avaliação.",
-        metas: { '2026': "70%", '2027': "70%", '2028': "70%", '2029': "70%" },
-        iniciativas: [
-          "Disponibilizar os questionários de avaliação após o encerramento de cada trabalho desenvolvido."
-        ]
       }
     ]
   },
   obj2: {
-    titulo: "OE 02 - Aprimorar os processos de auditoria interna",
+    titulo: "OT 02 - Consolidar as avaliações do PAQ-AUD (Programa de Avaliação de Qualidade da Auditoria Interna)",
     indicadores: [
       {
-        nome: "IE 2.1 - Mapeamento e Documentação dos Processos de Trabalho",
-        tipo: "Entrega",
-        descricao: "Contabiliza a padronização e documentação dos macroprocessos de trabalho da Secretaria.",
-        instrumento: "Inventário de Processos de Trabalho da SAU.",
-        calculo: "Soma absoluta acumulada de processos mapeados e documentados.",
-        linhaBase: "1 macroprocesso de auditoria formalmente catalogado em suas etapas, participantes e artefatos.",
-        metas: { '2026': "1 proc.", '2027': "2 proc.", '2028': "3 proc.", '2029': "4 proc." },
+        nome: "IT 2.1 - Avaliação Contínua de Auditorias",
+        tipo: "Desempenho",
+        descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada auditoria interna, levando em consideração as respostas dos seguintes atores: unidades clientes, gestor da unidade cliente, equipe de auditoria, coordenador do trabalho.",
+        instrumento: "Questionários de Avaliação Contínua de Auditorias Internas (uma versão para cada um dos atores respondentes)",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
+        linhaBase: "2021: 97,04 | 2022: 95,43 | 2023: 95,84",
+        metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
         iniciativas: [
-          "Mapear e padronizar os 10 processos finalísticos (Auditoria Ordinária, Financeira, Integrada, Coordenada, Consultoria, PAA, PALP, Monitoramento, Atos de Pessoal e RGF).",
-          "Elaborar templates de papéis de trabalho vinculados e inseri-los no Inventário de Processos de Trabalho da SAU."
+          "Disponibilizar os questionários após a conclusão de cada auditoria interna.",
+          "Consolidar as lições aprendidas a partir dos resultados obtidos na avaliação."
         ]
       },
       {
-        nome: "IE 2.2 - Institucionalização dos KPAs do IA-CM",
+        nome: "IT 2.2 - Avaliação Contínua de Consultorias",
         tipo: "Desempenho",
-        descricao: "Mensura o nível de conformidade da estrutura de auditoria interna com base no modelo internacional IA-CM.",
-        instrumento: "Autoavaliação IA-CM do TSE.",
-        calculo: "(KPAs de Nível 2 institucionalizados / Total de KPAs do Nível 2) x 100",
-        linhaBase: "2023: 66% | 2026: 86%",
+        descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada consultoria, levando em consideração as respostas dos seguintes atores: unidades clientes, gestor da unidade cliente, equipe de auditoria, coordenador do trabalho.",
+        instrumento: "Questionários de Avaliação Contínua de Consultorias (uma versão para cada um dos atores respondentes).",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
+        linhaBase: "Sem histórico registrado.",
+        metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
+        iniciativas: [
+          "Disponibilizar os questionários após a conclusão de cada consultoria.",
+          "Consolidar as lições aprendidas a partir dos resultados obtidos na avaliação."
+        ]
+      },
+      {
+        nome: "IT 2.3 - Avaliação Contínua de Auditorias Integradas",
+        tipo: "Desempenho",
+        descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada auditoria integrada, levando em consideração as respostas dos seguintes atores: auditorias internas dos TREs envolvidos, equipe de auditoria, coordenador do trabalho.",
+        instrumento: "Questionários de Avaliação Contínua de Auditorias Integradas (uma versão para cada um dos atores respondentes).",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
+        linhaBase: "Sem histórico registrado.",
+        metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
+        iniciativas: [
+          "Disponibilizar os questionários após a conclusão de cada auditoria integrada.",
+          "Consolidar as lições aprendidas a partir dos resultados obtidos na avaliação."
+        ]
+      },
+      {
+        nome: "IT 2.4 - Avaliação Periódica da Alta Administração",
+        tipo: "Desempenho",
+        descricao: "Consolida as notas de avaliações periódicas realizadas pela alta administração do TSE.",
+        instrumento: "Questionário de Avaliação Periódica pela Alta Administração",
+        calculo: "Média simples das notas do questionário respondido.",
+        linhaBase: "2021: 97,87% | 2022: 94,92% | 2024: 97,52% | 2025: 100%",
+        metas: { '2026': "95%", '2027': "95%", '2028': "95%", '2029': "95%" },
+        iniciativas: [
+          "Disponibilizar o questionário ao final da gestão à autoridade cujo mandato supere o período de 1 ano ou sempre que a conveniência e a oportunidade permitirem.",
+          "Consolidar as lições aprendidas a partir dos resultados obtidos na avaliação."
+        ]
+      },
+      {
+        nome: "IT 2.5 - Avaliação Periódica do IA-CM",
+        tipo: "Desempenho",
+        descricao: "Consolida as notas de avaliações periódicas do nível de implementação do IA-CM, realizadas pela própria SAU e por um tribunal parceiro avaliador, escolhido no contexto do grupo de trabalho coordenado pelo CNJ.",
+        instrumento: "Planilha de Autoavaliação do IA-CM | Validação externa por par (apontado no GT do CNJ).",
+        calculo: "Média considerando autoavaliação e validação externa do tribunal parceiro.",
+        linhaBase: "2023: 66% do Nível 2 | 2026: 82% do Nível 2 (homologado por avaliação de par).",
         metas: { '2026': "90% do Nível 2", '2027': "100% do Nível 2", '2028': "Autoav. Nível 3", '2029': "A ser definido" },
         iniciativas: [
-          "Concluir formalmente a autoavaliação institucionalizada no nível 2 do IA-CM.",
-          "Desenvolver o plano de ação preparatório para a autoavaliação do nível 3."
-        ]
-      },
-      {
-        nome: "IE 2.3 - Cumprimento do Plano de Auditoria",
-        tipo: "Desempenho",
-        descricao: "Mede o percentual de execução das ações de auditoria, monitoramento e consultoria para o ano em relação ao total previsto.",
-        instrumento: "Planilha de Controle de Avaliações da SAU | Painel Estatístico da SAU.",
-        calculo: "(Quantidade de atividades executadas / Quantidade de atividades previstas) x 100",
-        linhaBase: "2024: Auditorias (54%), Monitoramentos (80%), Consultorias (100%).",
-        metas: { '2026': "65%", '2027': "70%", '2028': "75%", '2029': "80%" },
-        iniciativas: [
-          "Acompanhar os cronogramas de ações com auxílio de dashboards internos.",
-          "Sinalizar à alta administração os alertas de desvios críticos de prazo."
+          "Realizar ciclos periódicos de autoavaliação por meio da Comissão Técnica de Auditoria Interna da SAU (CTAI).",
+          "Submeter relatórios e evidências de capacidade ao tribunal validador par."
         ]
       }
     ]
   },
   obj3: {
-    titulo: "OE 03 - Aprimorar a qualidade dos trabalhos da SAU",
+    titulo: "OT 03 - Aprimorar a qualidade dos processos de trabalho da SAU",
     indicadores: [
       {
-        nome: "IE 3.1 - Ações de Aprimoramento da Qualidade",
+        nome: "IT 3.1 - Mapeamento dos processos de auditoria interna",
         tipo: "Entrega",
-        descricao: "Mede a quantidade das entregas programadas no Programa de Avaliação da Qualidade da Auditoria Interna (PAQ-AUD).",
-        instrumento: "Informação sobre a Execução do PAQ-AUD.",
-        calculo: "Contagem simples de ações de aprimoramento finalizadas no ano.",
-        linhaBase: "Sem dados históricos.",
-        metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
+        descricao: "Contabiliza a quantidade de macroprocessos da Secretaria mapeados e documentados.",
+        instrumento: "Página de Processos de Trabalho da SAU no Sharepoint | SEI",
+        calculo: "Soma de processos mapeados e documentados.",
+        linhaBase: "2024: 1 macroprocesso de auditoria ordinária formalmente catalogado.",
+        metas: { '2026': "2 proc.", '2027': "2 proc.", '2028': "2 proc.", '2029': "2 proc." },
         iniciativas: [
-          "Revisar o programa de qualidade PAQ-AUD da Secretaria.",
-          "Acompanhar as entregas previstas no PAQ-AUD."
+          "Mapear e padronizar os processos finalísticos da Secretaria.",
+          "Incluir documentação dos processos de trabalho no SEI."
         ]
       },
       {
-        nome: "IE 3.2 - Avaliação Contínua",
-        tipo: "Desempenho",
-        descricao: "Consolidação das avaliações multidimensionais pós-conclusão de trabalhos individuais.",
-        instrumento: "Questionário de Encerramento Interno (Dimensões: Autoavaliação e Supervisão) | Questionário de Encerramento para Clientes (Dimensões: Satisfação Geral, Eficiência e Efetividade).",
-        calculo: "Consolidação das notas dos questionários para clientes e para equipe interna pós-trabalho.",
-        linhaBase: "2021: 97,04 | 2022: 95,43 | 2023: 95,84",
-        metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
+        nome: "IT 3.2 - Padronização dos papéis de trabalho e documentação afim",
+        tipo: "Entrega",
+        descricao: "Contabiliza a quantidade de templates, roteiros e papéis de trabalho eletrônicos criados.",
+        instrumento: "Página de Processos de Trabalho da SAU no Sharepoint | SEI",
+        calculo: "Soma dos documentos criados.",
+        linhaBase: "Modelos básicos de auditoria ordinária revisados e documentados em 2024.",
+        metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
         iniciativas: [
-          "Aferir as notas de autoavaliação e de supervisão técnica após a conclusão de cada auditoria ou consultoria.",
-          "Compilar anualmente as lições aprendidas para mitigar lacunas de supervisão das equipes."
+          "Elaborar modelos de documentos para a atuação dos auditores.",
+          "Incluir modelos de documentos no SEI."
+        ]
+      },
+      {
+        nome: "IT 3.3 - Institucionalização dos KPAs do IA-CM",
+        tipo: "Desempenho",
+        descricao: "Mede o percentual de macroprocessos-chave do modelo IA-CM implementados no TSE.",
+        instrumento: "Planilha de Avaliação Periódica do IA-CM | Plano de Ação do IA-CM",
+        calculo: "(Atividades do nível corrente implementadas / Total de atividades essenciais pendentes no nível corrente) x 100",
+        linhaBase: "Nível 2 em fase final de institucionalização.",
+        metas: { '2026': "90% do Nível 2", '2027': "100% do Nível 2", '2028': "Autoav. Nível 3", '2029': "A ser definido" },
+        iniciativas: [
+          "Desenvolver plano de ação para as atividades de nível 2 pendentes.",
+          "Realizar a autoavaliação do nível 3."
+        ]
+      },
+      {
+        nome: "IT 3.4 - Aperfeiçoamento da comunicação com clientes",
+        tipo: "Desempenho",
+        descricao: "Contabiliza as ações realizadas para o aperfeiçoamento da comunicação.",
+        instrumento: "Questionário de Avaliação Contínua para Clientes (Elemento: Comunicação dos Resultados) | Questionário de Avaliação Contínua para Gestores (Elemento: Comunicação dos Resultados) | Plano de Ação de Comunicação com Clientes",
+        calculo: "Soma das ações de aperfeiçoamento da comunicação implementadas.",
+        linhaBase: "Dimensão nova. Sem dados históricos consolidados.",
+        metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
+        iniciativas: [
+          "Instituir modelos de documentos e relatórios para a aplicação de linguagem simples, útil e padronizada."
+        ]
+      },
+      {
+        nome: "IT 3.5 - Inovação tecnológica quanto a gestão de dados e automatização",
+        tipo: "Entrega",
+        descricao: "Contabiliza as novas ferramentas digitais criadas para gestão, análise de dados e automação de trabalhos da Secretaria.",
+        instrumento: "Ferramentas tecnológicas criadas pelo Núcleo de Pesquisa e Desenvolvimento da SAU",
+        calculo: "Soma das soluções tecnológicas desenvolvidas no exercício.",
+        linhaBase: "Sem dados históricos consolidados.",
+        metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
+        iniciativas: [
+          "Desenvolver planilha de gestão de dados de auditorias e consultorias da Secretaria.",
+          "Desenvolver painel estatístico das atividades da SAU.",
+          "Desenvolver página de repositório de documentos úteis da SAU.",
+          "Desenvolver ferramentas para reduzir dependência de processos manuais de conferência."
         ]
       }
     ]
   },
   obj4: {
-    titulo: "OE 04 - Aprimorar a comunicação com as unidades clientes",
+    titulo: "OT 04 - Estimular o desenvolvimento de competências profissionais",
     indicadores: [
       {
-        nome: "IE 4.1 - Qualidade da Comunicação com Clientes",
+        nome: "IT 4.1 - Horas de Capacitação por Servidor",
         tipo: "Desempenho",
-        descricao: "Avalia a clareza, objetividade e adoção de linguagem simples nos canais de comunicação com auditados e clientes de consultoria.",
-        instrumento: "Questionário de Encerramento para Clientes (Dimensão: Comunicação).",
-        calculo: "Média simples dos dados do grupo temático coletados anualmente.",
-        linhaBase: "Dimensão nova. Sem dados históricos.",
-        metas: { '2026': "70%", '2027': "70%", '2028': "70%", '2029': "70%" },
-        iniciativas: [
-          "Instituir templates de documentos para a aplicação de linguagem padronizada em comunicações.",
-          "Redigir sumários executivos para otimizar o tempo de leitura dos gestores."
-        ]
-      }
-    ]
-  },
-  obj5: {
-    titulo: "OE 05 - Implementar tecnologia para automação de processos",
-    indicadores: [
-      {
-        nome: "IE 5.1 - Automatização de processos da SAU",
-        tipo: "Entrega",
-        descricao: "Contabiliza a homologação de novas ferramentas digitais, planilhas, scripts ou robôs (RPA) de automação para gestão e análise de dados.",
-        instrumento: "Relatório de Desenvolvimento de Soluções Tecnológicas da SAU.",
-        calculo: "Soma das soluções homologadas e em ambiente de produção no exercício.",
-        linhaBase: "Sem dados históricos consolidados.",
-        metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
-        iniciativas: [
-          "Desenvolver soluções automatizadas de extração de dados para processos de auditoria contínua.",
-          "Desenvolver repositórios, planilhas e painéis estatísticos para a gestão e análise de dados da Secretaria."
-        ]
-      }
-    ]
-  },
-  obj6: {
-    titulo: "OE 06 - Estimular o desenvolvimento de competências profissionais",
-    indicadores: [
-      {
-        nome: "IE 6.1 - Horas de Capacitação por Servidor",
-        tipo: "Desempenho",
-        descricao: "Mede o nível de adesão à capacitação profissional contínua para manutenção da proficiência técnica.",
-        instrumento: "Sistema SGRH | Relatório de Gestão por Competências.",
+        descricao: "Mensura o percentual de servidores da SAU que atingiu o número mínimo de 50 horas anuais de capacitação.",
+        instrumento: "Sistema SGRH",
         calculo: "(Servidores ativos que completaram >= 50h de curso / Total de servidores ativos) x 100",
-        linhaBase: "2021 a 2024: 100% dos servidores ativos atingiram a meta histórica de 40h.",
+        linhaBase: "2021: 80% dos servidores atingiram a meta de 40h.",
         metas: { '2026': "80%", '2027': "90%", '2028': "100%", '2029': "100%" },
         iniciativas: [
           "Ofertar trilhas e cursos especializados de auditoria governamental e ciência de dados.",
-          "Acompanhar as horas-aula acumuladas por servidor."
+          "Acompanhar a execução das horas-aula acumuladas pelos servidores."
         ]
       },
       {
-        nome: "IE 6.2 - Redução dos GAPs de competências",
+        nome: "IT 4.2 - Redução dos GAPs de competências",
         tipo: "Desempenho",
-        descricao: "Mede a diminuição das lacunas de conhecimento técnico prioritário por meio do cálculo ponderado de gaps.",
+        descricao: "Mede a diminuição das lacunas de conhecimento técnico prioritário por meio do cálculo de gaps.",
         instrumento: "Questionário de Avaliação de Competências | Plano Anual de Capacitação.",
-        calculo: "Fórmula ponderada considerando gaps graves (nível 9) e moderados (nível 6).",
-        linhaBase: "2025-2026: Redução inicial esperada de 25%.",
-        metas: { '2026': "Redução de 25%", '2027': "A definir", '2028': "A definir", '2029': "A definir" },
+        calculo: "Fórmula considerando gaps prioritários (nível 9) e moderados (nível 6).",
+        linhaBase: "2025-2026: Gap de 25%.",
+        metas: { '2026': "A definir", '2027': "A definir", '2028': "A definir", '2029': "A definir" },
         iniciativas: [
           "Aplicar o questionário de avaliação de competências junto aos servidores da SAU.",
-          "Estruturar o plano anual de capacitação focado primordialmente nos gaps graves apontados."
+          "Estruturar o plano anual de capacitação focado primordialmente nos gaps graves e planos de sucessão técnica."
         ]
       }
     ]
@@ -393,6 +412,11 @@ function scrollToIndicator(id) {
   const targetElement = document.getElementById(id);
   if (targetElement) {
     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    
+    // Reseta a classe de animação para reiniciar o efeito de brilho
+    targetElement.classList.remove("highlight-active");
+    void targetElement.offsetWidth; // Força o reflow do navegador
+    targetElement.classList.add("highlight-active");
   }
 }
 
@@ -493,7 +517,7 @@ function updateRadarChart(isDark) {
 
 // FUNÇÃO AUXILIAR DE RESET DE ROLAGEM
 function scrollToTop() {
-  const mainArea = document.getElementById('main-area');
+  const mainArea = document.getElementById("main-area");
   if (mainArea) {
     mainArea.scrollTop = 0; // Reseta a rolagem interna do contêiner principal (Desktop)
   }
