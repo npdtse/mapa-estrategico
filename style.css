@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=swap');
+
 /* === [CAPÍTULO 1] CONFIGURAÇÕES DE TEMA E VARIÁVEIS === */
 
 /* --- [Seção] Variáveis Globais e Temas (Modo Claro) --- */
@@ -10,6 +12,7 @@
   --primary: #0073E6; 
   --primary-light: #4D9FFF; 
   --primary-faded: #E6F0FA; 
+  --secondary: #D97706; /* Cor âmbar institucional para iniciativas e destaques secundários */
   
   --text: #1A2733;
   --text2: #4A5B6E;
@@ -19,16 +22,13 @@
   --shadow: 0 4px 12px rgba(0, 115, 230, 0.08);
   --shadow-lg: 0 8px 32px rgba(0, 115, 230, 0.15);
   --radius: 12px;
-  --transition: 200ms cubic-bezier(.4,0,.2,1);
+  --transition: 200ms cubic-bezier(.4, 0, .2, 1);
   --grid-unit: 4px;
   --sidebar-w: 260px;
   
   --phase1: #6F42C1; /* Resultados / Roxo */
   --phase2: #0073E6; /* Processos Internos / Azul */
   --phase3: #FD7E14; /* Aprendizado e Crescimento / Laranja */
-  --lightphase1: #aa9ec0; /* Resultados / Roxo */
-  --lightphase2: #adc9e4; /* Processos Internos / Azul */
-  --lightphase3: #fad2b1; /* Aprendizado e Crescimento / Laranja */
 }
 
 /* --- [Seção] Ajustes de Cores (Modo Escuro) --- */
@@ -41,6 +41,7 @@
   --primary: #3399FF;
   --primary-light: #66B2FF;
   --primary-faded: #132338;
+  --secondary: #F59E0B; /* Âmbar de alta visibilidade e contraste no escuro */
   
   --text: #F1F5F9;
   --text2: #CBD5E1;
@@ -63,7 +64,7 @@
 
 html { 
   scroll-behavior: smooth; 
-  font-size: 106.25%; /* Eleva a base raiz rem de 16px para 17px (~6.25% de escala global) */
+  font-size: 106.25%; /* Base raiz rem ~17px para melhor leitura */
 }
 
 body {
@@ -73,7 +74,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-size: 17px;     /* Aumentado para 17px para elementos herdados diretos */
+  font-size: 17px;
   line-height: 1.6;
   transition: background var(--transition), color var(--transition);
 }
@@ -110,12 +111,12 @@ header {
 }
 
 .header-seal {
-  width: 54px;                 /* Ampliado para nivelar visualmente com a altura total das duas linhas de texto */
+  width: 54px;
   height: 54px;
   display: flex; 
   align-items: center; 
   justify-content: center;
-  flex-shrink: 0;              /* Previne que o flexbox achate o selo lateralmente */
+  flex-shrink: 0;
   transition: background var(--transition), box-shadow var(--transition);
 }
 
@@ -133,7 +134,7 @@ header {
 .header-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;                    /* Controla o espaçamento estrito de uma linha para a outra */
+  gap: 2px;
 }
 
 .header-text h1 {
@@ -142,8 +143,8 @@ header {
   font-weight: 700; 
   letter-spacing: .3px;
   text-transform: uppercase;
-  margin: 0;                   /* Reseta as margens do navegador */
-  line-height: 1.15;           /* Altura de linha otimizada para caixa alta */
+  margin: 0;
+  line-height: 1.15;
 }
 
 .header-text p { 
@@ -151,8 +152,8 @@ header {
   opacity: .85; 
   letter-spacing: .6px; 
   text-transform: uppercase; 
-  margin: 0;                   /* Reseta as margens do navegador */
-  line-height: 1.2;            /* Altura de linha otimizada para caixa alta */
+  margin: 0;
+  line-height: 1.2;
 }
 
 .header-actions { 
@@ -252,7 +253,7 @@ header {
   background: none;
   border: 1.5px solid transparent;
   border-radius: 10px;
-  padding: 12px 14px;
+  padding: 12px 14px 12px 20px;
   cursor: pointer;
   color: var(--text2);
   font-family: 'Source Sans 3', sans-serif;
@@ -264,7 +265,6 @@ header {
   line-height: 1.4;
 }
 
-/* Indicador de barra lateral elástica dinâmica */
 .audit-tab::after {
   content: '';
   position: absolute;
@@ -328,6 +328,7 @@ main {
 
 /* --- [Seção] Títulos e Parágrafos --- */
 .section-title {
+  font-family: 'Source Sans 3', sans-serif;
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--text);
@@ -336,7 +337,7 @@ main {
 }
 
 .subsection-title {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 16px;
@@ -356,7 +357,7 @@ main {
 /* --- [Seção] Card de Adaptabilidade Normativa --- */
 .adaptability-card {
   background: var(--surface);
-  border: 1.5px solid var(--border); /* Removida a borda amarela grossa de 6px por um contorno periférico fino */
+  border: 1.5px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
   display: flex;
@@ -368,8 +369,8 @@ main {
 }
 
 .adaptability-card__icon-wrapper {
-  color: #C59B27;              /* Refinado o amarelo para um tom dourado corporativo sóbrio */
-  background: rgba(197, 155, 39, 0.08); /* Adicionado círculo de destaque translúcido */
+  color: #C59B27;
+  background: rgba(197, 155, 39, 0.08);
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -393,7 +394,7 @@ main {
   line-height: 1.5;
 }
 
-/* --- [Seção] Diagrama de Cascateamento --- */
+/* --- [Seção] Diagrama de Cascateamento (Apresentação) --- */
 .diagram-block {
   background: var(--surface);
   padding: 24px;
@@ -437,22 +438,18 @@ main {
   font-weight: 600;
   font-size: 0.95rem;
   box-shadow: var(--shadow);
+  margin-bottom: 12px;
+  align-items: flex-start;
 }
 
 .tse-card {
   background: var(--primary-faded);
   color: var(--primary);
-  border: 1.5px solid var(--primary-light); /* Removida a borda lateral grossa de 5px */
+  border: 1.5px solid var(--primary-light);
 }
 
 [data-theme="dark"] .tse-card {
   color: var(--primary-light);
-}
-
-/* --- Estilos de Estrutura e Margem dos Cards do Diagrama --- */
-.cascade-diagram__card {
-  margin-bottom: 12px;
-  align-items: flex-start; /* Alinhamento ao topo para comportar o texto com tags */
 }
 
 .cascade-diagram__card-text {
@@ -472,33 +469,35 @@ main {
   margin-bottom: 2px;
 }
 
-/* --- Cartões do Diagrama por Perspectiva (Modo Claro) --- */
-
-/* Resultados (Roxo) */
+/* Bordas suavizadas no cascateamento tático */
 .cascade-diagram__card--resultados {
-  background: rgba(111, 66, 193, 0.06);
+  background: rgba(111, 66, 193, 0.05);
   color: #5527a4;
-  border: 1.5px solid var(--lightphase1); /* Substituída a borda de 5px por contorno de 1.5px */
+  border: 1px solid rgba(111, 66, 193, 0.25);
+}
+[data-theme="dark"] .cascade-diagram__card--resultados {
+  color: #cbb4fc;
 }
 .cascade-diagram__card--resultados .cascade-diagram__card-tag {
   color: var(--phase1);
 }
 
-/* Processos Internos (Azul) */
 .cascade-diagram__card--processos {
   background: var(--primary-faded);
   color: var(--primary);
-  border: 1.5px solid var(--lightphase2); /* Substituída a borda de 5px por contorno de 1.5px */
+  border: 1px solid rgba(0, 115, 230, 0.25);
 }
 .cascade-diagram__card--processos .cascade-diagram__card-tag {
   color: var(--phase2);
 }
 
-/* Aprendizado e Crescimento (Laranja) */
 .cascade-diagram__card--aprendizado {
-  background: rgba(253, 126, 20, 0.06);
+  background: rgba(253, 126, 20, 0.05);
   color: #c45700;
-  border: 1.5px solid var(--lightphase3); /* Substituída a borda de 5px por contorno de 1.5px */
+  border: 1px solid rgba(253, 126, 20, 0.25);
+}
+[data-theme="dark"] .cascade-diagram__card--aprendizado {
+  color: #ffb77d;
 }
 .cascade-diagram__card--aprendizado .cascade-diagram__card-tag {
   color: var(--phase3);
@@ -525,17 +524,16 @@ main {
   border-radius: var(--radius);
   padding: 24px;
   box-shadow: var(--shadow);
-  border: 1.5px solid var(--border); /* Removida a borda de 6px do topo, aplicando contorno fino */
+  border: 1.5px solid var(--border);
   transition: transform var(--transition), background var(--transition), border var(--transition), box-shadow var(--transition);
 }
 
 .identity-card:hover {
   transform: translateY(-4px);
-  border-color: var(--primary-light); /* Acendimento suave e profissional da borda no hover */
+  border-color: var(--primary-light);
   box-shadow: var(--shadow-lg);
 }
 
-/* Cartão de Identidade Unificado sob a Cor Corporativa */
 .identity-card--primary { 
   border-color: var(--border); 
 }
@@ -552,7 +550,7 @@ main {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--primary-faded); /* Círculo de fundo translúcido para compensar a perda da borda grossa */
+  background: var(--primary-faded);
   color: var(--primary);
   display: flex;
   align-items: center;
@@ -578,7 +576,6 @@ main {
   color: var(--text2);
 }
 
-/* --- [Seção] Lista de Valores Sóbria --- */
 .identity-card__list {
   list-style: none;
 }
@@ -608,7 +605,7 @@ main {
   grid-column: 1;
   grid-row: 1 / span 2;
   background-color: var(--bg);
-  color: var(--primary); /* Sincronizado para usar a cor institucional */
+  color: var(--primary);
   font-weight: 700;
   font-size: 0.75rem;
   width: 24px;
@@ -637,7 +634,159 @@ main {
 }
 
 
-/* === [CAPÍTULO 7] MAPA ESTRATÉGICO INTERATIVO (BSC) === */
+/* === [CAPÍTULO 7] MATRIZ SWOT E INTERAÇÃO === */
+
+.swot-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 24px;
+  margin-top: 16px;
+  max-width: 900px;
+}
+
+@media (min-width: 768px) {
+  .swot-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+.swot-card {
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: border var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.swot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.swot-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.swot-card__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text3);
+}
+
+.swot-card__icon {
+  font-size: 18px;
+  transition: color var(--transition);
+}
+
+.swot-card__title {
+  font-size: 1.55rem; /* Ampliado para maior impacto visual */
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  margin-top: 4px;
+}
+
+.swot-card__desc {
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.swot-card__btn-visual {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: auto;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.swot-card__btn-visual i {
+  transition: transform var(--transition);
+}
+
+.swot-card:hover .swot-card__btn-visual i {
+  transform: translateX(4px);
+}
+
+/* Quadrantes SWOT com preenchimento, borda tonal suave e títulos marcantes coloridos */
+.swot-card--forcas {
+  background: rgba(16, 185, 129, 0.05);
+  border: 1.5px solid rgba(16, 185, 129, 0.2);
+}
+[data-theme="dark"] .swot-card--forcas {
+  background: rgba(16, 185, 129, 0.08);
+}
+.swot-card--forcas:hover {
+  border-color: rgba(16, 185, 129, 0.55);
+}
+.swot-card--forcas .swot-card__title,
+.swot-card--forcas .swot-card__icon,
+.swot-card--forcas .swot-card__btn-visual {
+  color: #10B981;
+}
+
+.swot-card--fraquezas {
+  background: rgba(245, 158, 11, 0.05);
+  border: 1.5px solid rgba(245, 158, 11, 0.2);
+}
+[data-theme="dark"] .swot-card--fraquezas {
+  background: rgba(245, 158, 11, 0.08);
+}
+.swot-card--fraquezas:hover {
+  border-color: rgba(245, 158, 11, 0.55);
+}
+.swot-card--fraquezas .swot-card__title,
+.swot-card--fraquezas .swot-card__icon,
+.swot-card--fraquezas .swot-card__btn-visual {
+  color: #F59E0B;
+}
+
+.swot-card--oportunidades {
+  background: rgba(6, 182, 212, 0.05);
+  border: 1.5px solid rgba(6, 182, 212, 0.2);
+}
+[data-theme="dark"] .swot-card--oportunidades {
+  background: rgba(6, 182, 212, 0.08);
+}
+.swot-card--oportunidades:hover {
+  border-color: rgba(6, 182, 212, 0.55);
+}
+.swot-card--oportunidades .swot-card__title,
+.swot-card--oportunidades .swot-card__icon,
+.swot-card--oportunidades .swot-card__btn-visual {
+  color: #06B6D4;
+}
+
+.swot-card--ameacas {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1.5px solid rgba(239, 68, 68, 0.2);
+}
+[data-theme="dark"] .swot-card--ameacas {
+  background: rgba(239, 68, 68, 0.08);
+}
+.swot-card--ameacas:hover {
+  border-color: rgba(239, 68, 68, 0.55);
+}
+.swot-card--ameacas .swot-card__title,
+.swot-card--ameacas .swot-card__icon,
+.swot-card--ameacas .swot-card__btn-visual {
+  color: #EF4444;
+}
+
+
+/* === [CAPÍTULO 8] MAPA ESTRATÉGICO INTERATIVO (BSC) === */
 
 .bsc-panel {
   background: var(--surface);
@@ -658,12 +807,10 @@ main {
   transition: background var(--transition), border var(--transition);
 }
 
-/* Tons de fundo semânticos e translúcidos para cada perspectiva (Modo Claro) */
-.bsc-perspective:nth-child(1) { background: rgba(111, 66, 193, 0.12); } /* Resultados (Roxo) */
-.bsc-perspective:nth-child(2) { background: rgba(0, 115, 230, 0.12); }  /* Processos Internos (Azul) */
-.bsc-perspective:nth-child(3) { background: rgba(253, 126, 20, 0.15); }  /* Aprendizado e Crescimento (Laranja) */
+.bsc-perspective:nth-child(1) { background: rgba(111, 66, 193, 0.12); }
+.bsc-perspective:nth-child(2) { background: rgba(0, 115, 230, 0.12); }
+.bsc-perspective:nth-child(3) { background: rgba(253, 126, 20, 0.15); }
 
-/* Tons de fundo semânticos e translúcidos adaptados para o Modo Escuro */
 [data-theme="dark"] .bsc-perspective:nth-child(1) { background: rgba(111, 66, 193, 0.08); }
 [data-theme="dark"] .bsc-perspective:nth-child(2) { background: rgba(51, 153, 255, 0.06); }
 [data-theme="dark"] .bsc-perspective:nth-child(3) { background: rgba(253, 126, 20, 0.08); }
@@ -692,35 +839,51 @@ main {
 .bsc-perspective__objectives--grid,
 .bsc-perspective__objectives--grid-two {
   display: grid;
-  grid-template-columns: 1fr; /* Mantém 1 coluna de forma global, forçando o empilhamento vertical */
+  grid-template-columns: minmax(0, 1fr) !important;
   gap: 12px;
   align-items: stretch;
 }
 
-/* O bloco @media (min-width: 1024px) que dividia as colunas de objetivos foi removido para unificar o alinhamento em todas as resoluções de desktop. */
-
-/* --- [Seção] Objective Cards (Split Compartment Style) --- */
 .objective-card {
   background: var(--surface);
-  border: 1.5px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%; /* Estica verticalmente no grid */
-  padding: 0;   /* Removido o padding do cartão geral para segmentar compartimentos */
+  height: 100%;
+  padding: 0;
   overflow: hidden;
-  /* Transição física elástica simulando efeito de mola de alta fidelidade */
   transition: border 350ms cubic-bezier(.34, 1.56, .64, 1), 
               transform 350ms cubic-bezier(.34, 1.56, .64, 1), 
               box-shadow 350ms cubic-bezier(.34, 1.56, .64, 1);
 }
 
 .objective-card:hover {
-  border-color: var(--primary);
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+}
+
+/* Modificadores de bordas suaves baseados na perspectiva do Mapa Tático */
+.objective-card--resultados {
+  border: 1.5px solid rgba(111, 66, 193, 0.25);
+}
+.objective-card--resultados:hover {
+  border-color: var(--phase1);
+}
+
+.objective-card--processos {
+  border: 1.5px solid rgba(0, 115, 230, 0.25);
+}
+.objective-card--processos:hover {
+  border-color: var(--phase2);
+}
+
+.objective-card--aprendizado {
+  border: 1.5px solid rgba(253, 126, 20, 0.25);
+}
+.objective-card--aprendizado:hover {
+  border-color: var(--phase3);
 }
 
 .objective-card__body {
@@ -728,7 +891,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  flex-grow: 1; /* Faz a área de texto crescer para empurrar a lista de indicadores ao fundo */
+  flex-grow: 1;
 }
 
 .objective-card__header {
@@ -751,7 +914,6 @@ main {
   transition: color var(--transition);
 }
 
-/* Iluminação de cor do ícone no hover do card */
 .bsc-perspective:nth-child(1) .objective-card:hover .objective-card__icon { color: var(--phase1); }
 .bsc-perspective:nth-child(2) .objective-card:hover .objective-card__icon { color: var(--phase2); }
 .bsc-perspective:nth-child(3) .objective-card:hover .objective-card__icon { color: var(--phase3); }
@@ -807,7 +969,6 @@ main {
   transition: transform var(--transition);
 }
 
-/* Bolinhas dinâmicas de acordo com as cores de fase/perspectiva */
 .bsc-perspective:nth-child(1) .objective-card__indicator-dot { background: var(--phase1); }
 .bsc-perspective:nth-child(2) .objective-card__indicator-dot { background: var(--phase2); }
 .bsc-perspective:nth-child(3) .objective-card__indicator-dot { background: var(--phase3); }
@@ -844,7 +1005,6 @@ main {
   transition: transform var(--transition);
 }
 
-/* Microinterações e efeitos de Hover estéticos (Artist Protocol) */
 .objective-card__indicator-row:hover {
   background: var(--primary-faded);
 }
@@ -868,7 +1028,7 @@ main {
 }
 
 
-/* === [CAPÍTULO 8] FICHA TÉCNICA LATERAL (DRAWER) === */
+/* === [CAPÍTULO 9] FICHA TÉCNICA LATERAL (DRAWER) === */
 
 .drawer-overlay {
   position: fixed;
@@ -922,7 +1082,6 @@ main {
   transform: rotate(90deg);
 }
 
-/* --- [Seção] Elementos da Ficha Técnica --- */
 .tech-sheet__title {
   font-family: 'Source Sans 3', sans-serif;
   font-size: 1.35rem;
@@ -940,11 +1099,10 @@ main {
   padding: 16px;
   margin-bottom: 24px;
   border: 1.5px solid var(--border);
-  scroll-margin-top: 76px;    /* Cria uma margem de segurança de rolagem para que as etiquetas sticky não cubram o título do indicador */
+  scroll-margin-top: 76px;
   transition: background var(--transition), border var(--transition);
 }
 
-/* Ativação do efeito de brilho e pulsação suave ao ancorar indicador na Ficha Técnica (Artist Dynamic) */
 @keyframes indicatorHighlight {
   0% { 
     box-shadow: 0 0 0 0 rgba(0, 115, 230, 0.4); 
@@ -988,7 +1146,7 @@ main {
 }
 
 .tech-sheet__section {
-  border-bottom: 1px solid var(--border); /* Linha discreta divisória */
+  border-bottom: 1px solid var(--border);
   padding-bottom: 20px;
   margin-bottom: 24px;
   transition: border var(--transition);
@@ -1001,10 +1159,10 @@ main {
 }
 
 .tech-sheet__section-title {
-  font-size: 14px; /* Aumentado para 14px para melhorar a legibilidade e contraste técnico */
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--text2); /* Ajustado para var(--text2) garantindo contraste ideal */
+  color: var(--text2);
   letter-spacing: 0.5px;
   margin-bottom: 8px;
 }
@@ -1015,7 +1173,6 @@ main {
   line-height: 1.5;
 }
 
-/* --- [Seção] Tabela de Metas em Fichas --- */
 .tech-sheet__goals-table {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1046,7 +1203,6 @@ main {
   margin-top: 4px;
 }
 
-/* --- [Seção] Iniciativas Integradas --- */
 .tech-sheet__initiatives {
   background: var(--primary-faded);
   border: 1px solid var(--border);
@@ -1079,18 +1235,143 @@ main {
 }
 
 
-/* === [CAPÍTULO 9] MATURIDADE & QUALIDADE === */
+/* === [CAPÍTULO 10] ELEMENTOS INTERATIVOS DA GAVETA SWOT === */
+
+/* --- [Seção] Listas e Cards Temáticos SWOT --- */
+.swot-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.swot-detail-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background var(--transition), border var(--transition), transform var(--transition);
+}
+
+.swot-detail-card:hover {
+  background: var(--surface);
+  transform: translateX(4px);
+  border-color: var(--primary-light);
+}
+
+.swot-detail-card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swot-detail-card__code {
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.swot-detail-card__code--forcas { background: #10B981; }
+.swot-detail-card__code--fraquezas { background: #F59E0B; }
+.swot-detail-card__code--oportunidades { background: #06B6D4; }
+.swot-detail-card__code--ameacas { background: #EF4444; }
+
+.swot-detail-card__category {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Modificadores Semânticos de Perspectivas para os Badges do Drawer */
+.swot-detail-card__category--resultados {
+  background: rgba(111, 66, 193, 0.1);
+  color: #6F42C1;
+}
+[data-theme="dark"] .swot-detail-card__category--resultados {
+  background: rgba(181, 153, 252, 0.15);
+  color: #b599fc;
+}
+
+.swot-detail-card__category--processos {
+  background: rgba(0, 115, 230, 0.1);
+  color: #0073E6;
+}
+[data-theme="dark"] .swot-detail-card__category--processos {
+  background: rgba(102, 178, 255, 0.15);
+  color: #66b2ff;
+}
+
+.swot-detail-card__category--aprendizado {
+  background: rgba(253, 126, 20, 0.1);
+  color: #FD7E14;
+}
+[data-theme="dark"] .swot-detail-card__category--aprendizado {
+  background: rgba(255, 161, 92, 0.15);
+  color: #ffa15c;
+}
+
+.swot-detail-card__category i {
+  font-size: 10.5px;
+}
+
+.swot-detail-card__content {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.swot-detail-card__icon-wrapper {
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text3);
+  transition: background var(--transition), color var(--transition);
+}
+
+.swot-detail-card:hover .swot-detail-card__icon-wrapper {
+  background: var(--primary-faded);
+  color: var(--primary);
+}
+
+.swot-detail-card__text {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* === [CAPÍTULO 11] MATURIDADE & QUALIDADE === */
 
 .quality-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr) !important;
   gap: 24px;
   margin-top: 16px;
 }
 
 @media (min-width: 1024px) {
   .quality-grid {
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.2fr 1fr !important;
   }
 }
 
@@ -1101,6 +1382,8 @@ main {
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   transition: background var(--transition), border var(--transition);
+  min-width: 0;
+  width: 100%;
 }
 
 .quality-card__header {
@@ -1132,7 +1415,6 @@ main {
   margin-bottom: 24px;
 }
 
-/* --- [Seção] Termômetro IA-CM (Timeline) --- */
 .roadmap {
   display: flex;
   flex-direction: column;
@@ -1256,22 +1538,6 @@ main {
   color: var(--primary-light);
 }
 
-/* --- [Seção] Gráfico de Radar --- */
-.chart-container {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  height: 260px;
-  margin: 0 auto 24px auto;
-  overflow: hidden;
-}
-
-.chart-container canvas {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100%;
-}
-
 .dimensions-legend {
   display: flex;
   flex-direction: column;
@@ -1328,7 +1594,7 @@ main {
 }
 
 
-/* === [CAPÍTULO 10] RESPONSIVIDADE E ANIMAÇÕES === */
+/* === [CAPÍTULO 12] RESPONSIVIDADE E ANIMAÇÕES === */
 
 .mobile-only { display: none; }
 
@@ -1336,7 +1602,6 @@ main {
   .desktop-only { display: none; }
   .mobile-only { display: flex; }
   
-  /* Adaptação dinâmica do cabeçalho no mobile para evitar cortes de texto no topo */
   header {
     height: auto;
     min-height: 64px;
@@ -1344,29 +1609,28 @@ main {
   }
 
   .header-brand {
-    gap: 10px;                 /* Estreita o distanciamento horizontal no mobile */
+    gap: 10px;
   }
 
   .header-seal {
-    width: 54px;               /* Proporção mobile ideal que destaca a logo */
+    width: 54px;
     height: 54px;
   }
 
   .header-text {
-    gap: 1px;                  /* Estreita ainda mais a distância de linha no mobile */
+    gap: 1px;
   }
 
   .header-text h1 {
-    font-size: 15px;           /* Tamanho de fonte mobile otimizado */
+    font-size: 15px;
     line-height: 1.1;
   }
 
   .header-text p {
-    font-size: 10.5px;         /* Tamanho de fonte mobile otimizado */
+    font-size: 10.5px;
     line-height: 1.15;
   }
 
-  /* Estrutura empilhada */
   .app-body {
     flex-direction: column;
     border-left: none;
@@ -1375,20 +1639,18 @@ main {
     padding-bottom: 60px;
   }
   
-  /* Oculta a barra lateral de texto com prioridade absoluta, ativando o menu inferior de ícones */
   .sidebar-primary {
     display: none !important;
   }
   
   main {
-    padding: 16px 16px 80px 16px !important; /* Margem simétrica lateral e folga inferior */
+    padding: 16px 16px 80px 16px !important;
   }
 
   .quality-card {
     padding: 16px;
   }
 
-  /* --- [Seção] Barra de Navegação Móvel Ergonômica --- */
   .mobile-nav {
     position: fixed;
     bottom: 0;
@@ -1434,7 +1696,6 @@ main {
     color: var(--primary);
   }
 
-  /* --- [Seção] Drawer adaptado para Bottom Sheet no Mobile --- */
   .drawer {
     top: auto;
     bottom: -100%;
@@ -1446,12 +1707,11 @@ main {
     border-left: none;
     border-top: 1px solid var(--border);
     border-radius: 16px 16px 0 0;
-    padding: 16px 20px; /* Reduzido o padding lateral para otimizar espaço de leitura */
+    padding: 16px 20px;
     box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.15);
     transition: bottom var(--transition), background var(--transition), border var(--transition);
   }
 
-  /* Oculta fio vertical e bolinhas conectoras no mobile para aproveitar espaço horizontal */
   .roadmap::before {
     display: none !important;
   }
@@ -1468,13 +1728,12 @@ main {
     display: none !important;
   }
 
-  /* Ocultação defensiva do texto "Acessar Ficha" nos botões internos dos cards do mapa no mobile */
   .objective-card__indicator-btn-text {
     display: none !important;
   }
 
   .objective-card__indicator-btn {
-    padding: 6px 8px !important; /* Visual compacto estilo pílula circular */
+    padding: 6px 8px !important;
   }
 
   .objective-card__indicator-btn i {
@@ -1489,7 +1748,6 @@ main {
     padding: 16px 16px 12px 16px !important;
   }
 
-  /* SUPRESSÃO DE RECUOS NESTED NO MOBILE: Destrava a largura máxima útil de leitura */
   .bsc-panel {
     background: transparent !important;
     border: none !important;
@@ -1499,7 +1757,7 @@ main {
   }
 
   .bsc-perspective {
-    padding: 12px 10px !important; /* Reduz o padding lateral de 16px para 10px */
+    padding: 12px 10px !important;
   }
 }
 
@@ -1509,12 +1767,13 @@ main {
   100% { transform: scale(0.9); opacity: 1; }
 }
 
-/* Suporte de Transição GSAP */
 .anim {
   transition: transform var(--transition), opacity var(--transition);
 }
 
-/* === [ESTILO ADICIONAL] BADGES DE CONTAGEM (OPÇÃO A) === */
+
+/* === [CAPÍTULO 13] BADGES E DETALHES DE APOIO === */
+
 .objective-card__badge {
   display: inline-block;
   font-size: 10px;
@@ -1524,7 +1783,7 @@ main {
   padding: 2px 8px;
   border-radius: 12px;
   margin-left: 8px;
-  text-transform: none; /* Previne a capitalização forçada herdada de __num */
+  text-transform: none;
   letter-spacing: normal;
   vertical-align: middle;
   transition: background var(--transition), color var(--transition);
@@ -1535,7 +1794,6 @@ main {
   color: var(--text3);
 }
 
-/* Transições no hover do cartão para destacar a badge */
 .objective-card:hover .objective-card__badge {
   background-color: var(--primary-faded);
   color: var(--primary);
@@ -1546,8 +1804,6 @@ main {
   color: #0F172A;
 }
 
-
-/* === [ESTILO ADICIONAL] NAVEGAÇÃO DE ÂNCORA STICKY NO DRAWER (OPÇÃO C) === */
 .tech-sheet__nav {
   position: sticky;
   top: 0;
@@ -1595,8 +1851,6 @@ main {
   border-color: var(--primary);
 }
 
-/* === [ESTILO ADICIONAL] PILULAS DE SUBTÓPICOS DE INSTRUMENTOS === */
-
 .dimension-item__content {
   display: flex;
   flex-direction: column;
@@ -1627,7 +1881,6 @@ main {
   color: var(--text3);
 }
 
-/* Efeito Hover: Acendimento sutil e unificado das pílulas na cor da marca */
 .dimension-item:hover .dimension-item__sub-tag {
   background: var(--primary-faded);
   color: var(--primary);

@@ -1,5 +1,6 @@
 /* === [CAPÍTULO 1] BASE DE DADOS DOS INDICADORES E INICIATIVAS === */
 
+/* --- [Seção] Indicadores do Mapa Tático --- */
 const dbIndicadores = {
   obj1: {
     titulo: "OT 01 - Contribuir para a governança, a gestão de riscos e os controles internos",
@@ -14,7 +15,7 @@ const dbIndicadores = {
         metas: { '2026': "65%", '2027': "70%", '2028': "75%", '2029': "80%" },
         iniciativas: [
           "Fazer os registros históricos na Planilha de Controle de Avaliações a partir de 2021.",
-          "Acompanhar la execução dos trabalhos planejados."
+          "Acompanhar a execução dos trabalhos planejados."
         ]
       },
       {
@@ -39,7 +40,7 @@ const dbIndicadores = {
         tipo: "Desempenho",
         descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada auditoria interna, levando em consideração as respostas dos seguintes atores: unidades clientes, gestor da unidade cliente, equipe de auditoria, coordenador do trabalho.",
         instrumento: "Questionários de Avaliação Contínua de Auditorias Internas (uma versão para cada um dos atores respondentes)",
-        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada actor",
         linhaBase: "2021: 97,04 | 2022: 95,43 | 2023: 95,84",
         metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
         iniciativas: [
@@ -52,7 +53,7 @@ const dbIndicadores = {
         tipo: "Desempenho",
         descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada consultoria, levando em consideração as respostas dos seguintes atores: unidades clientes, gestor da unidade cliente, equipe de auditoria, coordenador do trabalho.",
         instrumento: "Questionários de Avaliação Contínua de Consultorias (uma versão para cada um dos atores respondentes).",
-        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada actor",
         linhaBase: "Sem histórico registrado.",
         metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
         iniciativas: [
@@ -65,7 +66,7 @@ const dbIndicadores = {
         tipo: "Desempenho",
         descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada auditoria integrada, levando em consideração as respostas dos seguintes atores: auditorias internas dos TREs envolvidos, equipe de auditoria, coordenador do trabalho.",
         instrumento: "Questionários de Avaliação Contínua de Auditorias Integradas (uma versão para cada um dos atores respondentes).",
-        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada actor",
         linhaBase: "Sem histórico registrado.",
         metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
         iniciativas: [
@@ -205,14 +206,159 @@ const dbIndicadores = {
   }
 };
 
-/* === [CAPÍTULO 2] LOGICA SPA E CONTROLE DE TEMAS === */
+/* --- [Seção] Fatores da Matriz SWOT --- */
+const dbSwot = {
+  forcas: {
+    titulo: "Forças (Fatores Internos / Positivos)",
+    color: "#10B981",
+    icon: "fa-solid fa-circle-plus",
+    itens: [
+      {
+        texto: "Independência técnica de atuação assegurada e estruturada formalmente no Estatuto de Auditoria Interna do TSE.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-gavel"
+      },
+      {
+        texto: "Corpo funcional da Secretaria de Auditoria (SAU) altamente capacitado e com qualificações acadêmicas consolidadas.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-graduation-cap"
+      },
+      {
+        texto: "Processos de auditoria planejados e plenamente orientados ao padrão global das normas profissionais (IIA/IPPF).",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-gears"
+      },
+      {
+        texto: "Proximidade, credibilidade e canais diretos de comunicação e assessoramento com a alta administração.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-handshake"
+      },
+      {
+        texto: "Forte engajamento técnico focado no Programa de Avaliação de Qualidade da Auditoria Interna (PAQ-AUD).",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-shield-halved"
+      },
+      {
+        texto: "Adoção sistemática de abordagens baseadas em riscos para elaboração do plano de auditoria.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-magnifying-glass"
+      }
+    ]
+  },
+  fraquezas: {
+    titulo: "Fraquezas (Fatores Internos / Negativos)",
+    color: "#F59E0B",
+    icon: "fa-solid fa-circle-minus",
+    itens: [
+      {
+        texto: "Instabilidade de fluxo e necessidade de consolidação metodológica para os processos de consultoria.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-gears"
+      },
+      {
+        texto: "Ausência de ferramenta analítica estruturada para registro de apuração histórica de benefícios do controle.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-chart-line"
+      },
+      {
+        texto: "Gaps de competência técnica interna voltados para Ciência de Dados, Análise Contínua e Inteligência Artificial.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-laptop-code"
+      },
+      {
+        texto: "Dependência acentuada de testes analíticos manuais provocada pela fragmentação dos sistemas internos de suporte.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-database"
+      }
+    ]
+  },
+  oportunidades: {
+    titulo: "Oportunidades (Fatores Externos / Positivos)",
+    color: "#06B6D4",
+    icon: "fa-solid fa-arrow-trend-up",
+    itens: [
+      {
+        texto: "Potencial ampliação e fortalecimento de auditorias coordenadas conjuntas com as secretarias dos TREs.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-network-wired"
+      },
+      {
+        texto: "Trilhas de formação gratuitas e de excelência fornecidas diretamente pelo CNJ, TCU e escolas fazendárias.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-graduation-cap"
+      },
+      {
+        texto: "Fortalecimento da força de trabalho com novos servidores nomeados em concursos consolidados da Justiça Eleitoral.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-user-plus"
+      },
+      {
+        texto: "Avanço de softwares e frameworks analíticos de inteligência artificial de código aberto e seguros.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-robot"
+      }
+    ]
+  },
+  ameacas: {
+    titulo: "Ameaças (Fatores Externos / Negativos)",
+    color: "#EF4444",
+    icon: "fa-solid fa-triangle-exclamation",
+    itens: [
+      {
+        texto: "Transições sucessivas na alta administração do Tribunal, exigindo esforços constantes de aculturamento de controle.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-users-gear"
+      },
+      {
+        texto: "Limitações e rigidez no plano de cargos do funcionalismo, dificultando a retenção de especialistas de TI/Dados.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-id-card-clip"
+      },
+      {
+        texto: "Aumento recorrente de demandas urgentes enviadas por órgãos de controle externo (CNJ, TCU, CGU).",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-triangle-exclamation"
+      },
+      {
+        texto: "Contingenciamentos e limites orçamentários rígidos para a aquisição de licenças analíticas especializadas.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-sack-dollar"
+      }
+    ]
+  }
+};
+
+
+/* === [CAPÍTULO 2] CONTROLE DE SPA E ANIMAÇÃO DE ESTADOS === */
+
+/* --- [Seção] Gerenciamento de Abas com Bloqueio de Concorrência --- */
+let isTransitioning = false;
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicialização limpa da SPA (O gráfico de radar foi descontinuado em prol da Tabela de Instrumentos)
+  // Inicialização estável da SPA
 });
 
 function switchTab(tabId) {
-  // Sincroniza estado de botões ativos (tanto na sidebar desktop quanto na barra inferior mobile)
+  if (isTransitioning) return; // Bloqueio defensivo contra cliques repetitivos rápidos
+
   const tabsAndButtons = document.querySelectorAll(".audit-tab, .mobile-nav__btn");
   tabsAndButtons.forEach(el => {
     el.classList.remove("active");
@@ -225,6 +371,8 @@ function switchTab(tabId) {
   const targetTab = document.getElementById(tabId);
 
   if (currentTab && currentTab !== targetTab) {
+    isTransitioning = true;
+
     gsap.to(currentTab, {
       opacity: 0,
       y: -10,
@@ -233,24 +381,27 @@ function switchTab(tabId) {
         currentTab.classList.remove("active");
         targetTab.classList.add("active");
         
-        // Reseta a rolagem do contêiner principal (desktop)
-        const mainArea = document.getElementById("main-area");
-        if (mainArea) {
-          mainArea.scrollTop = 0;
-        }
-        
-        // Reseta a rolagem da janela global (mobile) de forma instantânea antes da animação
-        window.scrollTo(0, 0);
+        // Reset absoluto do foco de rolagem para o topo
+        scrollToTop();
 
         gsap.fromTo(targetTab, 
           { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.25, 
+            ease: "power2.out",
+            onComplete: () => {
+              isTransitioning = false;
+            }
+          }
         );
       }
     });
   }
 }
 
+/* --- [Seção] Controle de Temas (Claro / Escuro) --- */
 function toggleTheme() {
   const isDark = document.documentElement.getAttribute("data-theme") === "dark";
   const newTheme = isDark ? "" : "dark";
@@ -260,31 +411,90 @@ function toggleTheme() {
   document.getElementById("theme-icon").className = newTheme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-circle-half-stroke";
 }
 
-/* === [CAPÍTULO 3] CONTROLE DO DRAWER LATERAL === */
 
-// ATUALIZADO: Agora aceita um callback opcional de finalização de animação para evitar Race Conditions
+/* === [CAPÍTULO 3] CONTROLADORES DE MODAL E DRAWER (BOTTOM SHEET) === */
+
+/* --- [Seção] Gerenciador Unificado de Entrada/Saída do Drawer --- */
+let lastActiveElement = null; // Armazena o elemento focado de origem para restauração de acessibilidade (A11y)
+
+function showDrawer(htmlContent, onCompleteCallback) {
+  // Guarda o elemento ativo antes da abertura do diálogo
+  lastActiveElement = document.activeElement;
+
+  const contentArea = document.getElementById("drawerContent");
+  contentArea.innerHTML = htmlContent;
+
+  const drawer = document.getElementById("drawer");
+  const overlay = document.getElementById("drawerOverlay");
+
+  if (drawer) {
+    drawer.scrollTop = 0;
+  }
+
+  overlay.style.display = "block";
+  gsap.to(overlay, { opacity: 1, duration: 0.2 });
+
+  const isMobile = window.innerWidth <= 850;
+  if (isMobile) {
+    gsap.to(drawer, { 
+      bottom: "0%", 
+      right: 0, 
+      left: 0, 
+      duration: 0.35, 
+      ease: "power2.out",
+      onComplete: () => {
+        // Envia foco visual para o controle de fechamento do diálogo
+        document.getElementById("drawerClose").focus();
+        if (onCompleteCallback) onCompleteCallback();
+      }
+    });
+  } else {
+    gsap.to(drawer, { 
+      right: "0%", 
+      bottom: "auto", 
+      left: "auto", 
+      duration: 0.35, 
+      ease: "power2.out",
+      onComplete: () => {
+        document.getElementById("drawerClose").focus();
+        if (onCompleteCallback) onCompleteCallback();
+      }
+    });
+  }
+}
+
+function closeDrawer() {
+  const drawer = document.getElementById("drawer");
+  const overlay = document.getElementById("drawerOverlay");
+
+  const isMobile = window.innerWidth <= 850;
+  if (isMobile) {
+    gsap.to(drawer, { bottom: "-100%", duration: 0.25, ease: "power2.in" });
+  } else {
+    gsap.to(drawer, { right: "-100%", duration: 0.25, ease: "power2.in" });
+  }
+
+  gsap.to(overlay, { 
+    opacity: 0, 
+    duration: 0.2, 
+    onComplete: () => {
+      overlay.style.display = "none";
+      // Restaura o foco na interface após o fechamento do diálogo (A11y)
+      if (lastActiveElement) {
+        lastActiveElement.focus();
+      }
+    } 
+  });
+}
+
+/* --- [Seção] Renderizadores de Conteúdo Dinâmico (Fichas e SWOT) --- */
 function openDrawer(objectiveId, onCompleteCallback) {
   const data = dbIndicadores[objectiveId];
   if (!data) return;
 
-  const contentArea = document.getElementById("drawerContent");
-  
   let html = `<h3 class="tech-sheet__title">${data.titulo}</h3>`;
 
-  // GERAÇÃO DA BARRA DE NAVEGAÇÃO DE ÂNCORA (OPÇÃO C)
-  // Cria links para saltar diretamente aos indicadores se houver mais de 1 indicador.
-  if (data.indicators && data.indicators.length > 1) { // Ajuste preventivo para dados estruturados
-    html += `<div class="tech-sheet__nav">`;
-    data.indicators.forEach((ind, idx) => {
-      const codigo = ind.nome.split(" - ")[0];
-      html += `
-        <button class="tech-sheet__nav-btn" onclick="scrollToIndicator('ind-${objectiveId}-${idx}')">
-          <i class="fa-solid fa-location-arrow" style="font-size: 10px; opacity: 0.7;"></i> ${codigo}
-        </button>
-      `;
-    });
-    html += `</div>`;
-  } else if (data.indicadores && data.indicadores.length > 1) {
+  if (data.indicadores && data.indicadores.length > 1) {
     html += `<div class="tech-sheet__nav">`;
     data.indicadores.forEach((ind, idx) => {
       const codigo = ind.nome.split(" - ")[0];
@@ -297,10 +507,7 @@ function openDrawer(objectiveId, onCompleteCallback) {
     html += `</div>`;
   }
 
-  const listToRender = data.indicadores || data.indicators; // Garante compatibilidade de nomenclatura
-
-  listToRender.forEach((ind, idx) => {
-    // Identificador único adicionado na div principal para suportar o salto de âncora
+  data.indicadores.forEach((ind, idx) => {
     html += `
       <div class="tech-sheet__indicator" id="ind-${objectiveId}-${idx}">
         <h4 class="tech-sheet__indicator-title">${ind.nome}</h4>
@@ -350,7 +557,7 @@ function openDrawer(objectiveId, onCompleteCallback) {
       </div>
 
       <div class="tech-sheet__initiatives">
-        <h5 class="tech-sheet__section-title" style="color: var(--secondary);">Iniciativa de Viabilização</h5>
+        <h5 class="tech-sheet__section-title" style="color: var(--secondary);">Iniciativas de Viabilização</h5>
         ${ind.iniciativas.map(init => `
           <p class="tech-sheet__initiative-item">${init}</p>
         `).join('')}
@@ -360,95 +567,74 @@ function openDrawer(objectiveId, onCompleteCallback) {
     `;
   });
 
-  contentArea.innerHTML = html;
-
-  const drawer = document.getElementById("drawer");
-  const overlay = document.getElementById("drawerOverlay");
-
-  // Reseta a rolagem do Drawer de forma instantânea para o topo antes de exibi-lo na tela
-  if (drawer) {
-    drawer.scrollTop = 0;
-  }
-
-  overlay.style.display = "block";
-  gsap.to(overlay, { opacity: 1, duration: 0.2 });
-
-  // Detecção do ambiente (Mobile vs Desktop) para determinar a direção do Drawer
-  const isMobile = window.innerWidth <= 850;
-  if (isMobile) {
-    gsap.to(drawer, { 
-      bottom: "0%", 
-      right: 0, 
-      left: 0, 
-      duration: 0.35, 
-      ease: "power2.out",
-      onComplete: () => {
-        if (onCompleteCallback) onCompleteCallback(); // Dispara a rolagem apenas quando a gaveta estiver 100% aberta no mobile
-      }
-    });
-  } else {
-    gsap.to(drawer, { 
-      right: "0%", 
-      bottom: "auto", 
-      left: "auto", 
-      duration: 0.35, 
-      ease: "power2.out",
-      onComplete: () => {
-        if (onCompleteCallback) onCompleteCallback(); // Dispara a rolagem apenas quando a gaveta estiver 100% aberta no desktop
-      }
-    });
-  }
+  showDrawer(html, onCompleteCallback);
 }
 
-// FUNÇÃO AUXILIAR DE ROLAGEM SUAVE (OPÇÃO C)
-// Realiza a navegação instantânea mas suave para o contêiner do indicador correspondente dentro do Drawer
-function scrollToIndicator(id) {
-  const targetElement = document.getElementById(id);
-  if (targetElement) {
-    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-    
-    // Reseta a classe de animação para reiniciar o efeito de brilho
-    targetElement.classList.remove("highlight-active");
-    void targetElement.offsetWidth; // Força o reflow do navegador
-    targetElement.classList.add("highlight-active");
-  }
+function openSwotDrawer(quadrante) {
+  const data = dbSwot[quadrante];
+  if (!data) return;
+
+  let html = `
+    <h3 class="tech-sheet__title" style="border-bottom-color: ${data.color};">
+      <i class="${data.icon}" style="color: ${data.color}; margin-right: 8px;"></i>
+      ${data.titulo}
+    </h3>
+    <p class="section-paragraph" style="font-size: 0.95rem; margin-bottom: 24px;">
+      Abaixo estão os fatores mapeados organizados de forma coerente com as perspectivas estratégicas do Tribunal:
+    </p>
+    <div class="swot-detail-list">
+  `;
+
+  data.itens.forEach((item, index) => {
+    html += `
+      <div class="swot-detail-card">
+        <div class="swot-detail-card__meta">
+          <span class="swot-detail-card__code swot-detail-card__code--${quadrante}">
+            ${quadrante.substring(0, 3).toUpperCase()} ${index + 1}
+          </span>
+          <span class="swot-detail-card__category swot-detail-card__category--${item.slug}">
+            <i class="${item.icone}"></i> ${item.categoria}
+          </span>
+        </div>
+        <div class="swot-detail-card__content">
+          <div class="swot-detail-card__icon-wrapper">
+            <i class="${item.icone}"></i>
+          </div>
+          <p class="swot-detail-card__text">${item.texto}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  html += `</div>`;
+
+  showDrawer(html);
 }
 
-// ATUALIZADO: Garante a rolagem sequencial perfeita, resolvendo o bug do salto instantâneo
+/* --- [Seção] Rolagem Interna e Microinterações do Drawer --- */
 function openDrawerWithAnchor(objectiveId, indicatorIndex) {
-  // Passa a função de rolagem como callback do openDrawer para executar apenas após a abertura total do Drawer
+  // Passa a função de âncora como callback de finalização do GSAP para prevenir pulos brutos
   openDrawer(objectiveId, () => {
     scrollToIndicator(`ind-${objectiveId}-${indicatorIndex}`);
   });
 }
 
-function closeDrawer() {
-  const drawer = document.getElementById("drawer");
-  const overlay = document.getElementById("drawerOverlay");
-
-  const isMobile = window.innerWidth <= 850;
-  if (isMobile) {
-    gsap.to(drawer, { bottom: "-100%", duration: 0.25, ease: "power2.in" });
-  } else {
-    gsap.to(drawer, { right: "-100%", duration: 0.25, ease: "power2.in" });
+function scrollToIndicator(id) {
+  const targetElement = document.getElementById(id);
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    
+    // Reinicialização do pulso de acendimento visual
+    targetElement.classList.remove("highlight-active");
+    void targetElement.offsetWidth; // Força re-flow do navegador
+    targetElement.classList.add("highlight-active");
   }
-
-  gsap.to(overlay, { 
-    opacity: 0, 
-    duration: 0.2, 
-    onComplete: () => {
-      overlay.style.display = "none";
-    } 
-  });
 }
 
-/* === [CAPÍTULO 4] FUNÇÕES DE SUPORTE === */
-
-// FUNÇÃO AUXILIAR DE RESET DE ROLAGEM
 function scrollToTop() {
   const mainArea = document.getElementById("main-area");
   if (mainArea) {
-    mainArea.scrollTop = 0; // Reseta a rolagem interna do contêiner principal (Desktop)
+    mainArea.scrollTop = 0; // Limpa rolagem do container interno no desktop
   }
-  window.scrollTo(0, 0); // Reseta a rolagem global do navegador (Mobile/Fallback)
+  window.scrollTo(0, 0); // Limpa rolagem geral do navegador no mobile
 }

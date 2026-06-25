@@ -4,54 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plano Tático SAU – TSE</title>
-  <!-- Google Fonts - Source Sans 3 -->
+  
+  <!-- --- [Seção] Fontes Externas e Estilos --- -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome para ícones consistentes com o projeto de referência -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <!-- Bibliotecas externas de apoio -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- --- [Seção] Bibliotecas via CDN --- -->
+  <!-- Removido Chart.js para otimização de performance e peso da SPA -->
 </head>
 <body>
 
-  <!-- === [CABEÇALHO] INSTITUCIONAL === -->
+  <!-- === [CAPÍTULO 1] CABEÇALHO INSTITUCIONAL === -->
   <header>
+    <!-- --- [Seção] Identidade Visual da Marca --- -->
     <div class="header-brand">
       <div class="header-seal">
-        <img src="logo-tse.png" alt="Logo TSE" class="header-seal-img">
+        <img src="logo-tse.png" alt="Selo Oficial do Tribunal Superior Eleitoral" class="header-seal-img">
       </div>
       <div class="header-text">
         <h1>Secretaria de Auditoria</h1>
         <p>Tribunal Superior Eleitoral</p>
       </div>
     </div>
+    
+    <!-- --- [Seção] Ações Rápidas do Cabeçalho --- -->
     <div class="header-actions">
-      <button class="btn-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+      <button class="btn-toggle" onclick="toggleTheme()" aria-label="Alternar tema visual escuro ou claro">
         <i class="fa-solid fa-circle-half-stroke" id="theme-icon"></i>
         <span id="theme-label">Modo Escuro</span>
       </button>
     </div>
   </header>
 
-  <!-- === [ESTRUTURA] SPA CENTRALIZADA === -->
+  <!-- === [CAPÍTULO 2] ESTRUTURA SPA CENTRALIZADA === -->
   <div class="app-body">
     
-    <!-- Barra Lateral Primária: Abas da SPA -->
-    <nav class="sidebar-primary" role="navigation" aria-label="Menu Principal">
+    <!-- --- [Seção] Barra Lateral de Navegação Tática --- -->
+    <nav class="sidebar-primary" role="navigation" aria-label="Menu Principal de Processos">
       <div class="sidebar-label">Plano Tático</div>
       <div class="process-list">
         <button class="audit-tab active" data-tab="apresentacao" onclick="switchTab('apresentacao')">Apresentação</button>
         <button class="audit-tab" data-tab="identidade" onclick="switchTab('identidade')">Identidade</button>
+        <button class="audit-tab" data-tab="swot" onclick="switchTab('swot')">Matriz SWOT</button>
         <button class="audit-tab" data-tab="mapa" onclick="switchTab('mapa')">Mapa Tático</button>
         <button class="audit-tab" data-tab="qualidade" onclick="switchTab('qualidade')">Maturidade</button>
       </div>
     </nav>
 
-    <!-- Área de Conteúdo Ativo -->
+    <!-- --- [Seção] Área de Conteúdo Ativo (Main) --- -->
     <main id="main-area" role="main">
 
-      <!-- --- [Aba] Apresentação --- -->
+      <!-- --- [Subseção] Aba Apresentação --- -->
       <section id="apresentacao" class="tab-content active">
         <div class="intro-block anim">
           <h2 class="section-title">Plano Tático</h2>
@@ -77,6 +83,16 @@
           <p class="section-paragraph">A atuação da SAU se conecta e suporta os macrodesafios do plano institucional do TSE:</p>
           
           <div class="cascade-diagram">
+            <div class="cascade-diagram__step">
+              <div class="cascade-diagram__label">Nível Estratégico (TSE 2021-2026)</div>
+              <div class="cascade-diagram__card tse-card">
+                <i class="fa-solid fa-shield-halved cascade-diagram__card-icon"></i>
+                <span>Aprimorar a Governança Institucional</span>
+              </div>
+            </div>
+            <div class="cascade-diagram__arrow">
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
             <div class="cascade-diagram__step">
               <div class="cascade-diagram__label">Nível Tático (SAU 2026-2029)</div>
               
@@ -115,68 +131,11 @@
                 </div>
               </div>
             </div>
-            <div class="cascade-diagram__arrow">
-              <i class="fa-solid fa-chevron-down"></i>
-            </div>
-            <div class="cascade-diagram__step">
-              <div class="cascade-diagram__label">Nível Tático (SAU 2026-2029)</div>
-              
-              <!-- Objetivo 1: Resultados (Roxo) -->
-              <div class="cascade-diagram__card cascade-diagram__card--resultados">
-                <i class="fa-solid fa-award cascade-diagram__card-icon"></i>
-                <div class="cascade-diagram__card-text">
-                  <span class="cascade-diagram__card-tag">Perspectiva Resultados</span>
-                  <span>1. Contribuir para a Governança, a Gestão de Riscos e os Controles Internos no Tribunal</span>
-                </div>
-              </div>
-
-              <!-- Objetivos 2, 3 e 4: Processos Internos (Azul) -->
-              <div class="cascade-diagram__card cascade-diagram__card--processos">
-                <i class="fa-solid fa-sitemap cascade-diagram__card-icon"></i>
-                <div class="cascade-diagram__card-text">
-                  <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
-                  <span>2. Aprimorar os processos de auditoria interna</span>
-                </div>
-              </div>
-
-              <div class="cascade-diagram__card cascade-diagram__card--processos">
-                <i class="fa-solid fa-sitemap cascade-diagram__card-icon"></i>
-                <div class="cascade-diagram__card-text">
-                  <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
-                  <span>3. Aprimorar a qualidade dos trabalhos da SAU</span>
-                </div>
-              </div>
-
-              <div class="cascade-diagram__card cascade-diagram__card--processos">
-                <i class="fa-solid fa-sitemap cascade-diagram__card-icon"></i>
-                <div class="cascade-diagram__card-text">
-                  <span class="cascade-diagram__card-tag">Perspectiva Processos Internos</span>
-                  <span>4. Aprimorar a comunicação com as unidades clientes da auditoria</span>
-                </div>
-              </div>
-
-              <!-- Objetivos 5 e 6: Aprendizado e Crescimento (Laranja) -->
-              <div class="cascade-diagram__card cascade-diagram__card--aprendizado">
-                <i class="fa-solid fa-graduation-cap cascade-diagram__card-icon"></i>
-                <div class="cascade-diagram__card-text">
-                  <span class="cascade-diagram__card-tag">Perspectiva Aprendizado & Crescimento</span>
-                  <span>5. Implementar o uso de tecnologias para automação de processos de trabalho da SAU</span>
-                </div>
-              </div>
-
-              <div class="cascade-diagram__card cascade-diagram__card--aprendizado">
-                <i class="fa-solid fa-graduation-cap cascade-diagram__card-icon"></i>
-                <div class="cascade-diagram__card-text">
-                  <span class="cascade-diagram__card-tag">Perspectiva Aprendizado & Crescimento</span>
-                  <span>6. Estimular o desenvolvimento profissional contínuo dos auditores da SAU</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <!-- --- [Aba] Identidade Organizacional --- -->
+      <!-- --- [Subseção] Aba Identidade Organizacional --- -->
       <section id="identidade" class="tab-content">
         <h2 class="section-title">Identidade Institucional</h2>
         <p class="section-paragraph">Declaração formal dos pilares institucionais que norteiam os trabalhos de auditoria interna e de consultoria no TSE.</p>
@@ -188,7 +147,7 @@
               <h3 class="identity-card__title">Missão</h3>
             </div>
             <p class="identity-card__text">
-              Aumentar e proteger o valor organizacional, auxiliando a gestão a alcançar os seus objetivos, com a adoção de abordagem sistemática para a avaliação e melhoria da eficácia, eficiência, efetividade e economicidade dos processos de governança corporativa, de gestão, de gerenciamento de riscos e de controle, de forma a contribuir para a boa e regular utilização aos recursos públicos sob sua guarda.
+              Aumentar e proteger o value organizacional, auxiliando a gestão a alcançar os seus objetivos, com a adoção de abordagem sistemática para a avaliação e melhoria da eficácia, eficiência, efetividade e economicidade dos processos de governança corporativa, de gestão, de gerenciamento de riscos e de controle, de forma a contribuir para a boa e regular utilização dos recursos públicos sob sua guarda.
             </p>
           </div>
 
@@ -243,7 +202,61 @@
         </div>
       </section>
 
-      <!-- --- [Aba] Mapa Estratégico --- -->
+      <!-- --- [Subseção] Aba Matriz SWOT --- -->
+      <section id="swot" class="tab-content">
+        <div class="map-header">
+          <h2 class="section-title">Matriz SWOT</h2>
+          <p class="section-paragraph">Selecione um dos quadrantes abaixo para abrir a lista detalhada de fatores internos e externos na gaveta lateral.</p>
+        </div>
+
+        <div class="swot-panel">
+          <!-- Forças -->
+          <div class="swot-card swot-card--forcas" onclick="openSwotDrawer('forcas')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openSwotDrawer('forcas')" aria-haspopup="dialog" aria-expanded="false" aria-label="Abrir catálogo detalhado de Forças Internas">
+            <div class="swot-card__header">
+              <span class="swot-card__label">Fatores Internos / Positivos</span>
+              <i class="fa-solid fa-circle-plus swot-card__icon"></i>
+            </div>
+            <h3 class="swot-card__title">Forças</h3>
+            <p class="swot-card__desc">Forças internas identificadas no suporte à governança (Resultados), conformidade das auditorias (Processos Internos) e excelência técnica do corpo funcional (Aprendizado e Crescimento).</p>
+            <div class="swot-card__btn-visual">Ver Fatores <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- Fraquezas -->
+          <div class="swot-card swot-card--fraquezas" onclick="openSwotDrawer('fraquezas')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openSwotDrawer('fraquezas')" aria-haspopup="dialog" aria-expanded="false" aria-label="Abrir catálogo detalhado de Fraquezas Internas">
+            <div class="swot-card__header">
+              <span class="swot-card__label">Fatores Internos / Negativos</span>
+              <i class="fa-solid fa-circle-minus swot-card__icon"></i>
+            </div>
+            <h3 class="swot-card__title">Fraquezas</h3>
+            <p class="swot-card__desc">Fraquezas internas mapeadas na padronização de serviços (Processos Internos) e lacunas em competências de análise de dados (Aprendizado e Crescimento).</p>
+            <div class="swot-card__btn-visual">Ver Fatores <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- Oportunidades -->
+          <div class="swot-card swot-card--oportunidades" onclick="openSwotDrawer('oportunidades')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openSwotDrawer('oportunidades')" aria-haspopup="dialog" aria-expanded="false" aria-label="Abrir catálogo detalhado de Oportunidades Externas">
+            <div class="swot-card__header">
+              <span class="swot-card__label">Fatores Externos / Positivos</span>
+              <i class="fa-solid fa-arrow-trend-up swot-card__icon"></i>
+            </div>
+            <h3 class="swot-card__title">Oportunidades</h3>
+            <p class="swot-card__desc">Oportunidades externas ligadas a parcerias e novas tecnologias (Processos Internos) e programas externos de capacitação (Aprendizado e Crescimento).</p>
+            <div class="swot-card__btn-visual">Ver Fatores <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+
+          <!-- Ameaças -->
+          <div class="swot-card swot-card--ameacas" onclick="openSwotDrawer('ameacas')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openSwotDrawer('ameacas')" aria-haspopup="dialog" aria-expanded="false" aria-label="Abrir catálogo detalhado de Ameaças Externas">
+            <div class="swot-card__header">
+              <span class="swot-card__label">Fatores Externos / Negativos</span>
+              <i class="fa-solid fa-triangle-exclamation swot-card__icon"></i>
+            </div>
+            <h3 class="swot-card__title">Ameaças</h3>
+            <p class="swot-card__desc">Ameaças externas que desafiam a perenidade do valor técnico (Resultados), a capacidade operacional frente a demandas urgentes (Processos Internos) e a retenção de especialistas (Aprendizado e Crescimento).</p>
+            <div class="swot-card__btn-visual">Ver Fatores <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --- [Subseção] Aba Mapa Estratégico --- -->
       <section id="mapa" class="tab-content">
         <div class="map-header">
           <h2 class="section-title">Mapa Tático</h2>
@@ -258,7 +271,7 @@
               <span>Perspectiva de Resultados</span>
             </div>
             <div class="bsc-perspective__objectives">
-              <div class="objective-card">
+              <div class="objective-card objective-card--resultados">
                 <div class="objective-card__body">
                   <div class="objective-card__header">
                     <span class="objective-card__num">OT 01 <span class="objective-card__badge">2 Indicadores</span></span>
@@ -292,7 +305,7 @@
             <div class="bsc-perspective__objectives bsc-perspective__objectives--grid">
               
               <!-- Objetivo 2: PAQ-AUD -->
-              <div class="objective-card">
+              <div class="objective-card objective-card--processos">
                 <div class="objective-card__body">
                   <div class="objective-card__header">
                     <span class="objective-card__num">OT 02 <span class="objective-card__badge">5 Indicadores</span></span>
@@ -331,7 +344,7 @@
               </div>
 
               <!-- Objetivo 3: Processos da SAU -->
-              <div class="objective-card">
+              <div class="objective-card objective-card--processos">
                 <div class="objective-card__body">
                   <div class="objective-card__header">
                     <span class="objective-card__num">OT 03 <span class="objective-card__badge">5 Indicadores</span></span>
@@ -379,7 +392,7 @@
               <span>Perspectiva de Aprendizado e Crescimento</span>
             </div>
             <div class="bsc-perspective__objectives bsc-perspective__objectives--grid-two">
-              <div class="objective-card">
+              <div class="objective-card objective-card--aprendizado">
                 <div class="objective-card__body">
                   <div class="objective-card__header">
                     <span class="objective-card__num">OT 04 <span class="objective-card__badge">2 Indicadores</span></span>
@@ -406,7 +419,7 @@
         </div>
       </section>
 
-      <!-- --- [Aba] Maturidade & Qualidade --- -->
+      <!-- --- [Subseção] Aba Maturidade & Qualidade --- -->
       <section id="qualidade" class="tab-content">
         <h2 class="section-title">Indicadores de Maturidade</h2>
         <p class="section-paragraph">Há dois pilares fundamentais de acompanhamento da capacidade institucional e do feedback de nossas partes interessadas.</p>
@@ -548,17 +561,21 @@
     </main>
   </div>
 
-  <!-- === [DRAWER / FICHA TÉCNICA LATERAL] === -->
+  <!-- === [CAPÍTULO 3] ELEMENTOS FLUTUANTES E DIÁLOGOS === -->
+  
+  <!-- --- [Seção] Overlay e Drawer/Bottom Sheet --- -->
   <div id="drawerOverlay" class="drawer-overlay" onclick="closeDrawer()"></div>
-  <div id="drawer" class="drawer">
-    <button id="drawerClose" class="drawer__close-btn" onclick="closeDrawer()" aria-label="Fechar ficha técnica">
+  <div id="drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerClose">
+    <button id="drawerClose" class="drawer__close-btn" onclick="closeDrawer()" aria-label="Fechar painel de detalhes">
       <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="drawer__content" id="drawerContent"></div>
   </div>
 
-  <!-- === [NAVEGAÇÃO MOBILE BOTTOM BAR] === -->
-  <nav class="mobile-nav mobile-only" role="navigation" aria-label="Menu Mobile">
+  <!-- === [CAPÍTULO 4] MENUS DE NAVEGAÇÃO AUXILIARES === -->
+  
+  <!-- --- [Seção] Menu Mobile Bottom Bar --- -->
+  <nav class="mobile-nav mobile-only" role="navigation" aria-label="Menu Inferior Móvel">
     <button class="mobile-nav__btn active" data-tab="apresentacao" onclick="switchTab('apresentacao')">
       <i class="fa-solid fa-house"></i>
       <span>Início</span>
@@ -577,7 +594,7 @@
     </button>
   </nav>
 
-  <!-- Bibliotecas de suporte técnico -->
+  <!-- === [CAPÍTULO 5] CARREGAMENTO DE SCRIPTS === -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="script.js"></script>
 
