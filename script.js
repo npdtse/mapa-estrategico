@@ -207,11 +207,8 @@ const dbIndicadores = {
 
 /* === [CAPÍTULO 2] LOGICA SPA E CONTROLE DE TEMAS === */
 
-let radarChartInstance = null;
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicialização do Gráfico de Radar
-  updateRadarChart(false);
+  // Inicialização limpa da SPA (O gráfico de radar foi descontinuado em prol da Tabela de Instrumentos)
 });
 
 function switchTab(tabId) {
@@ -261,9 +258,6 @@ function toggleTheme() {
 
   document.getElementById("theme-label").textContent = newTheme === "dark" ? "Modo Claro" : "Modo Escuro";
   document.getElementById("theme-icon").className = newTheme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-circle-half-stroke";
-
-  // Re-inicialização do gráfico de radar com as cores corretas do tema ativo
-  updateRadarChart(newTheme === "dark");
 }
 
 /* === [CAPÍTULO 3] CONTROLE DO DRAWER LATERAL === */
@@ -448,72 +442,7 @@ function closeDrawer() {
   });
 }
 
-/* === [CAPÍTULO 4] CONFIGURAÇÃO DO GRÁFICO DE RADAR === */
-
-function updateRadarChart(isDark) {
-  const ctx = document.getElementById('radarChart');
-  if (!ctx) return;
-
-  if (radarChartInstance) {
-    radarChartInstance.destroy();
-  }
-
-  // Definição dinâmica das cores de contraste para o radar
-  const gridColor = isDark ? '#334155' : '#CDE0F5';
-  const labelColor = isDark ? '#F1F5F9' : '#1A2733';
-  const pointColor = isDark ? '#3399FF' : '#0073E6';
-  const fillColor = isDark ? 'rgba(51, 153, 255, 0.15)' : 'rgba(0, 115, 230, 0.1)';
-
-  const data = {
-    labels: ['Satisfação', 'Comunicação', 'Eficiência', 'Efetividade'],
-    datasets: [{
-      label: 'Avaliação Contínua (%)',
-      data: [95, 92, 88, 85],
-      fill: true,
-      backgroundColor: fillColor,
-      borderColor: pointColor,
-      pointBackgroundColor: pointColor,
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: pointColor
-    }]
-  };
-
-  const config = {
-    type: 'radar',
-    data: data,
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false }
-      },
-      scales: {
-        r: {
-          angleLines: { color: gridColor },
-          grid: { color: gridColor },
-          pointLabels: {
-            color: labelColor,
-            font: {
-              family: 'Source Sans 3',
-              size: 11,
-              weight: '600'
-            }
-          },
-          ticks: {
-            backdropColor: 'transparent',
-            color: isDark ? '#94A3B8' : '#7D8FA3',
-            font: { size: 9 }
-          },
-          suggestedMin: 50,
-          suggestedMax: 100
-        }
-      }
-    }
-  };
-
-  radarChartInstance = new Chart(ctx, config);
-}
+/* === [CAPÍTULO 4] FUNÇÕES DE SUPORTE === */
 
 // FUNÇÃO AUXILIAR DE RESET DE ROLAGEM
 function scrollToTop() {

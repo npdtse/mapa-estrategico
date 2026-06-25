@@ -26,6 +26,9 @@
   --phase1: #6F42C1; /* Resultados / Roxo */
   --phase2: #0073E6; /* Processos Internos / Azul */
   --phase3: #FD7E14; /* Aprendizado e Crescimento / Laranja */
+  --lightphase1: #aa9ec0; /* Resultados / Roxo */
+  --lightphase2: #adc9e4; /* Processos Internos / Azul */
+  --lightphase3: #fad2b1; /* Aprendizado e Crescimento / Laranja */
 }
 
 /* --- [Seção] Ajustes de Cores (Modo Escuro) --- */
@@ -475,7 +478,7 @@ main {
 .cascade-diagram__card--resultados {
   background: rgba(111, 66, 193, 0.06);
   color: #5527a4;
-  border: 1.5px solid var(--phase1); /* Substituída a borda de 5px por contorno de 1.5px */
+  border: 1.5px solid var(--lightphase1); /* Substituída a borda de 5px por contorno de 1.5px */
 }
 .cascade-diagram__card--resultados .cascade-diagram__card-tag {
   color: var(--phase1);
@@ -485,7 +488,7 @@ main {
 .cascade-diagram__card--processos {
   background: var(--primary-faded);
   color: var(--primary);
-  border: 1.5px solid var(--phase2); /* Substituída a borda de 5px por contorno de 1.5px */
+  border: 1.5px solid var(--lightphase2); /* Substituída a borda de 5px por contorno de 1.5px */
 }
 .cascade-diagram__card--processos .cascade-diagram__card-tag {
   color: var(--phase2);
@@ -495,7 +498,7 @@ main {
 .cascade-diagram__card--aprendizado {
   background: rgba(253, 126, 20, 0.06);
   color: #c45700;
-  border: 1.5px solid var(--phase3); /* Substituída a borda de 5px por contorno de 1.5px */
+  border: 1.5px solid var(--lightphase3); /* Substituída a borda de 5px por contorno de 1.5px */
 }
 .cascade-diagram__card--aprendizado .cascade-diagram__card-tag {
   color: var(--phase3);
