@@ -24,7 +24,7 @@ const dbIndicadores = {
         descricao: "Mede a eficácia prática da auditoria pela adesão das unidades às recomendações expedidas.",
         instrumento: "Planilha de Controle de Avaliações | Painel Estatístico",
         calculo: "(Recomendações Implementadas / (Total de Recomendações - Recom. não aplicáveis)) x 100",
-        linhaBase: "2021: 73% | 2022: 39% | 2023: 56% | 2024: 49%",
+        linhaBase: "2021: 73% | 2022: 39% | 2023: 56% | 2024: 49% | 2025: 54%",
         metas: { '2026': "60%", '2027': "60%", '2028': "60%", '2029': "60%" },
         iniciativas: [
           "Executar as etapas de 1º e 2º ciclos de monitoramento das recomendações emitidas."
