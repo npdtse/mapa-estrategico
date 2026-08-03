@@ -11,7 +11,7 @@ const dbIndicadores = {
         descricao: "Mede o percentual de execução das ações de auditoria, monitoramento e consultoria para cada ano em relação ao total previsto.",
         instrumento: "Planilha de Controle de Avaliações | Painel Estatístico",
         calculo: "(Quantidade de ações executadas / Quantidade de ações previstas no PAA) x 100",
-        linhaBase: "2021: Aud. (79%), Monit. (50%) | 2022: Aud. (54%), Monit. (33%), Consult. (100%) | 2023: Aud. (45%), Monit. (62%) | 2024: Aud. (54%), Monit. (80%), Consult. (100%)",
+        linhaBase: "2021: Aud. (79%), Monit. (50%) | 2022: Aud. (54%), Monit. (33%), Consult. (100%) | 2023: Aud. (45%), Monit. (62%) | 2024: Aud. (54%), Monit. (80%), Consult. (100%) | 2025: Aud. (60%), Monit. (37%)",
         metas: { '2026': "65%", '2027': "70%", '2028': "75%", '2029': "80%" },
         iniciativas: [
           "Fazer os registros históricos na Planilha de Controle de Avaliações a partir de 2021.",
