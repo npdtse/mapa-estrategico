@@ -214,40 +214,94 @@ const dbSwot = {
     icon: "fa-solid fa-circle-plus",
     itens: [
       {
-        texto: "Independência técnica de atuação assegurada e estruturada formalmente no Estatuto de Auditoria Interna do TSE.",
+        texto: "Reportamento direto da SAU à Presidência do TSE, o que confere maior independência à unidade.",
         categoria: "Resultados",
         slug: "resultados",
         icone: "fa-solid fa-gavel"
       },
       {
-        texto: "Corpo funcional da Secretaria de Auditoria (SAU) altamente capacitado e com qualificações acadêmicas consolidadas.",
-        categoria: "Aprendizado e Crescimento",
-        slug: "aprendizado",
-        icone: "fa-solid fa-graduation-cap"
-      },
-      {
-        texto: "Processos de auditoria planejados e plenamente orientados ao padrão global das normas profissionais (IIA/IPPF).",
+        texto: "Regulamentação devida da natureza das atividades da SAU (auditoria e consultoria) e das diretrizes relacionadas à conduta dos auditores no Estatuto de Auditoria Interna do TSE (Portaria TSE nº 691/2021) e no Código de Ética da Unidade de Auditoria Interna do TSE (Portaria TSE nº 692/2021).",
         categoria: "Processos Internos",
         slug: "processos",
-        icone: "fa-solid fa-gears"
+        icone: "fa-solid fa-file-contract"
       },
       {
-        texto: "Proximidade, credibilidade e canais diretos de comunicação e assessoramento com a alta administração.",
-        categoria: "Resultados",
-        slug: "resultados",
-        icone: "fa-solid fa-handshake"
-      },
-      {
-        texto: "Forte engajamento técnico focado no Programa de Avaliação de Qualidade da Auditoria Interna (PAQ-AUD).",
+        texto: "Disponibilidade de Programa de Avaliação da Qualidade na SAU, o qual prevê avaliações também pelas unidades clientes.",
         categoria: "Processos Internos",
         slug: "processos",
         icone: "fa-solid fa-shield-halved"
       },
       {
-        texto: "Adoção sistemática de abordagens baseadas em riscos para elaboração do plano de auditoria.",
+        texto: "Mapeamento do processo de trabalho de auditoria e existência de modelos de documentos utilizados pelas equipes de auditoria para a realização dos trabalhos (revisados em 2024).",
         categoria: "Processos Internos",
         slug: "processos",
-        icone: "fa-solid fa-magnifying-glass"
+        icone: "fa-solid fa-sitemap"
+      },
+      {
+        texto: "Tomada de decisões relacionadas às técnicas e aos procedimentos de auditoria e de consultoria adotados pela Secretaria mediante deliberação nas reuniões realizadas pela Comissão Técnica de Auditoria Interna - CTAI, instituída pela Portaria TSE nº 500/2020.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-users-gear"
+      },
+      {
+        texto: "Realização dos trabalhos por seções de auditoria especializadas, de acordo com os temas sob a sua competência, o que costuma otimizar a etapa de planejamento, no tocante ao conhecimento do objeto dos trabalhos.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-diagram-project"
+      },
+      {
+        texto: "Planejamento dos trabalhos da SAU realizado pela própria Secretaria, por meio de um processo pautado em critérios objetivos, do qual participam também os gestores e a Alta Administração.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-list-check"
+      },
+      {
+        texto: "Relacionamento entre os servidores da Secretaria pautado pela cordialidade e pelo compromisso, refletindo-se no engajamento para a busca dos resultados.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-handshake"
+      },
+      {
+        texto: "Orientação da atuação da SAU pelo Manual de Auditoria do Poder Judiciário.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-book"
+      },
+      {
+        texto: "Cultura de melhoria contínua na unidade.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-arrow-up-right-dots"
+      },
+      {
+        texto: "Equipe qualificada e multidisciplinar, composta por servidores com formação em diversas áreas.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-graduation-cap"
+      },
+      {
+        texto: "Realização de autoavaliação de competências em auditoria interna entre os servidores, cujos resultados têm sido utilizados para o planejamento de ações de capacitação, de maneira geral, e possibilitam o planejamento individual por cada servidor.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-user-check"
+      },
+      {
+        texto: "84% dos servidores da SAU com pelo menos 3 anos de experiência em auditoria interna.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-award"
+      },
+      {
+        texto: "Estrutura de funções contemplando quase que a totalidade dos servidores.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-briefcase"
+      },
+      {
+        texto: "Corpo gerencial da unidade composto por servidores do TSE.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-user-tie"
       }
     ]
   },
@@ -257,28 +311,70 @@ const dbSwot = {
     icon: "fa-solid fa-circle-minus",
     itens: [
       {
-        texto: "Instabilidade de fluxo e necessidade de consolidação metodológica para os processos de consultoria.",
+        texto: "Necessidade de amadurecimento do processo de trabalho de consultoria (inexistência de documentos/papéis de trabalho padronizados) e existência de outros processos ainda não mapeados na Secretaria.",
         categoria: "Processos Internos",
         slug: "processos",
         icone: "fa-solid fa-gears"
       },
       {
-        texto: "Ausência de ferramenta analítica estruturada para registro de apuração histórica de benefícios do controle.",
+        texto: "Necessidade de aprimoramento da metodologia do Programa de Avaliação da Qualidade (monitoramento contínuo, supervisão, apuração de indicadores, melhoria das avaliações contínuas, etc).",
         categoria: "Processos Internos",
         slug: "processos",
+        icone: "fa-solid fa-shield-halved"
+      },
+      {
+        texto: "Necessidade de aprimoramento da metodologia para a elaboração do PAA.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-calendar-check"
+      },
+      {
+        texto: "Necessidade de aprimoramento da apuração e da divulgação de benefícios decorrentes dos trabalhos.",
+        categoria: "Resultados",
+        slug: "resultados",
         icone: "fa-solid fa-chart-line"
       },
       {
-        texto: "Gaps de competência técnica interna voltados para Ciência de Dados, Análise Contínua e Inteligência Artificial.",
+        texto: "Falta de ferramentas para facilitar o processo de auditoria e equipe com GAPs de competências quanto a essas ferramentas (IA, Análise de dados, etc).",
         categoria: "Aprendizado e Crescimento",
         slug: "aprendizado",
         icone: "fa-solid fa-laptop-code"
       },
       {
-        texto: "Dependência acentuada de testes analíticos manuais provocada pela fragmentação dos sistemas internos de suporte.",
+        texto: "Necessidade de aprimoramento da comunicação dos resultados da auditoria ao gestor (comunicação dos resultados preliminares e qualidade das recomendações, do relatório e do sumário).",
         categoria: "Processos Internos",
         slug: "processos",
-        icone: "fa-solid fa-database"
+        icone: "fa-solid fa-comment-dots"
+      },
+      {
+        texto: "Necessidade de aprimoramento da fase de execução dos trabalhos (prazos para o atendimento das demandas, pertinência das informações requeridas, condução dos trabalhos de acordo com parâmetros definidos, comunicação nessa fase, recomendações consistentes com as análises e com as evidências).",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-magnifying-glass"
+      },
+      {
+        texto: "Descumprimento dos prazos acordados e das atividades previstas no PAA, mostrando-se necessário o aprimoramento da capacidade de planejamento das atividades da Secretaria, de maneira geral.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-clock"
+      },
+      {
+        texto: "Iminência de aposentadoria de servidores em unidades da SAU (24% da equipe) sem definição de políticas de gestão do conhecimento.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-user-clock"
+      },
+      {
+        texto: "Limitações decorrentes do excesso de especialização das equipes de auditoria.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-users-slash"
+      },
+      {
+        texto: "Limitação de quantitativo de pessoal em determinadas equipes.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-user-minus"
       }
     ]
   },
@@ -288,28 +384,64 @@ const dbSwot = {
     icon: "fa-solid fa-arrow-trend-up",
     itens: [
       {
-        texto: "Potencial ampliação e fortalecimento de auditorias coordenadas conjuntas com as secretarias dos TREs.",
+        texto: "Atuação da SAU como facilitadora e interlocutora em diversos processos e projetos relacionados ao TCU, ao CNJ e à CGU.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-handshake"
+      },
+      {
+        texto: "Realização das Auditorias Integradas na Justiça Eleitoral, regulamentadas pela Resolução TSE nº 23.500/2016, possibilitando a aproximação com as unidades de auditoria dos Regionais e viabilizando uma visão mais ampla quanto a processos críticos associados à Justiça Eleitoral.",
         categoria: "Processos Internos",
         slug: "processos",
         icone: "fa-solid fa-network-wired"
       },
       {
-        texto: "Trilhas de formação gratuitas e de excelência fornecidas diretamente pelo CNJ, TCU e escolas fazendárias.",
+        texto: "Perspectiva de realização de encontros entre unidades de auditoria interna dos órgãos da Justiça Eleitoral para o debate de temas relevantes, a padronização de procedimentos e a identificação de soluções para problemas comuns.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-comments"
+      },
+      {
+        texto: "Apoio da SGP à SAU para a realização de ações de capacitação, facilitando o desenvolvimento profissional dos auditores.",
         categoria: "Aprendizado e Crescimento",
         slug: "aprendizado",
         icone: "fa-solid fa-graduation-cap"
       },
       {
-        texto: "Fortalecimento da força de trabalho com novos servidores nomeados em concursos consolidados da Justiça Eleitoral.",
+        texto: "Boa interlocução com a gestão.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-comments"
+      },
+      {
+        texto: "Tendência para a Auditoria Interna do uso de tecnologias no processo de trabalho de auditoria, como a IA e a análise de dados, podendo otimizar os trabalhos e ampliar o escopo de avaliação.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-robot"
+      },
+      {
+        texto: "Participação da SAU no Dicon e no Siaud-Jud, viabilizando a troca de conhecimentos e de experiências com outras unidades de auditoria de todos os Poderes.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-share-nodes"
+      },
+      {
+        texto: "Realização de benchmarking com outras unidades de auditoria sobre determinados assuntos (análise de dados, auditoria financeira, transparência, etc), viabilizando a identificação de oportunidades de melhoria nos processos da SAU e do TSE.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-chart-line"
+      },
+      {
+        texto: "Nomeação de novos servidores no concurso público da JE.",
         categoria: "Aprendizado e Crescimento",
         slug: "aprendizado",
         icone: "fa-solid fa-user-plus"
       },
       {
-        texto: "Avanço de softwares e frameworks analíticos de inteligência artificial de código aberto e seguros.",
-        categoria: "Processos Internos",
-        slug: "processos",
-        icone: "fa-solid fa-robot"
+        texto: "Crescente exigência da sociedade por mais mecanismos de auditoria/transparência nas eleições.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-eye"
       }
     ]
   },
@@ -319,28 +451,88 @@ const dbSwot = {
     icon: "fa-solid fa-triangle-exclamation",
     itens: [
       {
-        texto: "Transições sucessivas na alta administração do Tribunal, exigindo esforços constantes de aculturamento de controle.",
+        texto: "Indicação de dirigentes que não cumpram os requisitos previstos no Estatuto de Auditoria do TSE.",
         categoria: "Resultados",
         slug: "resultados",
-        icone: "fa-solid fa-users-gear"
+        icone: "fa-solid fa-user-xmark"
       },
       {
-        texto: "Limitações e rigidez no plano de cargos do funcionalismo, dificultando a retenção de especialistas de TI/Dados.",
-        categoria: "Aprendizado e Crescimento",
-        slug: "aprendizado",
-        icone: "fa-solid fa-id-card-clip"
+        texto: "Ausência de instituição de um Sistema de Governança no TSE, com instâncias formalizadas.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-sitemap"
       },
       {
-        texto: "Aumento recorrente de demandas urgentes enviadas por órgãos de controle externo (CNJ, TCU, CGU).",
-        categoria: "Processos Internos",
-        slug: "processos",
+        texto: "Processo de Gestão de Riscos ainda não systematizado no âmbito do Tribunal.",
+        categoria: "Resultados",
+        slug: "resultados",
         icone: "fa-solid fa-triangle-exclamation"
       },
       {
-        texto: "Contingenciamentos e limites orçamentários rígidos para a aquisição de licenças analíticas especializadas.",
+        texto: "Impacto das mudanças de gestão nos projetos e nas atividades da SAU (continuidade do serviço).",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-arrows-rotate"
+      },
+      {
+        texto: "Percepção negativa das unidades clientes quanto à auditoria interna.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-face-frown"
+      },
+      {
+        texto: "Desafios enfrentados pelas unidades clientes para o atendimento das demandas da equipe de auditoria (falta de patrocínio, equipe reduzida, grande volume de trabalho, etc).",
         categoria: "Processos Internos",
         slug: "processos",
-        icone: "fa-solid fa-sack-dollar"
+        icone: "fa-solid fa-battery-quarter"
+      },
+      {
+        texto: "Desconhecimento das atividades da SAU e dos benefícios do trabalho da auditoria interna pelo público interno do TSE.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-question-circle"
+      },
+      {
+        texto: "Ausência de norma interna que estabeleça critérios para o custeio da certificação de servidores por instituições credenciadas nacionalmente e internacionalmente.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-certificate"
+      },
+      {
+        texto: "Volume de fiscalizações promovidas pelo TCU e pelo CNJ, com possíveis impactos à capacidade operacional da SAU.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-scale-balanced"
+      },
+      {
+        texto: "Crescente exigência da sociedade por mais mecanismos de auditoria/transparência nas eleições.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-eye"
+      },
+      {
+        texto: "Contexto político e fake news sobre o processo eleitoral.",
+        categoria: "Resultados",
+        slug: "resultados",
+        icone: "fa-solid fa-shield-virus"
+      },
+      {
+        texto: "Dificuldades para a reposição de servidores às equipes, em decorrência de vacância por nomeação em outros cargos inacumuláveis.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-user-minus"
+      },
+      {
+        texto: "Impacto das novas Normas Globais de Auditoria IIA sobre o processo de trabalho de auditoria interna.",
+        categoria: "Processos Internos",
+        slug: "processos",
+        icone: "fa-solid fa-book-bookmark"
+      },
+      {
+        texto: "Implementação de regime de trabalho pouco flexível no TSE.",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
+        icone: "fa-solid fa-building-user"
       }
     ]
   }
