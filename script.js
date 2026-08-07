@@ -176,14 +176,19 @@ const dbIndicadores = {
           "Aplicar o questionário de avaliação de competências junto aos servidores da SAU.",
           "Estruturar o plano anual de capacitação focado primordialmente nos gaps graves e planos de sucessão técnica."
         ]
-      },
+      }
+    ]
+  },
+  obj5: {
+    titulo: "OT 05 - Fomentar a inovação tecnológica, a automação e a gestão de dados",
+    indicadores: [
       {
-        nome: "IT 4.3 - Inovação tecnológica quanto a gestão de dados e automatização",
+        nome: "IT 5.1 - Inovação tecnológica quanto a gestão de dados e automatização",
         tipo: "Entrega",
         descricao: "Contabiliza as novas ferramentas digitais criadas para gestão, análise de dados e automação de trabalhos da Secretaria.",
         instrumento: "Ferramentas tecnológicas criadas pelo Núcleo de Pesquisa e Desenvolvimento da SAU",
         calculo: "Soma das soluções tecnológicas desenvolvidas no exercício.",
-        linhaBase: "Sem dados históricos consolidados.",
+        linhaBase: "Sem histórico registrado.",
         metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
         iniciativas: [
           "Desenvolver planilha de gestão de dados de auditorias e consultorias da Secretaria.",
