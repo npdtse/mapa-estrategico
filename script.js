@@ -40,7 +40,7 @@ const dbIndicadores = {
         tipo: "Desempenho",
         descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada auditoria interna, levando em consideração as respostas dos seguintes atores: unidades clientes, gestor da unidade cliente, equipe de auditoria, coordenador do trabalho.",
         instrumento: "Questionários de Avaliação Contínua de Auditorias Internas (uma versão para cada um dos atores respondentes)",
-        calculo: "Média ponderada dos índices de cada questionário respondido por cada actor",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
         linhaBase: "2021: 97,04 | 2022: 95,43 | 2023: 95,84",
         metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
         iniciativas: [
@@ -53,7 +53,7 @@ const dbIndicadores = {
         tipo: "Desempenho",
         descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada consultoria, levando em consideração as respostas dos seguintes atores: unidades clientes, gestor da unidade cliente, equipe de auditoria, coordenador do trabalho.",
         instrumento: "Questionários de Avaliação Contínua de Consultorias (uma versão para cada um dos atores respondentes).",
-        calculo: "Média ponderada dos índices de cada questionário respondido por cada actor",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
         linhaBase: "Sem histórico registrado.",
         metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
         iniciativas: [
@@ -66,7 +66,7 @@ const dbIndicadores = {
         tipo: "Desempenho",
         descricao: "Consolida as notas de avaliações contínuas, realizadas após a conclusão de cada auditoria integrada, levando em consideração as respostas dos seguintes atores: auditorias internas dos TREs envolvidos, equipe de auditoria, coordenador do trabalho.",
         instrumento: "Questionários de Avaliação Contínua de Auditorias Integradas (uma versão para cada um dos atores respondentes).",
-        calculo: "Média ponderada dos índices de cada questionário respondido por cada actor",
+        calculo: "Média ponderada dos índices de cada questionário respondido por cada ator",
         linhaBase: "Sem histórico registrado.",
         metas: { '2026': "80%", '2027': "80%", '2028': "80%", '2029': "80%" },
         iniciativas: [
@@ -85,19 +85,6 @@ const dbIndicadores = {
         iniciativas: [
           "Disponibilizar o questionário ao final da gestão à autoridade cujo mandato supere o período de 1 ano ou sempre que a conveniência e a oportunidade permitirem.",
           "Consolidar as lições aprendidas a partir dos resultados obtidos na avaliação."
-        ]
-      },
-      {
-        nome: "IT 2.5 - Avaliação Periódica do IA-CM",
-        tipo: "Desempenho",
-        descricao: "Consolida as notas de avaliações periódicas do nível de implementação do IA-CM, realizadas pela própria SAU e por um tribunal parceiro avaliador, escolhido no contexto do grupo de trabalho coordenado pelo CNJ.",
-        instrumento: "Planilha de Autoavaliação do IA-CM | Validação externa por par (apontado no GT do CNJ).",
-        calculo: "Média considerando autoavaliação e validação externa do tribunal parceiro.",
-        linhaBase: "2023: 66% do Nível 2 | 2026: 82% do Nível 2 (homologado por avaliação de par).",
-        metas: { '2026': "90% do Nível 2", '2027': "100% do Nível 2", '2028': "Autoav. Nível 3", '2029': "A ser definido" },
-        iniciativas: [
-          "Realizar ciclos periódicos de autoavaliação por meio da Comissão Técnica de Auditoria Interna da SAU (CTAI).",
-          "Submeter relatórios e evidências de capacidade ao tribunal validador par."
         ]
       }
     ]
@@ -145,30 +132,18 @@ const dbIndicadores = {
         ]
       },
       {
-        nome: "IT 3.4 - Aperfeiçoamento da comunicação com clientes",
-        tipo: "Desempenho",
+        nome: "IT 3.4 - Aperfeiçoamento da comunicação",
+        tipo: "Entrega",
         descricao: "Contabiliza as ações realizadas para o aperfeiçoamento da comunicação.",
-        instrumento: "Questionário de Avaliação Contínua para Clientes (Elemento: Comunicação dos Resultados) | Questionário de Avaliação Contínua para Gestores (Elemento: Comunicação dos Resultados) | Plano de Ação de Comunicação com Clientes",
+        instrumento: "Plano de Comunicação | Modelos de comunicação | Questionário de avaliação na perspectiva do gestor da unidade cliente | Eventos promovidos",
         calculo: "Soma das ações de aperfeiçoamento da comunicação implementadas.",
         linhaBase: "Dimensão nova. Sem dados históricos consolidados.",
         metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
         iniciativas: [
-          "Instituir modelos de documentos e relatórios para a aplicação de linguagem simples, útil e padronizada."
-        ]
-      },
-      {
-        nome: "IT 3.5 - Inovação tecnológica quanto a gestão de dados e automatização",
-        tipo: "Entrega",
-        descricao: "Contabiliza as novas ferramentas digitais criadas para gestão, análise de dados e automação de trabalhos da Secretaria.",
-        instrumento: "Ferramentas tecnológicas criadas pelo Núcleo de Pesquisa e Desenvolvimento da SAU",
-        calculo: "Soma das soluções tecnológicas desenvolvidas no exercício.",
-        linhaBase: "Sem dados históricos consolidados.",
-        metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
-        iniciativas: [
-          "Desenvolver planilha de gestão de dados de auditorias e consultorias da Secretaria.",
-          "Desenvolver painel estatístico das atividades da SAU.",
-          "Desenvolver página de repositório de documentos úteis da SAU.",
-          "Desenvolver ferramentas para reduzir dependência de processos manuais de conferência."
+          "Criar Plano de Comunicação da SAU.",
+          "Revisar modelos de comunicação.",
+          "Criar um questionário de avaliação contínua voltado à gestão das unidades clientes, com foco em comunicação.",
+          "Promover eventos de conscientização e relacionamento entre auditoria e auditados."
         ]
       }
     ]
@@ -177,7 +152,7 @@ const dbIndicadores = {
     titulo: "OT 04 - Estimular o desenvolvimento de competências profissionais",
     indicadores: [
       {
-        nome: "IT 4.1 - Horas de Capacitação por Servidor",
+        nome: "IT 4.1 - Horas de capacitação por servidor",
         tipo: "Desempenho",
         descricao: "Mensura o percentual de servidores da SAU que atingiu o número mínimo de 50 horas anuais de capacitação.",
         instrumento: "Sistema SGRH",
@@ -200,6 +175,21 @@ const dbIndicadores = {
         iniciativas: [
           "Aplicar o questionário de avaliação de competências junto aos servidores da SAU.",
           "Estruturar o plano anual de capacitação focado primordialmente nos gaps graves e planos de sucessão técnica."
+        ]
+      },
+      {
+        nome: "IT 4.3 - Inovação tecnológica quanto a gestão de dados e automatização",
+        tipo: "Entrega",
+        descricao: "Contabiliza as novas ferramentas digitais criadas para gestão, análise de dados e automação de trabalhos da Secretaria.",
+        instrumento: "Ferramentas tecnológicas criadas pelo Núcleo de Pesquisa e Desenvolvimento da SAU",
+        calculo: "Soma das soluções tecnológicas desenvolvidas no exercício.",
+        linhaBase: "Sem dados históricos consolidados.",
+        metas: { '2026': "1 ação", '2027': "1 ação", '2028': "1 ação", '2029': "1 ação" },
+        iniciativas: [
+          "Desenvolver planilha de gestão de dados de auditorias e consultorias da Secretaria.",
+          "Desenvolver painel estatístico das atividades da SAU.",
+          "Desenvolver página de repositório de documentos úteis da SAU.",
+          "Desenvolver ferramentas para reduzir dependência de processos manuais de conferência."
         ]
       }
     ]
@@ -463,7 +453,7 @@ const dbSwot = {
         icone: "fa-solid fa-sitemap"
       },
       {
-        texto: "Processo de Gestão de Riscos ainda não systematizado no âmbito do Tribunal.",
+        texto: "Processo de Gestão de Riscos ainda não sistematizado no âmbito do Tribunal.",
         categoria: "Resultados",
         slug: "resultados",
         icone: "fa-solid fa-triangle-exclamation"
