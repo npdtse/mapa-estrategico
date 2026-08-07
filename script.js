@@ -241,8 +241,8 @@ const dbSwot = {
       },
       {
         texto: "Planejamento dos trabalhos da SAU realizado pela própria Secretaria, por meio de um processo pautado em critérios objetivos, do qual participam também os gestores e a Alta Administração.",
-        categoria: "Resultados",
-        slug: "resultados",
+        categoria: "Processos Internos",
+        slug: "processos",
         icone: "fa-solid fa-list-check"
       },
       {
@@ -405,8 +405,8 @@ const dbSwot = {
       },
       {
         texto: "Tendência para a Auditoria Interna do uso de tecnologias no processo de trabalho de auditoria, como a IA e a análise de dados, podendo otimizar os trabalhos e ampliar o escopo de avaliação.",
-        categoria: "Processos Internos",
-        slug: "processos",
+        categoria: "Aprendizado e Crescimento",
+        slug: "aprendizado",
         icone: "fa-solid fa-robot"
       },
       {
